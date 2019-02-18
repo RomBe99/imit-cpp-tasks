@@ -7,6 +7,7 @@ struct Box {
     int height;
     double weight; // kg
     int value; // cop
+    Box();
     Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const int newValue);
 };
 
