@@ -7,7 +7,7 @@ struct Box {
     int height;
     double weight; // kg
     int value; // cop
-    Box(int newLength, int newWidth, int newHeight, double newWeight, int newValue);
+    Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const int newValue);
 };
 
 #endif
