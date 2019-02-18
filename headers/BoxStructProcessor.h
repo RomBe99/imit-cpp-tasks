@@ -3,8 +3,12 @@
 
 #include "BoxStruct.h"
 
-int boxPrice(Box boxes[]);
-bool isSizeAllBoxesSmaller(Box boxes[], int maxLength, int maxWidth, int maxWeight);
-double maxWeightSmallerMaxV(double maxV);
+namespace BoxStructProcessor {
+    int boxPrice(const int arrSize, const Box boxes[]);
+
+    bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
+
+    double maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV);
+}
 
 #endif
