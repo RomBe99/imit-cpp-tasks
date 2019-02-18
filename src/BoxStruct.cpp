@@ -1,7 +1,8 @@
 #include "../headers/BoxStruct.h"
 
-Box::Box(int newLength, int newWidth, int newHeight, double newWeight, int newValue) : length(newLength),
-                                                                                       width(newWidth),
-                                                                                       height(newHeight),
-                                                                                       weight(newWeight),
-                                                                                       value(newValue) {}
+Box::Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const int newValue)
+        : length(newLength),
+          width(newWidth),
+          height(newHeight),
+          weight(newWeight),
+          value(newValue) {}
