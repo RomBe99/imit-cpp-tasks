@@ -34,3 +34,30 @@ double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *bo
 
     return volume;
 }
+
+bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
+    Box temp;
+
+    for (int i = 0; i < arrSize; i++) {
+        for (int j = 0; j < arrSize - 1; j++) {
+            if (calculateVolume(boxes[j]) >= calculateVolume(boxes[j + 1])) {
+                temp = boxes[j];
+                boxes[j] = boxes[j + 1];
+                boxes[j + 1] = temp;
+            }
+        }
+    }
+
+    for (int i = 0; i < arrSize - 1; ++i) {
+        if (boxes[i].height <= boxes[i + 1].height || boxes[i].width <= boxes[i + 1].width ||
+            boxes[i].length <= boxes[i + 1].length) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int BoxStructProcessor::calculateVolume(const Box box) {
+    return box.length * box.height * box.width;
+}
