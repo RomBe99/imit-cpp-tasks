@@ -9,27 +9,30 @@ Box::Box(const int newLength, const int newWidth, const int newHeight, const dou
           weight(newWeight),
           value(newValue) {}
 
-bool Box::operator==(const Box& firstBox) {
-    if (this == &firstBox) {
+bool operator==(const Box &firstBox, const Box &secondBox) {
+    if (firstBox == secondBox) {
         return true;
     }
 
-    return this->value == firstBox.value && this->weight == firstBox.weight && this->width == firstBox.width &&
-           this->height == firstBox.height && this->length == firstBox.length;
+    return firstBox.value == secondBox.value && firstBox.weight == secondBox.weight &&
+           firstBox.height == secondBox.height && firstBox.width == secondBox.width &&
+           firstBox.length == secondBox.length;
 }
 
-void Box::operator>>(Box &box) {
-    std::cin >> box.length;
-    std::cin >> box.width;
-    std::cin >> box.height;
-    std::cin >> box.weight;
-    std::cin >> box.value;
+std::istream &operator>>(std::istream &in, Box &box) {
+    in >> box.length;
+    in >> box.width;
+    in >> box.height;
+    in >> box.weight;
+    in >> box.value;
+
+    return in;
 }
 
-void Box::operator<<(const Box& box) {
-    std::cout << box.length;
-    std::cout << box.width;
-    std::cout << box.height;
-    std::cout << box.weight;
-    std::cout << box.value;
+std::ostream &operator>>(std::ostream &out, const Box &box) {
+    out << "Length: " << box.length << '\n' << "Width: " << box.width << '\n' << "Height: " << box.height << '\n'
+        << "Weight: " <<
+        box.weight << '\n' << "Value: " << box.value << '\n';
+
+    return out;
 }
