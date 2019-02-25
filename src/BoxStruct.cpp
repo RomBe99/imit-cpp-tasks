@@ -1,15 +1,16 @@
 #include "../headers/BoxStruct.h"
 
-Box::Box() : Box(0, 0, 0, 0, 0) {}
+BoxStruct::Box::Box() : Box(0, 0, 0, 0, 0) {}
 
-Box::Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const double newValue)
+BoxStruct::Box::Box(const int newLength, const int newWidth, const int newHeight, const double newWeight,
+                    const double newValue)
         : length(newLength),
           width(newWidth),
           height(newHeight),
           weight(newWeight),
           value(newValue) {}
 
-bool operator==(const Box& firstBox, const Box& secondBox) {
+bool BoxStruct::operator==(const Box &firstBox, const Box &secondBox) {
     if (firstBox == secondBox) {
         return true;
     }
@@ -19,7 +20,7 @@ bool operator==(const Box& firstBox, const Box& secondBox) {
            firstBox.length == secondBox.length;
 }
 
-std::istream& operator>>(std::istream& in, Box& box) {
+std::istream &BoxStruct::operator>>(std::istream &in, Box &box) {
     in >> box.length;
     in >> box.width;
     in >> box.height;
@@ -29,7 +30,7 @@ std::istream& operator>>(std::istream& in, Box& box) {
     return in;
 }
 
-std::ostream& operator>>(std::ostream& out, const Box&box) {
+std::ostream &BoxStruct::operator>>(std::ostream &out, const Box &box) {
     out << "Length: " << box.length << '\n' << "Width: " << box.width << '\n' << "Height: " << box.height << '\n'
         << "Weight: " <<
         box.weight << '\n' << "Value: " << box.value << '\n';
