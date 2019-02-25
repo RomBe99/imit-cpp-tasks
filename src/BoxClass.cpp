@@ -2,8 +2,9 @@
 
 BoxClass::Box::Box() : Box(0, 0, 0, 0, 0) {}
 
-BoxClass::Box::Box(int length, int width, int height, double weight, double value) : length(length), width(width), height(height),
-                                                                           weight(weight), value(value) {}
+BoxClass::Box::Box(int length, int width, int height, double weight, double value) : length(length), width(width),
+                                                                                     height(height),
+                                                                                     weight(weight), value(value) {}
 
 void BoxClass::Box::setLength(const int length) {
     BoxClass::Box::length = length;
