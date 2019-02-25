@@ -1,7 +1,9 @@
 #include "../headers/BoxStructProcessor.h"
 
-int BoxStructProcessor::boxPrice(const int arrSize, const Box* boxes) {
-    int price = 0;
+using namespace BoxStruct;
+
+double BoxStructProcessor::boxPrice(const int arrSize, const Box *boxes) {
+    double price = 0;
 
     for (int i = 0; i < arrSize; i++) {
         price += boxes[i].value;
@@ -10,7 +12,7 @@ int BoxStructProcessor::boxPrice(const int arrSize, const Box* boxes) {
     return price;
 }
 
-bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box* boxes, int maxP) {
+bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box *boxes, int maxP) {
     for (int i = 0; i < arrSize; i++) {
         if (boxes[i].width + boxes[i].height + boxes[i].length > maxP) {
             return false;
@@ -20,11 +22,11 @@ bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box* box
     return true;
 }
 
-double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box* boxes, const double maxV) {
+double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV) {
     int volume = 0;
     int temp;
 
-    for (int i = 0; i < arrSize; ++i) {
+    for (int i = 0; i < arrSize; i++) {
         temp = boxes[i].width * boxes[i].height * boxes[i].length;
 
         if (temp < maxV) {
@@ -35,7 +37,7 @@ double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box* bo
     return volume;
 }
 
-bool BoxStructProcessor::isAllBox(const int arrSize, Box* boxes) {
+bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
     Box temp;
 
     for (int i = 0; i < arrSize; i++) {

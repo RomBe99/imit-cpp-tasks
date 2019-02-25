@@ -4,15 +4,15 @@
 #include "BoxStruct.h"
 
 namespace BoxStructProcessor {
-    int boxPrice(const int arrSize, const Box boxes[]);
+    double boxPrice(const int arrSize, const BoxStruct::Box boxes[]);
 
-    bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
+    bool isSizeAllBoxesSmaller(const int arrSize, const BoxStruct::Box boxes[], int maxP);
 
-    double maxWeightSmallerMaxW(const int arrSize, const Box* boxes, const double maxV);
+    double maxWeightSmallerMaxW(const int arrSize, const BoxStruct::Box *boxes, const double maxV);
 
-    bool isAllBox(const int arrSize, Box boxes[]);
+    bool isAllBox(const int arrSize, BoxStruct::Box boxes[]);
 
-    int calculateVolume(const Box box);
+    int calculateVolume(const BoxStruct::Box box);
 }
 
 #endif
