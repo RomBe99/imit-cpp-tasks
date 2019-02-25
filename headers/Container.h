@@ -42,6 +42,10 @@ public:
 
     int getCurrentWeight() const;
 
+    unsigned long boxesNumber();
+
+    Box getBox(unsigned long index);
+
     virtual ~Container() = default;
 };
 

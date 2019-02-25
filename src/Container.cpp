@@ -13,6 +13,26 @@ const vector<Box> &Container::getContainer() const {
     return container;
 }
 
+void Container::setLength(int length) {
+    Container::length = length;
+}
+
+void Container::setWidth(int width) {
+    Container::width = width;
+}
+
+void Container::setHeight(int height) {
+    Container::height = height;
+}
+
+void Container::setMaxWeight(int maxWeight) {
+    Container::maxWeight = maxWeight;
+}
+
+void Container::setCurrentWeight(int currentWeight) {
+    Container::currentWeight = currentWeight;
+}
+
 int Container::getLength() const {
     return length;
 }
@@ -33,22 +53,10 @@ int Container::getCurrentWeight() const {
     return currentWeight;
 }
 
-void Container::setLength(int length) {
-    Container::length = length;
+unsigned long Container::boxesNumber() {
+    return container.size();
 }
 
-void Container::setWidth(int width) {
-    Container::width = width;
-}
-
-void Container::setHeight(int height) {
-    Container::height = height;
-}
-
-void Container::setMaxWeight(int maxWeight) {
-    Container::maxWeight = maxWeight;
-}
-
-void Container::setCurrentWeight(int currentWeight) {
-    Container::currentWeight = currentWeight;
+Box Container::getBox(unsigned long index) {
+    return container.at(index);
 }
