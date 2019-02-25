@@ -1,6 +1,6 @@
 #include "../headers/Container.h"
 
-Container::Container(const int length, const int width, const int height, const int maxWeight) {
+Container::Container(const int length, const int width, const int height, const double maxWeight) {
     setLength(length);
     setWidth(width);
     setHeight(height);
@@ -25,11 +25,11 @@ void Container::setHeight(int height) {
     Container::height = height;
 }
 
-void Container::setMaxWeight(int maxWeight) {
+void Container::setMaxWeight(const double maxWeight) {
     Container::maxWeight = maxWeight;
 }
 
-void Container::setCurrentWeight(int currentWeight) {
+void Container::setCurrentWeight(const double currentWeight) {
     Container::currentWeight = currentWeight;
 }
 
@@ -45,11 +45,11 @@ int Container::getHeight() const {
     return height;
 }
 
-int Container::getMaxWeight() const {
+double Container::getMaxWeight() const {
     return maxWeight;
 }
 
-int Container::getCurrentWeight() const {
+double Container::getCurrentWeight() const {
     return currentWeight;
 }
 
@@ -59,4 +59,8 @@ unsigned long Container::boxesNumber() {
 
 Box Container::getBox(unsigned long index) {
     return container.at(index);
+}
+
+void Container::setCurrentValue(double currentValue) {
+    Container::currentValue = currentValue;
 }

@@ -13,22 +13,24 @@ private:
     int length;
     int width;
     int height;
-    int maxWeight;
-    int currentWeight;
+    double maxWeight;
+    double currentWeight;
+    double currentValue;
+
+    void setLength(const int length);
+
+    void setWidth(const int width);
+
+    void setHeight(const int height);
+
+    void setMaxWeight(const double maxWeight);
+
+    void setCurrentWeight(const double currentWeight);
+
+    void setCurrentValue(const double currentValue);
 
 public:
-    void setLength(int length);
-
-    void setWidth(int width);
-
-    void setHeight(int height);
-
-    void setMaxWeight(int maxWeight);
-
-    void setCurrentWeight(int currentWeight);
-
-public:
-    Container(const int length, const int width, const int height, const int maxWeight);
+    Container(const int length, const int width, const int height, const double maxWeight);
 
     const vector<Box> &getContainer() const;
 
@@ -38,13 +40,13 @@ public:
 
     int getHeight() const;
 
-    int getMaxWeight() const;
+    double getMaxWeight() const;
 
-    int getCurrentWeight() const;
+    double getCurrentWeight() const;
 
     unsigned long boxesNumber();
 
-    Box getBox(unsigned long index);
+    Box getBox(const unsigned long index);
 
     virtual ~Container() = default;
 };
