@@ -64,3 +64,7 @@ Box Container::getBox(unsigned long index) {
 void Container::setCurrentValue(double currentValue) {
     Container::currentValue = currentValue;
 }
+
+void Container::deleteBox(const unsigned long index) {
+    // TODO Сделать удаление i-ого элемента
+}

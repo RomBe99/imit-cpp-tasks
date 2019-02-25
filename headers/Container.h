@@ -32,6 +32,8 @@ private:
 public:
     Container(const int length, const int width, const int height, const double maxWeight);
 
+    void deleteBox(const unsigned long index);
+
     const vector<Box> &getContainer() const;
 
     int getLength() const;
