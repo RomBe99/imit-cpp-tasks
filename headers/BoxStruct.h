@@ -8,8 +8,10 @@ struct Box {
     double weight; // kg
     int value; // cop
     Box();
+
     Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const int newValue);
-    bool operator == (const Box firstBox, const Box secondBox);
+
+    bool operator==(const Box& firstBox);
 };
 
 #endif

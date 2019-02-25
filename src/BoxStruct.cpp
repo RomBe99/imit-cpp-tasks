@@ -9,7 +9,11 @@ Box::Box(const int newLength, const int newWidth, const int newHeight, const dou
           weight(newWeight),
           value(newValue) {}
 
-bool Box::operator==(const Box firstBox, const Box secondBox) {
-    return firstBox.length == secondBox.length && firstBox.height == secondBox.height && firstBox.width == secondBox.width &&
-           firstBox.weight == secondBox.weight && firstBox.value == secondBox.value;
+bool Box::operator==(const Box& firstBox) {
+    if (this == &firstBox) {
+        return true;
+    }
+
+    return this->value == firstBox.value && this->weight == firstBox.weight && this->width == firstBox.width &&
+           this->height == firstBox.height && this->length == firstBox.length;
 }
