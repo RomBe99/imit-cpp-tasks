@@ -8,11 +8,11 @@ struct Box {
     int width;
     int height;
     double weight; // kg
-    int value; // cop
+    double value; // cop
 
     Box();
 
-    Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const int newValue);
+    Box(const int newLength, const int newWidth, const int newHeight, const double newWeight, const double newValue);
 
     friend bool operator==(const Box& firstBox, const Box& secondBox);
 
