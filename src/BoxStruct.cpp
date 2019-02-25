@@ -17,3 +17,11 @@ bool Box::operator==(const Box& firstBox) {
     return this->value == firstBox.value && this->weight == firstBox.weight && this->width == firstBox.width &&
            this->height == firstBox.height && this->length == firstBox.length;
 }
+
+void Box::operator>>(Box &box) {
+    std::cin >> box.length;
+    std::cin >> box.width;
+    std::cin >> box.height;
+    std::cin >> box.weight;
+    std::cin >> box.value;
+}
