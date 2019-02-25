@@ -15,6 +15,8 @@ struct Box {
     bool operator==(const Box& firstBox);
 
     void operator>>(Box& box);
+
+    void operator<<(const Box& box);
 };
 
 #endif

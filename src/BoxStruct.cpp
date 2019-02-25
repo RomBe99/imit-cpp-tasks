@@ -25,3 +25,11 @@ void Box::operator>>(Box &box) {
     std::cin >> box.weight;
     std::cin >> box.value;
 }
+
+void Box::operator<<(const Box& box) {
+    std::cout << box.length;
+    std::cout << box.width;
+    std::cout << box.height;
+    std::cout << box.weight;
+    std::cout << box.value;
+}
