@@ -8,3 +8,8 @@ Box::Box(const int newLength, const int newWidth, const int newHeight, const dou
           height(newHeight),
           weight(newWeight),
           value(newValue) {}
+
+bool Box::operator==(const Box firstBox, const Box secondBox) {
+    return firstBox.length == secondBox.length && firstBox.height == secondBox.height && firstBox.width == secondBox.width &&
+           firstBox.weight == secondBox.weight && firstBox.value == secondBox.value;
+}
