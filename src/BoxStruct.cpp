@@ -9,7 +9,7 @@ Box::Box(const int newLength, const int newWidth, const int newHeight, const dou
           weight(newWeight),
           value(newValue) {}
 
-bool operator==(const Box &firstBox, const Box &secondBox) {
+bool operator==(const Box& firstBox, const Box& secondBox) {
     if (firstBox == secondBox) {
         return true;
     }
@@ -19,7 +19,7 @@ bool operator==(const Box &firstBox, const Box &secondBox) {
            firstBox.length == secondBox.length;
 }
 
-std::istream &operator>>(std::istream &in, Box &box) {
+std::istream& operator>>(std::istream& in, Box& box) {
     in >> box.length;
     in >> box.width;
     in >> box.height;
@@ -29,7 +29,7 @@ std::istream &operator>>(std::istream &in, Box &box) {
     return in;
 }
 
-std::ostream &operator>>(std::ostream &out, const Box &box) {
+std::ostream& operator>>(std::ostream& out, const Box&box) {
     out << "Length: " << box.length << '\n' << "Width: " << box.width << '\n' << "Height: " << box.height << '\n'
         << "Weight: " <<
         box.weight << '\n' << "Value: " << box.value << '\n';
