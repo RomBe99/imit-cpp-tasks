@@ -1,6 +1,6 @@
 #include "../headers/BoxStructProcessor.h"
 
-int BoxStructProcessor::boxPrice(const int arrSize, const Box *boxes) {
+int BoxStructProcessor::boxPrice(const int arrSize, const Box* boxes) {
     int price = 0;
 
     for (int i = 0; i < arrSize; i++) {
@@ -10,7 +10,7 @@ int BoxStructProcessor::boxPrice(const int arrSize, const Box *boxes) {
     return price;
 }
 
-bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box *boxes, int maxP) {
+bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box* boxes, int maxP) {
     for (int i = 0; i < arrSize; i++) {
         if (boxes[i].width + boxes[i].height + boxes[i].length > maxP) {
             return false;
@@ -20,7 +20,7 @@ bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box *box
     return true;
 }
 
-double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV) {
+double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box* boxes, const double maxV) {
     int volume = 0;
     int temp;
 
@@ -35,7 +35,7 @@ double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *bo
     return volume;
 }
 
-bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
+bool BoxStructProcessor::isAllBox(const int arrSize, Box* boxes) {
     Box temp;
 
     for (int i = 0; i < arrSize; i++) {
@@ -48,7 +48,7 @@ bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
         }
     }
 
-    for (int i = 0; i < arrSize - 1; ++i) {
+    for (int i = 0; i < arrSize - 1; i++) {
         if (boxes[i].height <= boxes[i + 1].height || boxes[i].width <= boxes[i + 1].width ||
             boxes[i].length <= boxes[i + 1].length) {
             return false;

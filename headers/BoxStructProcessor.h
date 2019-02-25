@@ -8,7 +8,7 @@ namespace BoxStructProcessor {
 
     bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
 
-    double maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV);
+    double maxWeightSmallerMaxW(const int arrSize, const Box* boxes, const double maxV);
 
     bool isAllBox(const int arrSize, Box boxes[]);
 
