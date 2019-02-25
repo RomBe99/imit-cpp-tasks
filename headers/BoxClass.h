@@ -34,6 +34,8 @@ namespace BoxClass {
         double getWeight() const;
 
         double getValue() const;
+
+        virtual ~Box() = default;
     };
 }
 
