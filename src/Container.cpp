@@ -68,3 +68,7 @@ void Container::setCurrentValue(double currentValue) {
 void Container::deleteBox(const unsigned long index) {
     // TODO Сделать удаление i-ого элемента
 }
+
+Box Container::operator[](const unsigned int index) {
+    return this->getBox(index);
+}

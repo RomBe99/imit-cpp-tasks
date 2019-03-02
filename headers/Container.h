@@ -50,6 +50,8 @@ public:
 
     Box getBox(const unsigned long index);
 
+    Box operator[](const unsigned int index);
+
     virtual ~Container() = default;
 };
 
