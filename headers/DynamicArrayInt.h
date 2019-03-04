@@ -5,7 +5,7 @@
 class DynamicArrayInt {
 private:
     int *array;
-    int arraySize;
+    unsigned long int arraySize;
 
 public:
     DynamicArrayInt();
