@@ -1,18 +1,14 @@
 #include "../headers/DynamicArrayInt.h"
 
-DynamicArrayInt::DynamicArrayInt(const int arraySize) {
-    DynamicArrayInt::arraySize = arraySize;
-    DynamicArrayInt::array = new int{arraySize};
-
-    for (int i = 0; i < arraySize; i++) {
-        array[i] = 0;
-    }
-}
+DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
 
 DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DEFAULT_SIZE) {}
 
 
-DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) : DynamicArrayInt(arraySize) {
+DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
+    DynamicArrayInt::arraySize = arraySize;
+    DynamicArrayInt::array = new int{arraySize};
+
     for (int i = 0; i < arraySize; i++) {
         array[i] = n;
     }
