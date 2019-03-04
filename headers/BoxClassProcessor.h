@@ -6,15 +6,16 @@
 using namespace BoxClass;
 
 class BoxClassProcessor {
-    double boxPrice(const int arrSize, const Box *boxes);
+public:
+    static double boxPrice(const int arrSize, const Box *boxes);
 
-    bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
+    static bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
 
-    double maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV);
+    static double maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV);
 
-    bool isAllBox(const int arrSize, Box boxes[]);
+    static bool isAllBox(const int arrSize, Box boxes[]);
 
-    int calculateVolume(const Box box);
+    static int calculateVolume(const Box box);
 };
 
 #endif
