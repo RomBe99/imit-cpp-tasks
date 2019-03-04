@@ -17,6 +17,12 @@ public:
 
     int setElement(int index);
 
+    friend bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
+
+    friend bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
+
+    friend bool operator+(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
+
     int *getArray() const;
 
     int getArraySize() const;

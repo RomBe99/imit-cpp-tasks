@@ -45,3 +45,31 @@ void DynamicArrayInt::resize(const int newSize) {
 DynamicArrayInt::~DynamicArrayInt() {
     delete[]array;
 }
+
+bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
+    if (firstArray.getArraySize() != secondArray.getArraySize()) {
+        throw 1;
+    }
+
+    for (int i = 0; i < firstArray.getArraySize(); ++i) {
+        if (firstArray[i] != secondArray[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
+    if (firstArray.getArraySize() != secondArray.getArraySize()) {
+        throw 2;
+    }
+
+    for (int i = 0; i < firstArray.getArraySize(); ++i) {
+        if (firstArray[i] == secondArray[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
