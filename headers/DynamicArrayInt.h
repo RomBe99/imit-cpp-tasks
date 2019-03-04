@@ -15,6 +15,8 @@ public:
 
     DynamicArrayInt(const int arraySize, int n);
 
+    int setElement(int index);
+
     int *getArray() const;
 
     int getArraySize() const;

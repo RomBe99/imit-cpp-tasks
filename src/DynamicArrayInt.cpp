@@ -14,6 +14,10 @@ DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     }
 }
 
+int DynamicArrayInt::setElement(int index) {
+    return DynamicArrayInt::array[index];
+}
+
 int *DynamicArrayInt::getArray() const {
     return array;
 }
