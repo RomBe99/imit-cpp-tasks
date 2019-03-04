@@ -72,3 +72,7 @@ void Container::deleteBox(const unsigned long index) {
 Box Container::operator[](const unsigned int index) {
     return this->getBox(index);
 }
+
+void Container::setBox(const Box box) {
+    container.push_back(box);
+}
