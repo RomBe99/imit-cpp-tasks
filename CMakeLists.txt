@@ -3,4 +3,4 @@ project(cpp-tasks)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(cpp-tasks src/main.cpp src/BoxStruct.cpp headers/BoxStruct.h src/BoxStructProcessor.cpp headers/BoxStructProcessor.h src/BoxClass.cpp headers/BoxClass.h src/Container.cpp headers/Container.h src/BoxClassProcessor.cpp headers/BoxClassProcessor.h)
+add_executable(cpp-tasks src/main.cpp src/BoxStruct.cpp headers/BoxStruct.h src/BoxStructProcessor.cpp headers/BoxStructProcessor.h src/BoxClass.cpp headers/BoxClass.h src/Container.cpp headers/Container.h src/BoxClassProcessor.cpp headers/BoxClassProcessor.h src/DynamicArrayInt.cpp headers/DynamicArrayInt.h)
