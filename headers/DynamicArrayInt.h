@@ -21,6 +21,8 @@ public:
 
     int operator[](const unsigned int index);
 
+    void resize(const int newSize);
+
     ~DynamicArrayInt();
 };
 

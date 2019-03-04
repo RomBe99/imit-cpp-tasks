@@ -22,10 +22,22 @@ int DynamicArrayInt::getArraySize() const {
     return arraySize;
 }
 
-DynamicArrayInt::~DynamicArrayInt() {
-    delete[]array;
-}
-
 int DynamicArrayInt::operator[](const unsigned int index) {
     return DynamicArrayInt::array[index];
+}
+
+void DynamicArrayInt::resize(const int newSize) {
+    int *newArr = new int[newSize];
+
+    for (int i = 0; i < arraySize; i++) {
+        newArr[i] = arraySize > i ? array[i] : 0;
+    }
+
+    arraySize = newSize;
+    array = newArr;
+    delete[]newArr;
+}
+
+DynamicArrayInt::~DynamicArrayInt() {
+    delete[]array;
 }
