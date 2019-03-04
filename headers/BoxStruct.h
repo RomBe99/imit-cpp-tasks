@@ -20,7 +20,7 @@ namespace BoxStruct {
 
         friend std::istream &operator>>(std::istream &in, Box &box);
 
-        friend std::ostream &operator>>(std::ostream &out, const Box &box);
+        friend std::ostream &operator<<(std::ostream &out, const Box &box);
     };
 }
 

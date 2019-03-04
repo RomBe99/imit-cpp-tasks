@@ -30,7 +30,7 @@ std::istream &BoxStruct::operator>>(std::istream &in, Box &box) {
     return in;
 }
 
-std::ostream &BoxStruct::operator>>(std::ostream &out, const Box &box) {
+std::ostream &BoxStruct::operator<<(std::ostream &out, const Box &box) {
     out << "Length: " << box.length << '\n' << "Width: " << box.width << '\n' << "Height: " << box.height << '\n'
         << "Weight: " <<
         box.weight << '\n' << "Value: " << box.value << '\n';
