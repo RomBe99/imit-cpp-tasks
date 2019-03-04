@@ -25,3 +25,7 @@ int DynamicArrayInt::getArraySize() const {
 DynamicArrayInt::~DynamicArrayInt() {
     delete[]array;
 }
+
+int DynamicArrayInt::operator[](const unsigned int index) {
+    return DynamicArrayInt::array[index];
+}
