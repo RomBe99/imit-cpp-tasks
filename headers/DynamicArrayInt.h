@@ -5,14 +5,15 @@
 class DynamicArrayInt {
 private:
     int *array;
-    unsigned long int arraySize;
+    int arraySize;
+    const int DEFAULT_SIZE = 10;
 
 public:
     DynamicArrayInt();
 
-    DynamicArrayInt(const unsigned long int arraySize);
+    DynamicArrayInt(const int arraySize);
 
-    DynamicArrayInt(const unsigned long int arraySize, int n);
+    DynamicArrayInt(const int arraySize, int n);
 
     int *getArray() const;
 
