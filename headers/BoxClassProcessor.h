@@ -6,7 +6,7 @@
 using namespace BoxClass;
 
 class BoxClassProcessor {
-    double boxPrice(const int arrSize, const Box boxes[]);
+    double boxPrice(const int arrSize, const Box *boxes);
 
     bool isSizeAllBoxesSmaller(const int arrSize, const Box boxes[], int maxP);
 
