@@ -11,7 +11,7 @@ private:
 public:
     DynamicArrayInt();
 
-    DynamicArrayInt(const int arraySize);
+    explicit DynamicArrayInt(const int arraySize);
 
     DynamicArrayInt(const int arraySize, int n);
 
