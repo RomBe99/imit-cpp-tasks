@@ -1,7 +1,6 @@
 #ifndef CPP_TASKS_DYNAMICARRAYINT_H
 #define CPP_TASKS_DYNAMICARRAYINT_H
 
-
 class DynamicArrayInt {
 private:
     int *array;
@@ -15,24 +14,23 @@ public:
 
     DynamicArrayInt(const int arraySize, int n);
 
-    int setElement(int index);
-
     friend bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
 
     friend bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
 
-    friend bool operator+(DynamicArrayInt firstArray, DynamicArrayInt secondArray);
+    friend DynamicArrayInt operator+(const DynamicArrayInt &firstArray, const DynamicArrayInt &secondArray);
+
+    void resize(const int newSize);
+
+    int operator[](const int index);
+
+    int getElement(const int index) const;
 
     int *getArray() const;
 
     int getArraySize() const;
 
-    int operator[](const unsigned int index);
-
-    void resize(const int newSize);
-
     ~DynamicArrayInt();
 };
-
 
 #endif

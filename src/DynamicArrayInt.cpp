@@ -1,9 +1,8 @@
 #include "../headers/DynamicArrayInt.h"
 
-DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
-
 DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DEFAULT_SIZE) {}
 
+DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
 
 DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     DynamicArrayInt::arraySize = arraySize;
@@ -14,20 +13,36 @@ DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     }
 }
 
-int DynamicArrayInt::setElement(int index) {
-    return DynamicArrayInt::array[index];
+bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
+    const int SIZE = firstArray.arraySize;
+
+    if (SIZE != secondArray.arraySize) {
+        throw 1;
+    }
+
+    for (int i = 0; i < SIZE; ++i) {
+        if (firstArray[i] != secondArray[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-int *DynamicArrayInt::getArray() const {
-    return array;
-}
+bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
+    const int SIZE = firstArray.arraySize;
 
-int DynamicArrayInt::getArraySize() const {
-    return arraySize;
-}
+    if (SIZE != secondArray.arraySize) {
+        throw 1;
+    }
 
-int DynamicArrayInt::operator[](const unsigned int index) {
-    return DynamicArrayInt::array[index];
+    for (int i = 0; i < SIZE; ++i) {
+        if (firstArray[i] == secondArray[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void DynamicArrayInt::resize(const int newSize) {
@@ -42,34 +57,22 @@ void DynamicArrayInt::resize(const int newSize) {
     delete[]newArr;
 }
 
+int DynamicArrayInt::operator[](const int index) {
+    return DynamicArrayInt::array[index];
+}
+
+int DynamicArrayInt::getElement(const int index) const {
+    return DynamicArrayInt::array[index];
+}
+
+int *DynamicArrayInt::getArray() const {
+    return array;
+}
+
+int DynamicArrayInt::getArraySize() const {
+    return arraySize;
+}
+
 DynamicArrayInt::~DynamicArrayInt() {
     delete[]array;
-}
-
-bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
-    if (firstArray.getArraySize() != secondArray.getArraySize()) {
-        throw 1;
-    }
-
-    for (int i = 0; i < firstArray.getArraySize(); ++i) {
-        if (firstArray[i] != secondArray[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
-    if (firstArray.getArraySize() != secondArray.getArraySize()) {
-        throw 2;
-    }
-
-    for (int i = 0; i < firstArray.getArraySize(); ++i) {
-        if (firstArray[i] == secondArray[i]) {
-            return false;
-        }
-    }
-
-    return true;
 }
