@@ -13,15 +13,15 @@ DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     }
 }
 
-bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
-    const int SIZE = firstArray.arraySize;
+bool operator==(const DynamicArrayInt left, const DynamicArrayInt right) {
+    const int SIZE = left.arraySize;
 
-    if (SIZE != secondArray.arraySize) {
+    if (SIZE != right.arraySize) {
         throw 1;
     }
 
     for (int i = 0; i < SIZE; ++i) {
-        if (firstArray[i] != secondArray[i]) {
+        if (left[i] != right[i]) {
             return false;
         }
     }
@@ -29,15 +29,15 @@ bool operator==(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
     return true;
 }
 
-bool operator!=(DynamicArrayInt firstArray, DynamicArrayInt secondArray) {
-    const int SIZE = firstArray.arraySize;
+bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right) {
+    const int SIZE = left.arraySize;
 
-    if (SIZE != secondArray.arraySize) {
+    if (SIZE != right.arraySize) {
         throw 1;
     }
 
     for (int i = 0; i < SIZE; ++i) {
-        if (firstArray[i] == secondArray[i]) {
+        if (left[i] == right[i]) {
             return false;
         }
     }
