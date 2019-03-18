@@ -14,11 +14,11 @@ public:
 
     DynamicArrayInt(const int arraySize, int n);
 
-    friend bool operator==(const DynamicArrayInt left, const DynamicArrayInt right);
+    friend bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
-    friend bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right);
+    friend bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
-    friend DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    DynamicArrayInt operator+(const DynamicArrayInt &right);
 
     void resize(const int newSize);
 

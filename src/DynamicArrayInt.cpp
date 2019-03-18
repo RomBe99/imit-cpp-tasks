@@ -13,7 +13,7 @@ DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     }
 }
 
-bool operator==(const DynamicArrayInt left, const DynamicArrayInt right) {
+bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     const int SIZE = left.arraySize;
 
     if (SIZE != right.arraySize) {
@@ -29,7 +29,7 @@ bool operator==(const DynamicArrayInt left, const DynamicArrayInt right) {
     return true;
 }
 
-bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right){
+bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right){
     const int SIZE = left.arraySize;
 
     if (SIZE != right.arraySize) {
@@ -43,6 +43,24 @@ bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right){
     }
 
     return true;
+}
+
+DynamicArrayInt DynamicArrayInt::operator+(const DynamicArrayInt &right) {
+    DynamicArrayInt newDynamicArrayInt = DynamicArrayInt(this->arraySize + right.arraySize);
+
+    const int LEFT_ARRAY_SIZE = this->arraySize;
+
+    for (int i = 0; i < LEFT_ARRAY_SIZE; i++) {
+        newDynamicArrayInt.array[i] = this->array[i];
+    }
+
+    const int RIGHT_ARRAY_SIZE = right.arraySize;
+
+    for (int j = 0; j < RIGHT_ARRAY_SIZE; j++) {
+        newDynamicArrayInt.array[LEFT_ARRAY_SIZE + j] = right.array[j];
+    }
+
+    return newDynamicArrayInt;
 }
 
 void DynamicArrayInt::resize(const int newSize) {
