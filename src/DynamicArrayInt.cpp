@@ -29,7 +29,7 @@ bool operator==(const DynamicArrayInt left, const DynamicArrayInt right) {
     return true;
 }
 
-bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right) {
+bool operator!=(const DynamicArrayInt left, const DynamicArrayInt right){
     const int SIZE = left.arraySize;
 
     if (SIZE != right.arraySize) {
@@ -57,7 +57,7 @@ void DynamicArrayInt::resize(const int newSize) {
     delete[]newArr;
 }
 
-int DynamicArrayInt::operator[](const int index) {
+int DynamicArrayInt::operator[](const int index) const {
     return DynamicArrayInt::array[index];
 }
 

@@ -22,7 +22,7 @@ public:
 
     void resize(const int newSize);
 
-    int operator[](const int index);
+    int operator[](const int index) const;
 
     int getElement(const int index) const;
 
