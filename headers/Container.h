@@ -36,7 +36,7 @@ public:
 
     const vector<Box> &getContainer() const;
 
-    void setBox(const Box box);
+    void setBox(const unsigned long index, const Box box);
 
     int getLength() const;
 

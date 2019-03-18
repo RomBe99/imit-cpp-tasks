@@ -57,7 +57,7 @@ unsigned long Container::boxesNumber() {
     return container.size();
 }
 
-Box Container::getBox(unsigned long index) {
+Box Container::getBox(const unsigned long index) {
     return container.at(index);
 }
 
@@ -67,12 +67,14 @@ void Container::setCurrentValue(double currentValue) {
 
 void Container::deleteBox(const unsigned long index) {
     container.erase(container.begin() + index);
+    currentValue = currentValue - this->getBox(index).getValue();
 }
 
 Box Container::operator[](const unsigned int index) {
     return this->getBox(index);
 }
 
-void Container::setBox(const Box box) {
+void Container::setBox(const unsigned long index, const Box box) {
     container.push_back(box);
+    currentValue = currentValue + this->getBox(index).getValue();
 }
