@@ -66,8 +66,10 @@ void Container::setCurrentValue(double currentValue) {
 }
 
 void Container::deleteBox(const unsigned long index) {
+    setCurrentValue(currentValue - this->getBox(index).getValue());
+    setCurrentWeight(currentWeight - this->getBox(index).getWeight());
+
     container.erase(container.begin() + index);
-    currentValue = currentValue - this->getBox(index).getValue();
 }
 
 Box Container::operator[](const unsigned int index) {
@@ -75,6 +77,8 @@ Box Container::operator[](const unsigned int index) {
 }
 
 void Container::setBox(const unsigned long index, const Box box) {
+    setCurrentValue(currentValue - this->getBox(index).getValue() + box.getValue());
+    setCurrentWeight(currentWeight - this->getBox(index).getWeight() + box.getWeight());
+
     container.push_back(box);
-    currentValue = currentValue + this->getBox(index).getValue();
 }
