@@ -1,6 +1,6 @@
 #include "../headers/BoxClassProcessor.h"
 
-double BoxClassProcessor::boxPrice(const int arrSize, const BoxClass::Box *boxes) {
+double BoxClassProcessor::boxPrice(const int arrSize, Box *boxes) {
     double price = 0;
 
     for (int i = 0; i < arrSize; i++) {
