@@ -123,6 +123,35 @@ void DynamicArrayInt::resize(const int newSize) {
     delete[]newArr;
 }
 
+void DynamicArrayInt::setArraySize(const int arraySize) {
+    DynamicArrayInt::arraySize = arraySize;
+}
+
+std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
+    int arraySize;
+    is >> arraySize;
+
+    dynamicArrayInt.setArraySize(arraySize);
+
+    for (int i = 0; i < arraySize; i++) {
+        is >> dynamicArrayInt.array[i];
+    }
+}
+
+std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt) {
+    const int SIZE = dynamicArrayInt.arraySize;
+
+    os << "arraySize: " << SIZE << " arrayElements: ";
+
+    for (int i = 0; i < SIZE; i++) {
+        os << dynamicArrayInt.array[i];
+    }
+
+    os << '\n';
+
+    return os;
+}
+
 int DynamicArrayInt::operator[](const int index) const {
     return DynamicArrayInt::array[index];
 }

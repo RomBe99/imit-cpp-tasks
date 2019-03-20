@@ -1,11 +1,15 @@
 #ifndef CPP_TASKS_DYNAMICARRAYINT_H
 #define CPP_TASKS_DYNAMICARRAYINT_H
 
+#include <iostream>
+
 class DynamicArrayInt {
 private:
     int *array;
     int arraySize;
     const int DEFAULT_SIZE = 10;
+
+    void setArraySize(const int arraySize);
 
 public:
     DynamicArrayInt();
@@ -38,9 +42,9 @@ public:
 
     void resize(const int newSize);
 
-    // TODO Перегрузить оператор ввода
+    friend std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt);
 
-    // TODO Перегрузить оператор вывода
+    friend std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt);
 
     int operator[](const int index) const;
 
