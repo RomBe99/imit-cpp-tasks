@@ -38,7 +38,7 @@ public:
 
     friend bool operator>=(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
-    friend DynamicArrayInt operator+(const DynamicArrayInt &right);
+    friend DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
     void resize(const int newSize);
 

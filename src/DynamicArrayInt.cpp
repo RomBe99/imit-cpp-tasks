@@ -93,13 +93,13 @@ bool operator>=(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     return true;
 }
 
-DynamicArrayInt operator+(const DynamicArrayInt &right) {
-    DynamicArrayInt newDynamicArrayInt = DynamicArrayInt(this->arraySize + right.arraySize);
+DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &right) {
+    DynamicArrayInt newDynamicArrayInt = DynamicArrayInt(left.arraySize + right.arraySize);
 
-    const int LEFT_ARRAY_SIZE = this->arraySize;
+    const int LEFT_ARRAY_SIZE = left.arraySize;
 
     for (int i = 0; i < LEFT_ARRAY_SIZE; i++) {
-        newDynamicArrayInt.array[i] = this->array[i];
+        newDynamicArrayInt.array[i] = left.array[i];
     }
 
     const int RIGHT_ARRAY_SIZE = right.arraySize;
