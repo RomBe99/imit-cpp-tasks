@@ -14,13 +14,33 @@ public:
 
     DynamicArrayInt(const int arraySize, int n);
 
+    // TODO Конструктор копирования
+
+    // TODO Конструктор перемещения
+
+    // TODO Оператор присваивания
+
+    // TODO Оператор перемещения
+
     friend bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
     friend bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
-    DynamicArrayInt operator+(const DynamicArrayInt &right);
+    friend bool operator<(const DynamicArrayInt &left, const DynamicArrayInt &right);
+
+    friend bool operator<=(const DynamicArrayInt &left, const DynamicArrayInt &right);
+
+    friend bool operator>(const DynamicArrayInt &left, const DynamicArrayInt &right);
+
+    friend bool operator>=(const DynamicArrayInt &left, const DynamicArrayInt &right);
+
+    friend DynamicArrayInt operator+(const DynamicArrayInt &right);
 
     void resize(const int newSize);
+
+    // TODO Перегрузить оператор ввода
+
+    // TODO Перегрузить оператор вывода
 
     int operator[](const int index) const;
 
