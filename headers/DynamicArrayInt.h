@@ -19,10 +19,12 @@ public:
     DynamicArrayInt(const int arraySize, int n);
 
     // TODO Конструктор копирования
+    DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt);
 
     // TODO Конструктор перемещения
 
     // TODO Оператор присваивания
+    DynamicArrayInt &operator=(const DynamicArrayInt &dynamicArrayInt);
 
     // TODO Оператор перемещения
 

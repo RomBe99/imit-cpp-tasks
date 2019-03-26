@@ -5,13 +5,35 @@ DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DEFAULT_SIZE) {}
 DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
 
 DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
-    DynamicArrayInt::arraySize = arraySize;
-    DynamicArrayInt::array = new int{arraySize};
+    this->arraySize = arraySize;
+    array = new int{arraySize};
 
     for (int i = 0; i < arraySize; i++) {
         array[i] = n;
     }
 }
+
+/*DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
+
+}
+
+
+
+DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
+    if (this == &dynamicArrayInt) {
+        return *this;
+    }
+
+    const int SIZE = dynamicArrayInt.arraySize;
+
+    DynamicArrayInt temp = new DynamicArrayInt(SIZE);
+
+    for (int i = 0; i < SIZE; i++) {
+        temp->array[i] = dynamicArrayInt.array[i];
+    }
+
+    return *temp;
+}*/
 
 bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     const int SIZE = left.arraySize;
@@ -153,11 +175,11 @@ std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayIn
 }
 
 int DynamicArrayInt::operator[](const int index) const {
-    return DynamicArrayInt::array[index];
+    return array[index];
 }
 
 int DynamicArrayInt::getElement(const int index) const {
-    return DynamicArrayInt::array[index];
+    return array[index];
 }
 
 int *DynamicArrayInt::getArray() const {
