@@ -7,7 +7,7 @@ class DynamicArrayInt {
 private:
     int *array;
     int arraySize;
-    const int DEFAULT_SIZE = 10;
+    static const int DEFAULT_SIZE = 10;
 
     void setArraySize(const int arraySize);
 
