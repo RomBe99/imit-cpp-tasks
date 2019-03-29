@@ -1,39 +1,33 @@
 #include "../headers/DynamicArrayInt.h"
 
-DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DEFAULT_SIZE) {}
+DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DynamicArrayInt::DEFAULT_SIZE) {}
 
 DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
 
 DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
     this->arraySize = arraySize;
-    array = new int{arraySize};
+    array = new int[arraySize];
 
     for (int i = 0; i < arraySize; i++) {
         array[i] = n;
     }
 }
 
-/*DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
+DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
+    setArraySize(dynamicArrayInt.arraySize);
 
+    array = new int[arraySize];
+
+    for (int i = 0; i < arraySize; i++) {
+        array[i] = dynamicArrayInt.array[i];
+    }
 }
 
 
 
-DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
-    if (this == &dynamicArrayInt) {
-        return *this;
-    }
-
-    const int SIZE = dynamicArrayInt.arraySize;
-
-    DynamicArrayInt temp = new DynamicArrayInt(SIZE);
-
-    for (int i = 0; i < SIZE; i++) {
-        temp->array[i] = dynamicArrayInt.array[i];
-    }
-
-    return *temp;
-}*/
+//DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
+//    return DynamicArrayInt(dynamicArrayInt);
+//}
 
 bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     const int SIZE = left.arraySize;
