@@ -140,7 +140,7 @@ void DynamicArrayInt::resize(const int newSize) {
 }
 
 void DynamicArrayInt::setArraySize(const int arraySize) {
-    DynamicArrayInt::arraySize = arraySize;
+    this.arraySize = arraySize;
 }
 
 std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
