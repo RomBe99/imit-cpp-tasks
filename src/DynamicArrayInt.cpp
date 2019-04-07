@@ -23,11 +23,13 @@ DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
     }
 }
 
+DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
+    if (!(*this == dynamicArrayInt)) {
+        *this = DynamicArrayInt(dynamicArrayInt);
+    }
 
-
-//DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
-//    return DynamicArrayInt(dynamicArrayInt);
-//}
+    return *this;
+}
 
 bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     const int SIZE = left.arraySize;
