@@ -53,6 +53,8 @@ public:
 
     int operator[](const int index) const;
 
+    void setArrayElement(const int index, const int value);
+
     int getElement(const int index) const;
 
     int *getArray() const;

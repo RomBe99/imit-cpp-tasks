@@ -219,6 +219,10 @@ int DynamicArrayInt::operator[](const int index) const {
     return array[index];
 }
 
+void DynamicArrayInt::setArrayElement(const int index, const int value) {
+    array[index] = value;
+}
+
 int DynamicArrayInt::getElement(const int index) const {
     return array[index];
 }
