@@ -19,11 +19,13 @@ public:
 
     explicit DynamicArrayInt(const int arraySize);
 
-    DynamicArrayInt(const int arraySize, int n);
+    DynamicArrayInt(const int arraySize, const int n);
+
+    DynamicArrayInt(const int arraySize, const int n, const int newReserve);
 
     DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt);
 
-    DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt);
+    DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) noexcept;
 
     DynamicArrayInt &operator=(const DynamicArrayInt &dynamicArrayInt);
 

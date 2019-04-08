@@ -4,13 +4,17 @@ DynamicArrayInt::DynamicArrayInt() : DynamicArrayInt(DynamicArrayInt::DEFAULT_SI
 
 DynamicArrayInt::DynamicArrayInt(const int arraySize) : DynamicArrayInt(arraySize, 0) {}
 
-DynamicArrayInt::DynamicArrayInt(const int arraySize, int n) {
+DynamicArrayInt::DynamicArrayInt(const int arraySize, const int n) {
     this->arraySize = arraySize;
     array = new int[arraySize];
 
     for (int i = 0; i < arraySize; i++) {
         array[i] = n;
     }
+}
+
+DynamicArrayInt::DynamicArrayInt(const int arraySize, const int n, const int newReserve) : DynamicArrayInt(arraySize, n) {
+    setReserve(newReserve);
 }
 
 DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
@@ -23,7 +27,7 @@ DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
     }
 }
 
-DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) {
+DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) noexcept {
     setArraySize(dynamicArrayInt.arraySize);
 
     array = dynamicArrayInt.array;
@@ -31,12 +35,12 @@ DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) {
     dynamicArrayInt.array = nullptr;
 }
 
-void DynamicArrayInt::setArraySize(const int arraySize) {
-    this->arraySize = arraySize;
+void DynamicArrayInt::setArraySize(const int newArraySize) {
+    arraySize = newArraySize;
 }
 
 void DynamicArrayInt::setReserve(const int newReserve) {
-    this->reserve = reserve;
+    reserve = newReserve;
 }
 
 DynamicArrayInt& DynamicArrayInt::operator=(DynamicArrayInt &&dynamicArrayInt) noexcept {
@@ -224,11 +228,12 @@ void DynamicArrayInt::setArrayElement(const int index, const int value) {
 }
 
 void DynamicArrayInt::pushBack(int value) {
-
+    resize(arraySize + 1);
+    array[arraySize - 1] = value;
 }
 
 void DynamicArrayInt::popBack() {
-
+    resize(arraySize - 1);
 }
 
 int DynamicArrayInt::getElement(const int index) const {
