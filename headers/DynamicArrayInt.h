@@ -43,7 +43,7 @@ public:
 
     friend DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &right);
 
-    void resize(const int newSize);
+    void resize(const int newArraySize);
 
     void reserveMemory(const int newReserve);
 
