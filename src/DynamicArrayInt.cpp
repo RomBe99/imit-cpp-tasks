@@ -162,6 +162,14 @@ void DynamicArrayInt::resize(const int newArraySize) {
 
         std::swap(newArr, array);
         delete[]newArr;
+    } else {
+        if (newArraySize < arraySize) {
+            for (int i = newArraySize; i < arraySize; ++i) {
+                array[i] = 0;
+            }
+
+            setReserve(reserve + arraySize - newArraySize);
+        }
     }
 
     setArraySize(newArraySize);
