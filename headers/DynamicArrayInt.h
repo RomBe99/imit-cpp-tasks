@@ -7,9 +7,12 @@ class DynamicArrayInt {
 private:
     int *array;
     int arraySize;
+    int reserve = 0;
     static const int DEFAULT_SIZE = 10;
 
     void setArraySize(const int arraySize);
+
+    void setReserve(const int newReserve);
 
 public:
     DynamicArrayInt();
@@ -42,6 +45,8 @@ public:
 
     void resize(const int newSize);
 
+    void reserveMemory(const int newReserve);
+
     friend std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt);
 
     friend std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt);
@@ -53,6 +58,8 @@ public:
     int *getArray() const;
 
     int getArraySize() const;
+
+    int getReserve() const;
 
     ~DynamicArrayInt();
 };
