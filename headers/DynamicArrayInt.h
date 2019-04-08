@@ -18,15 +18,13 @@ public:
 
     DynamicArrayInt(const int arraySize, int n);
 
-    // TODO Конструктор копирования
     DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt);
 
-    // TODO Конструктор перемещения
+    DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt);
 
-    // TODO Оператор присваивания
     DynamicArrayInt &operator=(const DynamicArrayInt &dynamicArrayInt);
 
-    // TODO Оператор перемещения
+    DynamicArrayInt &operator=(DynamicArrayInt &&dynamicArrayInt) noexcept ;
 
     friend bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right);
 

@@ -23,6 +23,21 @@ DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
     }
 }
 
+DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) {
+    setArraySize(dynamicArrayInt.arraySize);
+
+    array = dynamicArrayInt.array;
+
+    dynamicArrayInt.array = nullptr;
+}
+
+DynamicArrayInt& DynamicArrayInt::operator=(DynamicArrayInt &&dynamicArrayInt) noexcept {
+    std::swap(arraySize, dynamicArrayInt.arraySize);
+    std::swap(array, dynamicArrayInt.array);
+
+    return *this;
+}
+
 DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
     if (!(*this == dynamicArrayInt)) {
         *this = DynamicArrayInt(dynamicArrayInt);
