@@ -55,6 +55,10 @@ public:
 
     void setArrayElement(const int index, const int value);
 
+    void pushBack(int value);
+
+    void popBack();
+
     int getElement(const int index) const;
 
     int *getArray() const;

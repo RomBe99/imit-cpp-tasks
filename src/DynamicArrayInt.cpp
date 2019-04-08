@@ -223,6 +223,14 @@ void DynamicArrayInt::setArrayElement(const int index, const int value) {
     array[index] = value;
 }
 
+void DynamicArrayInt::pushBack(int value) {
+
+}
+
+void DynamicArrayInt::popBack() {
+
+}
+
 int DynamicArrayInt::getElement(const int index) const {
     return array[index];
 }
