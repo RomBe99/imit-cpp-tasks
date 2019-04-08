@@ -219,7 +219,7 @@ int DynamicArrayInt::getArraySize() const {
     return arraySize;
 }
 
-int DynamicArrayInt::getReserve() const {
+int DynamicArrayInt::capacity() const {
     return reserve;
 }
 

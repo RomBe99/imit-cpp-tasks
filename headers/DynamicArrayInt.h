@@ -59,7 +59,7 @@ public:
 
     int getArraySize() const;
 
-    int getReserve() const;
+    int capacity() const;
 
     ~DynamicArrayInt();
 };
