@@ -74,7 +74,7 @@ bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     return true;
 }
 
-bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right){
+bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right) {
     const int SIZE = left.arraySize;
 
     if (SIZE != right.arraySize) {
@@ -203,6 +203,8 @@ std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
     for (int i = 0; i < arraySize; i++) {
         is >> dynamicArrayInt.array[i];
     }
+
+    return is;
 }
 
 std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt) {
