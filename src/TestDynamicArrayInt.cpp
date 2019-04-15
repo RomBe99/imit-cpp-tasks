@@ -1,6 +1,6 @@
 #include "../headers/TestDynamicArrayInt.h"
 
-bool testArrayInt::defaultConstructorTest(const int expectedArraySize)  {
+bool testarrayint::defaultConstructorTest(const int expectedArraySize)  {
     const auto *temp = new DynamicArrayInt();
     const int RESULT = temp->getArraySize();
 
@@ -9,16 +9,16 @@ bool testArrayInt::defaultConstructorTest(const int expectedArraySize)  {
     return RESULT == expectedArraySize;
 }
 
-bool testArrayInt::sizeConstructorTest(const int expectedArraySize) {
+bool testarrayint::sizeConstructorTest(const int expectedArraySize) {
     const auto *temp = new DynamicArrayInt(expectedArraySize);
-    delete temp;
-
     const int RESULT = temp->getArraySize();
+
+    delete temp;
 
     return RESULT == expectedArraySize;
 }
 
-bool testArrayInt::sizeAndNumberConstructorTest(const int expectedArraySize, const int n) {
+bool testarrayint::sizeAndNumberConstructorTest(const int expectedArraySize, const int n) {
     const auto *temp = new DynamicArrayInt(expectedArraySize, n);
     const int SIZE = temp->getArraySize();
 
@@ -35,12 +35,13 @@ bool testArrayInt::sizeAndNumberConstructorTest(const int expectedArraySize, con
             return false;
         }
     }
+
     delete temp;
 
     return true;
 }
 
-bool testArrayInt::copyConstructorTest(const DynamicArrayInt &objForCopy) {
+bool testarrayint::copyConstructorTest(const DynamicArrayInt &objForCopy) {
     const auto *ARRAY_COPY = new DynamicArrayInt(objForCopy);
     const bool RESULT = *ARRAY_COPY != objForCopy;
     delete ARRAY_COPY;
@@ -49,7 +50,15 @@ bool testArrayInt::copyConstructorTest(const DynamicArrayInt &objForCopy) {
 }
 
 // fixme Сделать тест для конструктора перемещения
-bool testArrayInt::assigmentConstructor(DynamicArrayInt &objForAssigment) {
+bool testarrayint::assigmentConstructorTest(DynamicArrayInt &objForAssigment) {
     bool RESULT = false;
+    return RESULT;
+}
+
+bool testarrayint::reserveConstructorTest(const int expectedArraySize, const int expectedArrayReserve) {
+    const auto *temp = new DynamicArrayInt(expectedArraySize, 0, expectedArrayReserve);
+    const bool RESULT = (temp->getArraySize() == expectedArraySize) && (temp->capacity() == expectedArrayReserve);
+    delete temp;
+
     return RESULT;
 }
