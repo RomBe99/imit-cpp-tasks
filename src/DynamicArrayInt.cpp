@@ -160,7 +160,7 @@ void DynamicArrayInt::resize(const int newArraySize) {
     if (newArraySize > arraySize + reserve) {
         int *newArr = new int[newArraySize];
 
-        for (int i = 0; i < arraySize; i++) {
+        for (int i = 0; i < newArraySize; i++) {
             newArr[i] = arraySize > i ? array[i] : 0;
         }
 
@@ -168,7 +168,7 @@ void DynamicArrayInt::resize(const int newArraySize) {
         delete[]newArr;
     } else {
         if (newArraySize < arraySize) {
-            for (int i = newArraySize; i < arraySize; ++i) {
+            for (int i = newArraySize; i < arraySize; i++) {
                 array[i] = 0;
             }
 
