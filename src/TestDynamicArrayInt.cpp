@@ -62,3 +62,9 @@ bool testarrayint::reserveConstructorTest(const int expectedArraySize, const int
 
     return RESULT;
 }
+
+bool testarrayint::assignmentOperatorTest(const DynamicArrayInt &objForAssigment) {
+    const auto ARRAY_COPY = objForAssigment;
+
+    return ARRAY_COPY == objForAssigment;
+}

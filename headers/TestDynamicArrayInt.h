@@ -3,7 +3,7 @@
 
 #include "DynamicArrayInt.h"
 
-namespace testArrayInt {
+namespace testarrayint {
     bool defaultConstructorTest(const int expectedArraySize);
 
     bool sizeConstructorTest(const int expectedArraySize);
@@ -12,7 +12,11 @@ namespace testArrayInt {
 
     bool copyConstructorTest(const DynamicArrayInt &objForCopy);
 
-    bool assigmentConstructor(DynamicArrayInt &objForAssigment);
+    bool assigmentConstructorTest(DynamicArrayInt &objForAssigment);
+
+    bool reserveConstructorTest(const int expectedArraySize, const int expectedArrayReserve);
+
+    bool assignmentOperatorTest(const DynamicArrayInt &dynamicArrayInt);
 }
 
 #endif
