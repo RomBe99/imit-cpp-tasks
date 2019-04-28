@@ -13,8 +13,9 @@ DynamicArrayInt::DynamicArrayInt(const int arraySize, const int n) {
     }
 }
 
-DynamicArrayInt::DynamicArrayInt(const int arraySize, const int n, const int newReserve) : DynamicArrayInt(arraySize, n) {
-    setReserve(newReserve);
+DynamicArrayInt::DynamicArrayInt(const int arraySize, const int n, const int newReserve) : DynamicArrayInt(arraySize,
+                                                                                                           n) {
+    reserveMemory(newReserve);
 }
 
 DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
@@ -29,7 +30,7 @@ DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
 
 DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) noexcept {
     setArraySize(dynamicArrayInt.arraySize);
-    setReserve(dynamicArrayInt.reserve);
+    reserveMemory(dynamicArrayInt.reserve);
 
     array = dynamicArrayInt.array;
 
@@ -41,11 +42,7 @@ void DynamicArrayInt::setArraySize(const int newArraySize) {
     arraySize = newArraySize;
 }
 
-void DynamicArrayInt::setReserve(const int newReserve) {
-    reserve = newReserve;
-}
-
-DynamicArrayInt& DynamicArrayInt::operator=(DynamicArrayInt &&dynamicArrayInt) noexcept {
+DynamicArrayInt &DynamicArrayInt::operator=(DynamicArrayInt &&dynamicArrayInt) noexcept {
     std::swap(arraySize, dynamicArrayInt.arraySize);
     std::swap(array, dynamicArrayInt.array);
     std::swap(reserve, dynamicArrayInt.reserve);
@@ -159,42 +156,42 @@ DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &ri
     return newDynamicArrayInt;
 }
 
+// TODO Переделать ЭТО
 void DynamicArrayInt::resize(const int newArraySize) {
-    if (newArraySize > arraySize + reserve) {
-        int *newArr = new int[newArraySize];
+//    if (newArraySize == arraySize) {
+//        return;
+//    } else if (newArraySize > arraySize + reserve) {
+//        int *newArr = new int[newArraySize];
+//
+//        for (int i = 0; i < newArraySize; i++) {
+//            newArr[i] = arraySize > i ? array[i] : 0;
+//        }
+//
+//        std::swap(newArr, array);
+//        delete[]newArr;
+//        setReserve(0);
+//        setArraySize(newArraySize);
+//
+//        return;
+//    } else if (newArraySize < arraySize) {
+//        for (int i = newArraySize; i < arraySize; i++) {
+//            array[i] = 0;
+//        }
+//
+//        setReserve(reserve - (arraySize - newArraySize));
+//        setArraySize(newArraySize);
+//        return;
+//    }
 
-        for (int i = 0; i < newArraySize; i++) {
-            newArr[i] = arraySize > i ? array[i] : 0;
-        }
+    if (newArraySize == arraySize) {
+        return;
+    } else if (newArraySize > arraySize) {
 
-        std::swap(newArr, array);
-        delete[]newArr;
-    } else {
-        if (newArraySize < arraySize) {
-            for (int i = newArraySize; i < arraySize; i++) {
-                array[i] = 0;
-            }
-
-            setReserve(reserve + arraySize - newArraySize);
-        }
     }
-
-    setArraySize(newArraySize);
 }
 
 void DynamicArrayInt::reserveMemory(const int newReserve) {
-    setReserve(newReserve);
-
-    const int NEW_SIZE = arraySize + reserve;
-
-    int *temp = new int [NEW_SIZE];
-
-    for (int i = 0; i < NEW_SIZE; i++) {
-        temp[i] = arraySize > i ? array[i] : 0;
-    }
-
-    std::swap(temp, array);
-    delete[]temp;
+    reserve = newReserve;
 }
 
 std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
@@ -237,8 +234,12 @@ void DynamicArrayInt::pushBack(int value) {
     array[arraySize - 1] = value;
 }
 
-void DynamicArrayInt::popBack() {
+int DynamicArrayInt::popBack() {
+    const int VALUE = array[arraySize - 1];
+
     resize(arraySize - 1);
+
+    return VALUE;
 }
 
 int DynamicArrayInt::getElement(const int index) const {
