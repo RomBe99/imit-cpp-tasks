@@ -12,8 +12,6 @@ private:
 
     void setArraySize(const int arraySize);
 
-    void setReserve(const int newReserve);
-
 public:
     DynamicArrayInt();
 
@@ -59,7 +57,7 @@ public:
 
     void pushBack(int value);
 
-    void popBack();
+    int popBack();
 
     int getElement(const int index) const;
 
