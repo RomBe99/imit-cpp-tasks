@@ -11,7 +11,7 @@ void testDynamicArrayInt() {
     DynamicArrayInt sizeConstructor(SIZE1);
 
     // Тест конструктора по размеру и числу
-    const int SIZE2 = 5;
+    const int SIZE2 = 10;
     const int NUMBER = 33;
     DynamicArrayInt sizeAndNumberConstructor(SIZE2, NUMBER);
 
@@ -25,9 +25,16 @@ void testDynamicArrayInt() {
     std::cout << copyConstructor << "   " << defaultConstructor << std::endl;
 
     // Тест конструктора перемещения и оператора перемещения
-    DynamicArrayInt moveConstructor = std::move(defaultConstructor);
+//    DynamicArrayInt moveConstructor = std::move(defaultConstructor);
 //    std::cout << &moveConstructor << "   " << &defaultConstructor << std::endl; // Адреса объектов одинаковые, но вот далее
 //    std::cout << moveConstructor << "   " << defaultConstructor << std::endl; // Выбросит сегфолт, так как пытаемся обратится к несуществующему объекту
+
+    // Тест операций сравнения
+    std::cout << (defaultConstructor == copyConstructor) << std::endl;
+    std::cout << (defaultConstructor != copyConstructor) << std::endl;
+    std::cout << (defaultConstructor <= copyConstructor) << std::endl;
+    std::cout << (defaultConstructor >= copyConstructor) << std::endl;
+    std::cout << (sizeAndNumberConstructor > defaultConstructor) << std::endl;
 }
 
 int main() {
