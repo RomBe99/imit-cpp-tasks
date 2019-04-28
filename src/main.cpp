@@ -35,6 +35,10 @@ void testDynamicArrayInt() {
     std::cout << (defaultConstructor <= copyConstructor) << std::endl;
     std::cout << (defaultConstructor >= copyConstructor) << std::endl;
     std::cout << (sizeAndNumberConstructor > defaultConstructor) << std::endl;
+
+    // Тест сложения массивов
+    DynamicArrayInt arrSum = sizeAndNumberConstructor + defaultConstructor;
+    std::cout << arrSum << std::endl;
 }
 
 int main() {
