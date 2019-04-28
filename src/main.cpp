@@ -30,15 +30,23 @@ void testDynamicArrayInt() {
 //    std::cout << moveConstructor << "   " << defaultConstructor << std::endl; // Выбросит сегфолт, так как пытаемся обратится к несуществующему объекту
 
     // Тест операций сравнения
-    std::cout << (defaultConstructor == copyConstructor) << std::endl;
-    std::cout << (defaultConstructor != copyConstructor) << std::endl;
-    std::cout << (defaultConstructor <= copyConstructor) << std::endl;
-    std::cout << (defaultConstructor >= copyConstructor) << std::endl;
-    std::cout << (sizeAndNumberConstructor > defaultConstructor) << std::endl;
+//    std::cout << (defaultConstructor == copyConstructor) << std::endl;
+//    std::cout << (defaultConstructor != copyConstructor) << std::endl;
+//    std::cout << (defaultConstructor <= copyConstructor) << std::endl;
+//    std::cout << (defaultConstructor >= copyConstructor) << std::endl;
+//    std::cout << (sizeAndNumberConstructor > defaultConstructor) << std::endl;
 
     // Тест сложения массивов
     DynamicArrayInt arrSum = sizeAndNumberConstructor + defaultConstructor;
     std::cout << arrSum << std::endl;
+
+    // Тест резерва
+    const int NEW_SIZE = 15;
+    arrSum.resize(NEW_SIZE);
+    std::cout << arrSum << arrSum.capacity() << std::endl;
+    arrSum.pushBack(NEW_SIZE);
+    std::cout << arrSum << arrSum.capacity() << std::endl;
+    std::cout << arrSum << arrSum.popBack() << ' ' << arrSum.capacity() << std::endl;
 }
 
 int main() {
