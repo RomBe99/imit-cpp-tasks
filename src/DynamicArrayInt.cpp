@@ -213,10 +213,10 @@ std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
 std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt) {
     const int SIZE = dynamicArrayInt.arraySize;
 
-    os << "arraySize: " << SIZE << " arrayElements: ";
+    os << "arraySize: " << SIZE << std::endl << "arrayElements: ";
 
     for (int i = 0; i < SIZE - 1; i++) {
-        os << dynamicArrayInt.array[i];
+        os << dynamicArrayInt.array[i] << ' ';
     }
 
     os << dynamicArrayInt.array[SIZE - 1] << '\n';
