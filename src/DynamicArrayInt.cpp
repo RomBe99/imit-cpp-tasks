@@ -29,10 +29,12 @@ DynamicArrayInt::DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt) {
 
 DynamicArrayInt::DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) noexcept {
     setArraySize(dynamicArrayInt.arraySize);
+    setReserve(dynamicArrayInt.reserve);
 
     array = dynamicArrayInt.array;
 
     dynamicArrayInt.array = nullptr;
+    delete[]dynamicArrayInt.array;
 }
 
 void DynamicArrayInt::setArraySize(const int newArraySize) {
@@ -46,12 +48,13 @@ void DynamicArrayInt::setReserve(const int newReserve) {
 DynamicArrayInt& DynamicArrayInt::operator=(DynamicArrayInt &&dynamicArrayInt) noexcept {
     std::swap(arraySize, dynamicArrayInt.arraySize);
     std::swap(array, dynamicArrayInt.array);
+    std::swap(reserve, dynamicArrayInt.reserve);
 
     return *this;
 }
 
 DynamicArrayInt &DynamicArrayInt::operator=(const DynamicArrayInt &dynamicArrayInt) {
-    if (!(*this == dynamicArrayInt)) {
+    if (this != &dynamicArrayInt) {
         *this = DynamicArrayInt(dynamicArrayInt);
     }
 
