@@ -215,11 +215,11 @@ std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayIn
 
     os << "arraySize: " << SIZE << " arrayElements: ";
 
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE - 1; i++) {
         os << dynamicArrayInt.array[i];
     }
 
-    os << '\n';
+    os << dynamicArrayInt.array[SIZE - 1] << '\n';
 
     return os;
 }
