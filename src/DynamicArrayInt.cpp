@@ -156,42 +156,42 @@ DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &ri
     return newDynamicArrayInt;
 }
 
-// TODO Переделать ЭТО
 void DynamicArrayInt::resize(const int newArraySize) {
-//    if (newArraySize == arraySize) {
-//        return;
-//    } else if (newArraySize > arraySize + reserve) {
-//        int *newArr = new int[newArraySize];
-//
-//        for (int i = 0; i < newArraySize; i++) {
-//            newArr[i] = arraySize > i ? array[i] : 0;
-//        }
-//
-//        std::swap(newArr, array);
-//        delete[]newArr;
-//        setReserve(0);
-//        setArraySize(newArraySize);
-//
-//        return;
-//    } else if (newArraySize < arraySize) {
-//        for (int i = newArraySize; i < arraySize; i++) {
-//            array[i] = 0;
-//        }
-//
-//        setReserve(reserve - (arraySize - newArraySize));
-//        setArraySize(newArraySize);
-//        return;
-//    }
-
     if (newArraySize == arraySize) {
         return;
-    } else if (newArraySize > arraySize) {
+    } else if (newArraySize > arraySize + reserve) {
+        int *newArr = new int[newArraySize];
 
+        for (int i = 0; i < newArraySize; i++) {
+            newArr[i] = arraySize > i ? array[i] : 0;
+        }
+
+        std::swap(newArr, array);
+        delete[]newArr;
+        reserveMemory(0);
+    } else if (newArraySize < arraySize) {
+        for (int i = newArraySize; i < arraySize; i++) {
+            array[i] = 0;
+        }
+
+        reserveMemory(reserve + arraySize - newArraySize);
+    } else if (newArraySize > arraySize && newArraySize <= arraySize + reserve) {
+        int *newArr = new int[newArraySize];
+
+        for (int i = 0; i < newArraySize; i++) {
+            newArr[i] = arraySize > i ? array[i] : 0;
+        }
+
+        std::swap(newArr, array);
+        delete[]newArr;
+        reserveMemory(reserve + arraySize - newArraySize);
     }
+
+    setArraySize(newArraySize);
 }
 
 void DynamicArrayInt::reserveMemory(const int newReserve) {
-    reserve = newReserve;
+    reserve = newReserve < 0 ? 0 : newReserve;
 }
 
 std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt) {
