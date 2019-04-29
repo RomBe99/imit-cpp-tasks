@@ -173,8 +173,10 @@ void DynamicArrayInt::resize(const int newArraySize) {
         for (int i = newArraySize; i < arraySize; i++) {
             array[i] = 0;
         }
+        int oldeReserve = reserve;
 
         reserveMemory(reserve + arraySize - newArraySize);
+        setArraySize(newArraySize);
     } else if (newArraySize > arraySize && newArraySize <= arraySize + reserve) {
         int *newArr = new int[newArraySize];
 
@@ -185,9 +187,8 @@ void DynamicArrayInt::resize(const int newArraySize) {
         std::swap(newArr, array);
         delete[]newArr;
         reserveMemory(reserve + arraySize - newArraySize);
+        setArraySize(newArraySize);
     }
-
-    setArraySize(newArraySize);
 }
 
 void DynamicArrayInt::reserveMemory(const int newReserve) {
