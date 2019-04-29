@@ -47,6 +47,7 @@ void testDynamicArrayInt() {
     arrSum.pushBack(NEW_SIZE);
     std::cout << arrSum << arrSum.capacity() << std::endl;
     std::cout << arrSum << arrSum.popBack() << ' ' << arrSum.capacity() << std::endl;
+    std::cout << arrSum;
 }
 
 int main() {
