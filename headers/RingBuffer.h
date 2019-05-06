@@ -4,12 +4,13 @@
 #include <cstddef>
 
 class RingBuffer {
-private:
+public:
     struct RingBufferElement {
         bool isEmpty = true;
         int value = 0;
     };
 
+private:
     RingBufferElement *buffer;
     std::size_t bufferSize;
 
