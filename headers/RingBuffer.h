@@ -22,8 +22,6 @@ private:
     unsigned int in = 0;
     unsigned int out = 0;
 
-    void setBufferSize(const size_t size);
-
     void postIncrementIn();
 
     void postIncrementOut();

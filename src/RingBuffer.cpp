@@ -1,11 +1,23 @@
 #include "../headers/RingBuffer.h"
 
-void RingBuffer::setBufferSize(const size_t newSize) {
-    bufferSize = newSize;
+void RingBuffer::postIncrementIn() {
+    if (in < bufferSize) {
+        in++;
+    } else {
+        in = 0;
+    }
+}
+
+void RingBuffer::postIncrementOut() {
+    if (out < bufferSize) {
+        out++;
+    } else {
+        out = 0;
+    }
 }
 
 RingBuffer::RingBuffer(const size_t bufferSize) {
-    setBufferSize(bufferSize);
+    this->bufferSize = bufferSize;
 
     buffer = new RingBufferElement[bufferSize];
 
@@ -34,22 +46,6 @@ int RingBuffer::popFirst() {
 
 int RingBuffer::getFirst() const {
     return 0;
-}
-
-void RingBuffer::postIncrementIn() {
-    if (in < bufferSize) {
-        in++;
-    } else {
-        in = 0;
-    }
-}
-
-void RingBuffer::postIncrementOut() {
-    if (out < bufferSize) {
-        out++;
-    } else {
-        out = 0;
-    }
 }
 
 void RingBuffer::clear() {
