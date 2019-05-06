@@ -27,7 +27,7 @@ RingBuffer::RingBuffer(const size_t bufferSize) {
 
 void RingBuffer::pushBack(const int value) {
     if (bufferIsFull) {
-        // TODO Сделать Exception для переполнения
+        throw 1;
     }
 
     if (bufferIsEmpty) {
@@ -41,11 +41,26 @@ void RingBuffer::pushBack(const int value) {
 }
 
 int RingBuffer::popFirst() {
-    return 0;
+    int returnedValue = getFirst();
+
+    if (bufferIsFull) {
+        bufferIsFull = false;
+    }
+
+    buffer[out].isEmpty = false;
+    buffer[out].value = 0;
+
+    postIncrementOut();
+
+    return returnedValue;
 }
 
 int RingBuffer::getFirst() const {
-    return 0;
+    if (bufferIsEmpty) {
+        throw 2;
+    }
+
+    return buffer[out].value;
 }
 
 void RingBuffer::clear() {
