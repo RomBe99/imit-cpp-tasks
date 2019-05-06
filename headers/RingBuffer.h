@@ -43,6 +43,10 @@ public:
 
     bool isFull() const;
 
+    RingBufferElement *getHead() const;
+
+    RingBufferElement *getTail() const;
+
     ~RingBuffer();
 };
 

@@ -94,6 +94,14 @@ bool RingBuffer::isFull() const {
     return bufferIsFull;
 }
 
+RingBuffer::RingBufferElement *RingBuffer::getHead() const {
+    return head;
+}
+
+RingBuffer::RingBufferElement *RingBuffer::getTail() const {
+    return tail;
+}
+
 RingBuffer::~RingBuffer() {
     delete[]buffer;
 }
