@@ -22,16 +22,16 @@ private:
     unsigned int in = 0;
     unsigned int out = 0;
 
-    void setBufferSize(size_t size);
+    void setBufferSize(const size_t size);
 
     void postIncrementIn();
 
     void postIncrementOut();
 
 public:
-    explicit RingBuffer(size_t bufferSize);
+    explicit RingBuffer(const size_t bufferSize);
 
-    void pushBack(int value);
+    void pushBack(const int value);
 
     int popFirst();
 
