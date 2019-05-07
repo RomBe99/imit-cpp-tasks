@@ -29,6 +29,10 @@ bool RingBufferIterator::finish() {
 }
 
 int RingBufferIterator::getValue() {
+    if (iterator->isEmpty) {
+        throw 3;
+    }
+
     return iterator->value;
 }
 
