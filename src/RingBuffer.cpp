@@ -5,6 +5,7 @@ void RingBuffer::postIncrementIn() {
         in++;
     } else {
         in = 0;
+        bufferIsFull = true;
     }
 }
 
@@ -13,6 +14,7 @@ void RingBuffer::postIncrementOut() {
         out++;
     } else {
         out = 0;
+        bufferIsEmpty = true;
     }
 }
 
