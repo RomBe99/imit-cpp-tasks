@@ -22,6 +22,8 @@ public:
 
     int getValue();
 
+    bool isEmpty();
+
     ~RingBufferIterator();
 };
 

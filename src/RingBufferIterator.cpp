@@ -36,6 +36,10 @@ int RingBufferIterator::getValue() {
     return iterator->value;
 }
 
+bool RingBufferIterator::isEmpty() {
+    return iterator->isEmpty;
+}
+
 RingBufferIterator::~RingBufferIterator() {
     ringBufferForIteration = nullptr;
     iterator = nullptr;
