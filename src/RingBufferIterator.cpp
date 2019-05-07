@@ -31,3 +31,8 @@ bool RingBufferIterator::finish() {
 int RingBufferIterator::getValue() {
     return iterator->value;
 }
+
+RingBufferIterator::~RingBufferIterator() {
+    ringBufferForIteration = nullptr;
+    iterator = nullptr;
+}

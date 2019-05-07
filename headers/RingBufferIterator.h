@@ -22,7 +22,7 @@ public:
 
     int getValue();
 
-    virtual ~RingBufferIterator() = default;
+    ~RingBufferIterator();
 };
 
 #endif
