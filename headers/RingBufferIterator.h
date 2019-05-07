@@ -5,14 +5,14 @@
 
 class RingBufferIterator {
 private:
-    RingBuffer &ringBufferForIteration;
+    RingBuffer *ringBufferForIteration;
 
     RingBuffer::RingBufferElement *iterator;
 
     bool isFullIterated = false;
 
 public:
-    explicit RingBufferIterator(RingBuffer &ringBufferForIteration);
+    explicit RingBufferIterator(RingBuffer *ringBufferForIteration);
 
     void start();
 
