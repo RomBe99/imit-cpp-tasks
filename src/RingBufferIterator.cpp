@@ -1,17 +1,23 @@
 #include "../headers/RingBufferIterator.h"
 
-RingBufferIterator::RingBufferIterator(RingBuffer &ringBufferForIteration) : ringBufferForIteration(
-        ringBufferForIteration) {
-    iterator = ringBufferForIteration.getHead();
+RingBufferIterator::RingBufferIterator(RingBuffer *ringBufferForIteration) {
+    this->ringBufferForIteration = ringBufferForIteration;
+    iterator = ringBufferForIteration->getHead();
 }
 
 void RingBufferIterator::start() {
-    iterator = ringBufferForIteration.getHead();
+    if (iterator != ringBufferForIteration->getHead()) {
+        iterator = ringBufferForIteration->getHead();
+    }
+
+    if (isFullIterated) {
+        isFullIterated = false;
+    }
 }
 
 void RingBufferIterator::next() {
-    if (iterator == ringBufferForIteration.getTail()) {
-        iterator = ringBufferForIteration.getHead();
+    if (iterator == ringBufferForIteration->getTail()) {
+        iterator = ringBufferForIteration->getHead();
         isFullIterated = true;
     } else {
         iterator++;
