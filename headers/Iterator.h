@@ -3,7 +3,7 @@
 
 #include "List.h"
 
-template <template <typename> class List>
+template <typename T>
 class Iterator {
     virtual void start() = 0;
     virtual T getValue() = 0;
