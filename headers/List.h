@@ -8,7 +8,7 @@
  *
  * @tparam T любой примитивный тип данных.
  */
-template<typename T>
+template<class T>
 class List {
 public:
     /**
@@ -32,7 +32,7 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Ссылка на итератор, который указывает на найденное значение.
      */
-    virtual Iterator<List<T>> &firstEnter(const T value) = 0;
+    virtual Iterator<T> &firstEnter(const T value) = 0;
 
     /**
      * Очистка списка.
@@ -58,7 +58,7 @@ public:
      *
      * @return Итератор на первый элемент.
      */
-    virtual Iterator<List<T>> &begin() = 0;
+    virtual Iterator<T> &begin() = 0;
 };
 
 #endif
