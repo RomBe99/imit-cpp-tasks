@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include "List.h"
+#include "ListElement.h"
 
 /**
  * Класс двунапрвленного кольцевого списка с буферным элементом.
@@ -16,7 +17,7 @@ private:
     /**
      * Класс элемента списка.
      */
-    class BidirectionalListElement {
+    class BidirectionalListElement : public ListElement<T> {
     public:
         BidirectionalListElement *nextElement = nullptr;
         T value = DEFAULT_VALUE;
@@ -29,6 +30,10 @@ private:
 
         BidirectionalListElement(BidirectionalListElement *nextElement, T value,
                                  BidirectionalListElement *previousElement);
+
+        T getValue() const override {
+            return value;
+        }
 
         ~BidirectionalListElement() {
             value = 0;
@@ -46,7 +51,7 @@ private:
     const static int DEFAULT_LIST_SIZE = 10;
 
 public:
-    class BufferListIterator : Iterator<BidirectionalListElement> {
+    class BufferListIterator : Iterator<T> {
     private:
         BidirectionalListElement *iterator = bufferElement->nextElement;
         bool isFullIterated = false;
