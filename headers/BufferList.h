@@ -43,7 +43,7 @@ private:
 
     BidirectionalListElement *bufferElement = new BidirectionalListElement(); // next - начало, prev - конец
     int listSize = 0;
-    const static int DEFAULT_SIZE = 10;
+    const static int DEFAULT_LIST_SIZE = 10;
 
 public:
     class BufferListIterator : Iterator<BidirectionalListElement> {

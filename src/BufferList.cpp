@@ -44,7 +44,7 @@ BufferList<T>::BufferListIterator::BufferListIterator(BufferList::BidirectionalL
 }
 
 template<typename T>
-BufferList<T>::BufferList() : BufferList(DEFAULT_SIZE) {}
+BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
 BufferList<T>::~BufferList() {
