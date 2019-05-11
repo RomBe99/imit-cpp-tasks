@@ -1,6 +1,7 @@
 #ifndef CPP_TASKS_BUFFERLIST_H
 #define CPP_TASKS_BUFFERLIST_H
 
+#include <cstddef>
 #include "List.h"
 
 /**
@@ -18,14 +19,23 @@ private:
     class BidirectionalListElement {
     public:
         BidirectionalListElement *nextElement = nullptr;
-        T value = 0;
+        T value = DEFAULT_VALUE;
         BidirectionalListElement *previousElement = nullptr;
+        const static int DEFAULT_VALUE = 0;
 
         BidirectionalListElement() = default;
 
         explicit BidirectionalListElement(T value);
 
-        ~BidirectionalListElement();
+        ~BidirectionalListElement() {
+            value = 0;
+
+            nextElement = nullptr;
+            previousElement = nullptr;
+
+            delete nextElement;
+            delete previousElement;
+        }
     };
 
     BidirectionalListElement *bufferElement = new BidirectionalListElement(); // next - начало, prev - конец
@@ -35,21 +45,61 @@ private:
 public:
     BufferList();
 
-    explicit BufferList(int size);
+    explicit BufferList(int size) {
+        // FIXME Исправить конструктор BufferList
+        this->listSize = size;
+        BidirectionalListElement *temp = bufferElement;
 
-    void insert(T value, const Iterator<List<T>> &iterator) override;
+        for (int i = 0; i < size; i++) {
+            temp->nextElement = new BidirectionalListElement();
+        }
 
-    void deleteElement(const Iterator<List<T>> &iterator) override;
+        temp->nextElement = bufferElement;
+        bufferElement->previousElement = temp;
 
-    Iterator<T> &firstEnter(T value) override;
+        temp = nullptr;
+        delete temp;
+    }
 
-    void clear() override;
+    void insert(T value, const Iterator<T> &iterator) {
+        // TODO Реализовать метод insert
+    }
 
-    bool isEmpty() override;
+    void deleteElement(const Iterator<T> &iterator) {
+        // TODO Реализовать метод deleteElement
+    }
 
-    int size() override;
+//    Iterator<T> &firstEnter(T value) {
+//        // TODO Приступить к реализации, после создания итератора
+//        // TODO Реализовать метод firstEnter
+//        return nullptr;
+//    }
 
-    Iterator<T> &begin() override;
+    void clear() {
+        // FIXME Исправить метод clear
+        BidirectionalListElement *temp = bufferElement->nextElement;
+
+        for (int i = 0; i < listSize; ++i) {
+            temp->value = BidirectionalListElement::DEFAULT_VALUE;
+        }
+
+        temp = nullptr;
+        delete temp;
+    }
+
+    bool isEmpty() {
+        return bufferElement->nextElement == nullptr;
+    }
+
+    int size() {
+        return listSize;
+    }
+
+//    Iterator<T> &begin() {
+//        // TODO Приступить к реализации, после создания итератора
+//        // TODO Реализовать метод begin
+//        return nullptr;
+//    }
 
     ~BufferList();
 };
