@@ -8,7 +8,7 @@
  *
  * @tparam T любой примитивный тип данных.
  */
-template<class T>
+template<typename T>
 class List {
 public:
     /**
