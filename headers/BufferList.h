@@ -27,6 +27,9 @@ private:
 
         explicit BidirectionalListElement(T value);
 
+        BidirectionalListElement(BidirectionalListElement *nextElement, T value,
+                                 BidirectionalListElement *previousElement);
+
         ~BidirectionalListElement() {
             value = 0;
 
