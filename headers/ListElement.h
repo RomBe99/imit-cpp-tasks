@@ -3,6 +3,7 @@
 
 template<typename T>
 class ListElement {
+public:
     virtual T getValue() const = 0;
 };
 
