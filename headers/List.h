@@ -17,14 +17,14 @@ public:
      * @param value значение нового элемента.
      * @param iterator позиция итератора для вставки нового элемента.
      */
-    virtual void insert(const T value, const Iterator<List<T>> &iterator) = 0;
+    virtual void insert(const T value, const Iterator<T> &iterator) = 0;
 
     /**
      * Удаляет выбранный итератором элемент.
      *
      * @param iterator выбранный итератором элемент.
      */
-    virtual void deleteElement(const Iterator<List<T>> &iterator) = 0;
+    virtual void deleteElement(const Iterator<T> &iterator) = 0;
 
     /**
      * Находит первое вохождение значения в список.
@@ -32,7 +32,7 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Ссылка на итератор, который указывает на найденное значение.
      */
-    virtual Iterator<T> &firstEnter(const T value) = 0;
+//    virtual Iterator<T> &firstEnter(const T value) = 0; // TODO Раскомментировать после создания итератора
 
     /**
      * Очистка списка.
@@ -58,7 +58,7 @@ public:
      *
      * @return Итератор на первый элемент.
      */
-    virtual Iterator<T> &begin() = 0;
+//    virtual Iterator<T> &begin() = 0; // TODO Раскомментировать после создания итератора
 };
 
 #endif
