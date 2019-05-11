@@ -43,15 +43,27 @@ private:
     const static int DEFAULT_SIZE = 10;
 
 public:
-
     class BufferListIterator : Iterator<BidirectionalListElement> {
     private:
         BidirectionalListElement *iterator = bufferElement->nextElement;
+        bool isFullIterated = false;
 
     public:
         BufferListIterator() = default;
 
-        const BidirectionalListElement *getIterator() const {
+        explicit BufferListIterator(BidirectionalListElement *iterator);
+
+        void start() override;
+
+        BidirectionalListElement getValue() const override {
+            return iterator;
+        }
+
+        void next() override;
+
+        bool isFinish() const override;
+
+        BidirectionalListElement *getIterator() const {
             return iterator;
         }
 
