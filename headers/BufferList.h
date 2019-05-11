@@ -43,6 +43,21 @@ private:
     const static int DEFAULT_SIZE = 10;
 
 public:
+
+    class BufferListIterator : Iterator<BidirectionalListElement> {
+    private:
+        BidirectionalListElement *iterator = bufferElement->nextElement;
+
+    public:
+        BufferListIterator() = default;
+
+        const BidirectionalListElement *getIterator() const {
+            return iterator;
+        }
+
+        virtual ~BufferListIterator() = delete; // FIXME Виртуальный ли?
+    };
+
     BufferList();
 
     explicit BufferList(int size) {
