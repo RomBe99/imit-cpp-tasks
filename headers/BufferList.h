@@ -51,7 +51,7 @@ private:
     const static int DEFAULT_LIST_SIZE = 10;
 
 public:
-    class BufferListIterator : Iterator<T> {
+    class BufferListIterator : public Iterator<T> {
     private:
         BidirectionalListElement *iterator = bufferElement->nextElement;
         bool isFullIterated = false;
@@ -63,8 +63,8 @@ public:
 
         void start() override;
 
-        BidirectionalListElement getValue() const override {
-            return iterator;
+        T getElement() const override {
+            return iterator->getValue();
         }
 
         void next() override;
@@ -75,7 +75,10 @@ public:
             return iterator;
         }
 
-        virtual ~BufferListIterator() = delete; // FIXME Виртуальный ли?
+        ~BufferListIterator() {
+            iterator = nullptr;
+            delete iterator;
+        }
     };
 
     BufferList();
@@ -130,11 +133,9 @@ public:
         return listSize;
     }
 
-//    Iterator<T> &begin() {
-//        // TODO Приступить к реализации, после создания итератора
-//        // TODO Реализовать метод begin
-//        return nullptr;
-//    }
+    BidirectionalListElement *begin() override {
+        return bufferElement->nextElement;
+    }
 
     ~BufferList();
 };
