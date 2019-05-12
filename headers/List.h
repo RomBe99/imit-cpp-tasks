@@ -2,6 +2,7 @@
 #define CPP_TASKS_LIST_H
 
 #include "Iterator.h"
+#include "ListElement.h"
 
 /**
  * Абстрактный класс List для списков.
@@ -32,7 +33,7 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Ссылка на итератор, который указывает на найденное значение.
      */
-//    virtual Iterator<T> &firstEnter(const T value) = 0; // TODO Раскомментировать после создания итератора
+    virtual ListElement<T> *firstEnter(const T value) = 0;
 
     /**
      * Очистка списка.
@@ -51,14 +52,14 @@ public:
      *
      * @return Размер списка.
      */
-    virtual int size() = 0;
+    virtual size_t size() = 0;
 
     /**
      * Позволяет получить итератор на первый элемент.
      *
      * @return Итератор на первый элемент.
      */
-//    virtual Iterator<T> &begin() = 0; // TODO Раскомментировать после создания итератора
+    virtual ListElement<T> *begin() = 0;
 };
 
 #endif
