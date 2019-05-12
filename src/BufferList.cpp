@@ -35,7 +35,7 @@ void BufferList<T>::BufferListIterator::next() {
 
 template<typename T>
 bool BufferList<T>::BufferListIterator::isFinish() const {
-    return false;
+    return isFullIterated;
 }
 
 template<typename T>
