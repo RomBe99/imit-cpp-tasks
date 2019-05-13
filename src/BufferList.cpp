@@ -48,7 +48,6 @@ BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
 BufferList<T>::~BufferList() {
-    // FIXME Исправить деструктор BufferList
     BidirectionalListElement *temp = bufferElement->nextElement;
 
     for (int i = 0; i < listSize; i++) {
@@ -56,4 +55,6 @@ BufferList<T>::~BufferList() {
         delete temp;
         temp = bufferElement->nextElement;
     }
+
+    delete temp;
 }
