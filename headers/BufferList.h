@@ -82,18 +82,18 @@ public:
     BufferList();
 
     explicit BufferList(size_t size) {
-        // FIXME Исправить конструктор BufferList
         BidirectionalListElement *temp = bufferElement;
+        this->listSize = size;
 
         for (int i = 0; i < size; i++) {
             temp->nextElement = new BidirectionalListElement();
             temp->nextElement->previousElement = temp;
 
             if (i == size - 1) {
-                temp = temp->nextElement;
-            } else {
                 temp->nextElement = bufferElement;
                 bufferElement->previousElement = temp;
+            } else {
+                temp = temp->nextElement;
             }
         }
 
