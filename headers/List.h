@@ -15,25 +15,25 @@ public:
     /**
      * Вставка нового элемента в любую часть списка.
      *
-     * @param value значение нового элемента.
-     * @param iterator позиция итератора для вставки нового элемента.
+     * @param value значение для указанного элемента.
+     * @param iterator итератор на элемент списка в который хотим вставить значение.
      */
-    virtual void insert(const T value, const Iterator<T> &iterator) = 0;
+    virtual void insert(const T value, const Iterator &iterator) = 0;
 
     /**
-     * Удаляет выбранный итератором элемент.
+     * Удаляет выбранный итератором элемент из списка.
      *
-     * @param iterator выбранный итератором элемент.
+     * @param iterator Итератор на элемент для удаления.
      */
-    virtual void deleteElement(const Iterator<T> &iterator) = 0;
+    virtual void deleteElement(const Iterator &iterator) = 0;
 
     /**
      * Находит первое вохождение значения в список.
      *
      * @param value Значение которое необходимо найти.
-     * @return Ссылка на итератор, который указывает на найденное значение.
+     * @return Указатель на итератор, который указывает на найденное значение.
      */
-    virtual ListElement<T> *firstEnter(const T value) = 0;
+    virtual Iterator *firstEnter(const T value) = 0;
 
     /**
      * Очистка списка.
@@ -43,7 +43,7 @@ public:
     /**
      * Проверяет список на пустоту.
      *
-     * @return Возвращает true - если пуст, false - в ином случае.
+     * @return Возвращает true - если пуст
      */
     virtual bool isEmpty() = 0;
 
@@ -55,11 +55,11 @@ public:
     virtual size_t size() = 0;
 
     /**
-     * Позволяет получить итератор на первый элемент.
+     * Позволяет получить итератор на первый элемент списка.
      *
-     * @return Итератор на первый элемент.
+     * @return Указатель на итератор указываеющего на первый элемент списка.
      */
-    virtual ListElement<T> *begin() = 0;
+    virtual Iterator *begin() = 0;
 };
 
 #endif
