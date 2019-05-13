@@ -15,25 +15,6 @@ BufferList<T>::BidirectionalListElement::BidirectionalListElement(BufferList::Bi
 }
 
 template<typename T>
-void BufferList<T>::BufferListIterator::start() {
-    iterator = bufferElement->nextElement;
-
-    if (isFullIterated) {
-        isFullIterated = false;
-    }
-}
-
-
-template<typename T>
-void BufferList<T>::BufferListIterator::next() {
-    iterator->nextElement;
-
-    if (iterator == bufferElement) {
-        isFullIterated = true;
-    }
-}
-
-template<typename T>
 BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
