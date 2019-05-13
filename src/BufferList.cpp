@@ -15,6 +15,11 @@ BufferList<T>::BidirectionalListElement::BidirectionalListElement(BufferList::Bi
 }
 
 template<typename T>
+BufferList<T>::ListIterator::ListIterator(BufferList::BidirectionalListElement *currentValue) {
+    this->currentValue = currentValue;
+}
+
+template<typename T>
 BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
