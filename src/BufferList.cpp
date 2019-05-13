@@ -34,16 +34,6 @@ void BufferList<T>::BufferListIterator::next() {
 }
 
 template<typename T>
-bool BufferList<T>::BufferListIterator::isFinish() const {
-    return isFullIterated;
-}
-
-template<typename T>
-BufferList<T>::BufferListIterator::BufferListIterator(BufferList::BidirectionalListElement *iterator) {
-    this->iterator = iterator;
-}
-
-template<typename T>
 BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
