@@ -57,7 +57,9 @@ public:
         bool isFullIterated = false;
 
     public:
-        explicit BufferListIterator(BidirectionalListElement *iterator);
+        explicit BufferListIterator(BidirectionalListElement *iterator) {
+            this->iterator = iterator;
+        }
 
         void start() override;
 
@@ -71,7 +73,9 @@ public:
 
         void next() override;
 
-        bool isFinish() const override;
+        bool isFinish() const override {
+            return isFullIterated;
+        }
 
         ~BufferListIterator() {
             iterator = nullptr;
