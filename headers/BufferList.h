@@ -53,10 +53,12 @@ private:
 public:
     class BufferListIterator : public Iterator<BidirectionalListElement> {
     private:
-        BidirectionalListElement *iterator = nullptr;
+        BidirectionalListElement *iterator = bufferElement;
         bool isFullIterated = false;
 
     public:
+        BufferListIterator() = default;
+
         explicit BufferListIterator(BidirectionalListElement *iterator) {
             this->iterator = iterator;
         }
