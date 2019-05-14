@@ -102,6 +102,10 @@ public:
             return isFullIterated;
         }
 
+        const T getValue() const {
+            return currentElement->value;
+        }
+
         ~ListIterator() {
             currentElement = nullptr;
             delete currentElement;
