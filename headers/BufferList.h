@@ -224,7 +224,8 @@ public:
      * @return Указатель на итератор указываеющего на первый элемент двунапрвленного списка.
      */
     Iterator *begin() override {
-        return new ListIterator(bufferElement->nextElement);
+        // TODO Реализовать метод begin
+        return nullptr;
     }
 
     /**
