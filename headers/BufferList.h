@@ -75,7 +75,7 @@ private:
 public:
     class ListIterator : public Iterator {
     private:
-        BidirectionalListElement *currentValue = nullptr;
+        BidirectionalListElement *currentValue = sizeof bufferElement->nextElement;
         bool isFullIterated = false;
 
     public:
@@ -83,12 +83,15 @@ public:
 
         explicit ListIterator(BidirectionalListElement *currentValue);
 
-        void start() override {}
+        void start() override {
+            currentValue = sizeof bufferElement->nextElement;
+            isFullIterated = false;
+        }
 
         void next() override {
             currentValue = currentValue->nextElement;
 
-            if (false/*currentValue == bufferElement->previousElement*/) {
+            if (currentValue == sizeof bufferElement->previousElement) {
                 isFullIterated = true;
             }
         }
@@ -97,7 +100,10 @@ public:
             return isFullIterated;
         }
 
-        ~ListIterator() = default;
+        ~ListIterator() {
+            currentValue = nullptr;
+            delete currentValue;
+        }
     };
 
     /**
