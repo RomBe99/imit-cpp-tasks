@@ -68,7 +68,9 @@ private:
         }
     };
 
-    BidirectionalListElement *bufferElement = new BidirectionalListElement(); // next - начало, prev - конец
+    BidirectionalListElement *bufferElement = new BidirectionalListElement(bufferElement,
+                                                                           BidirectionalListElement::DEFAULT_VALUE,
+                                                                           bufferElement); // next - начало, prev - конец
     size_t listSize = 0;
     const static int DEFAULT_LIST_SIZE = 10;
 
