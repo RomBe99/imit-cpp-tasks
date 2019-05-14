@@ -174,14 +174,13 @@ public:
      * @return Указатель на итератор, который указывает на найденное значение.
      */
     Iterator *firstEnter(T value) {
-        // FIXME Исправить метод firstEnter
-//        auto *iterator = new BufferListIterator(begin());
-//
-//        while (!iterator->isFinish()) {
-//            if (value == iterator->getValue()) {
-//                return iterator->getElement();
-//            }
-//        }
+        auto iterator = new ListIterator();
+
+        while (!iterator->isFinish()) {
+            if (value == iterator->getValue()) {
+                return iterator->getElement();
+            }
+        }
 
         return nullptr;
     }
