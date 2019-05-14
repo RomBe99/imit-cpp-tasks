@@ -79,6 +79,9 @@ private:
     const static int DEFAULT_LIST_SIZE = 10;
 
 public:
+    /**
+     * Класс итератора для двунапрвленного кольцевого списка.
+     */
     class ListIterator : public Iterator {
     private:
         BidirectionalListElement *currentElement = nullptr;
@@ -86,16 +89,27 @@ public:
         bool isFullIterated = false;
 
     public:
+        /**
+         * Конструктор итератора двунапрвленного кольцевого списка по буферному элементу
+         * .
+         * @param listBuffer указатель на буферный элемент двунапрвленного кольцевого списка.
+         */
         explicit ListIterator(BidirectionalListElement *listBuffer) {
             this->currentElement = listBuffer->nextElement;
             this->listBuffer = listBuffer;
         }
 
+        /**
+         * Устанавливает итератор двунапрвленного кольцевого списка на стартовую позицию.
+         */
         void start() override {
             currentElement = listBuffer->nextElement;
             isFullIterated = false;
         }
 
+        /**
+         * Перемещает итератор двунапрвленного кольцевого списка на следующую позицию.
+         */
         void next() override {
             currentElement = currentElement->nextElement;
 
@@ -104,14 +118,27 @@ public:
             }
         }
 
+        /**
+         * Метод для проверки окончания итерации двунапрвленного кольцевого списка.
+         *
+         * @return true - если пройдёны все элементы.
+         */
         bool isFinish() const override {
             return isFullIterated;
         }
 
+        /**
+         * Получить значение элемента на который указывает итератор двунапрвленного кольцевого списка.
+         *
+         * @return значение элемента.
+         */
         const T getValue() const {
             return currentElement->value;
         }
 
+        /**
+         * Деструктор итератора двунапрвленного кольцевого списка.
+         */
         ~ListIterator() {
             currentElement = nullptr;
             delete currentElement;
