@@ -100,6 +100,10 @@ public:
             return isFullIterated;
         }
 
+        BidirectionalListElement getElement() {
+            return currentValue;
+        }
+
         ~ListIterator() {
             currentValue = nullptr;
             delete currentValue;
@@ -178,15 +182,6 @@ public:
      * Очистка двунапрвленного списка.
      */
     void clear() override {
-        // FIXME Исправить метод clear
-        BidirectionalListElement *temp = bufferElement->nextElement;
-
-        for (int i = 0; i < listSize; ++i) {
-            temp->value = BidirectionalListElement::DEFAULT_VALUE;
-        }
-
-        temp = nullptr;
-        delete temp;
     }
 
     /**
