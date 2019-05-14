@@ -6,15 +6,6 @@ BufferList<T>::BidirectionalListElement::BidirectionalListElement(const T value)
                                                                                                             nullptr) {}
 
 template<typename T>
-BufferList<T>::BidirectionalListElement::BidirectionalListElement(BufferList::BidirectionalListElement *nextElement,
-                                                                  T value,
-                                                                  BufferList::BidirectionalListElement *previousElement) {
-    this->nextElement = nextElement;
-    this->value = value;
-    this->previousElement = previousElement;
-}
-
-template<typename T>
 BufferList<T>::ListIterator::ListIterator(BufferList::BidirectionalListElement *currentValue) {
     this->currentElement = currentValue;
 }

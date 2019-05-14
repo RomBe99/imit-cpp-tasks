@@ -43,7 +43,11 @@ private:
          * @param previousElement Указатель на предыдущий элемент нового элемента.
          */
         BidirectionalListElement(BidirectionalListElement *nextElement, T value,
-                                 BidirectionalListElement *previousElement);
+                                 BidirectionalListElement *previousElement) {
+            this->nextElement = nextElement;
+            this->value = value;
+            this->previousElement = previousElement;
+        }
 
         /**
          * Возвращает значение которое хранит элемент двунапрвленного списка.
