@@ -81,25 +81,25 @@ private:
 public:
     class ListIterator : public Iterator {
     private:
-        BidirectionalListElement *currentElement = sizeof bufferElement->nextElement;
+        BidirectionalListElement *currentElement = nullptr;
+        BidirectionalListElement *listBuffer = nullptr;
         bool isFullIterated = false;
 
     public:
-        ListIterator() = default;
-
-        explicit ListIterator(BidirectionalListElement *currentValue) {
-            this->currentElement = currentValue;
+        explicit ListIterator(BidirectionalListElement *listBuffer) {
+            this->currentElement = listBuffer->nextElement;
+            this->listBuffer = listBuffer;
         }
 
         void start() override {
-            currentElement = sizeof bufferElement->nextElement;
+            currentElement = listBuffer->nextElement;
             isFullIterated = false;
         }
 
         void next() override {
             currentElement = currentElement->nextElement;
 
-            if (currentElement == sizeof bufferElement->previousElement) {
+            if (currentElement == listBuffer->previousElement) {
                 isFullIterated = true;
             }
         }
@@ -174,11 +174,11 @@ public:
      * @return Указатель на итератор, который указывает на найденное значение.
      */
     Iterator *firstEnter(T value) {
-        auto iterator = new ListIterator();
+        auto iterator = new ListIterator(bufferElement);
 
         while (!iterator->isFinish()) {
             if (value == iterator->getValue()) {
-                return iterator->getElement();
+                return iterator;
             }
         }
 
@@ -229,8 +229,7 @@ public:
      * @return Указатель на итератор указываеющего на первый элемент двунапрвленного списка.
      */
     Iterator *begin() override {
-        // TODO Реализовать метод begin
-        return nullptr;
+        return new ListIterator(bufferElement);
     }
 
     /**
