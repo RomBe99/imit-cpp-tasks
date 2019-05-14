@@ -184,6 +184,20 @@ public:
      * Очистка двунапрвленного списка.
      */
     void clear() override {
+        BidirectionalListElement *temp = bufferElement->nextElement;
+
+        for (int i = 0; i < listSize; i++) {
+            bufferElement->nextElement = temp->nextElement;
+            delete temp;
+            temp = bufferElement->nextElement;
+        }
+
+        temp->nextElement = temp;
+        temp->previousElement = temp;
+        listSize = 0;
+
+        temp = nullptr;
+        delete temp;
     }
 
     /**
