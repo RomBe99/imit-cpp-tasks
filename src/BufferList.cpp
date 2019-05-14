@@ -24,13 +24,6 @@ BufferList<T>::BufferList() : BufferList(DEFAULT_LIST_SIZE) {}
 
 template<typename T>
 BufferList<T>::~BufferList() {
-    BidirectionalListElement *temp = bufferElement->nextElement;
-
-    for (int i = 0; i < listSize; i++) {
-        bufferElement->nextElement = temp->nextElement;
-        delete temp;
-        temp = bufferElement->nextElement;
-    }
-
-    delete temp;
+    clear();
+    delete bufferElement;
 }
