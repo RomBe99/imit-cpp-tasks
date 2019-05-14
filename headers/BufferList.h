@@ -13,7 +13,6 @@
 template<typename T>
 class BufferList : public List<T> {
 private:
-
     /**
      * Класс элемента двунапрвленного списка.
      */
@@ -74,6 +73,33 @@ private:
     const static int DEFAULT_LIST_SIZE = 10;
 
 public:
+    class ListIterator : public Iterator {
+    private:
+        BidirectionalListElement *currentValue = nullptr;
+        bool isFullIterated = false;
+
+    public:
+        ListIterator() = default;
+
+        explicit ListIterator(BidirectionalListElement *currentValue);
+
+        void start() override {}
+
+        void next() override {
+            currentValue = currentValue->nextElement;
+
+            if (false/*currentValue == bufferElement->previousElement*/) {
+                isFullIterated = true;
+            }
+        }
+
+        bool isFinish() const override {
+            return isFullIterated;
+        }
+
+        ~ListIterator() = default;
+    };
+
     /**
      * Конструктор двунапрвленного списка по умолачнию.
      */
@@ -145,7 +171,7 @@ public:
     /**
      * Очистка двунапрвленного списка.
      */
-    void clear() {
+    void clear() override {
         // FIXME Исправить метод clear
         BidirectionalListElement *temp = bufferElement->nextElement;
 
@@ -162,7 +188,7 @@ public:
      *
      * @return Возвращает true - если пуст
      */
-    bool isEmpty() {
+    bool isEmpty() override {
         return bufferElement->nextElement == nullptr;
     }
 
@@ -171,7 +197,7 @@ public:
      *
      * @return Размер двунапрвленного списка.
      */
-    size_t size() {
+    size_t size() override {
         return listSize;
     }
 
