@@ -87,7 +87,9 @@ public:
     public:
         ListIterator() = default;
 
-        explicit ListIterator(BidirectionalListElement *currentValue);
+        explicit ListIterator(BidirectionalListElement *currentValue) {
+            this->currentElement = currentValue;
+        }
 
         void start() override {
             currentElement = sizeof bufferElement->nextElement;
