@@ -25,7 +25,7 @@ public:
      *
      * @param iterator Итератор на элемент для удаления.
      */
-    virtual void deleteElement(const Iterator &iterator) = 0;
+    virtual void deleteElement(Iterator &iterator) = 0;
 
     /**
      * Находит первое вохождение значения в список.

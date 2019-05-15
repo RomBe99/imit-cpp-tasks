@@ -74,7 +74,7 @@ private:
 
     BidirectionalListElement *bufferElement = new BidirectionalListElement(bufferElement,
                                                                            BidirectionalListElement::DEFAULT_VALUE,
-                                                                           bufferElement); // next - начало, prev - конец
+                                                                           bufferElement);
     size_t listSize = 0;
     const static int DEFAULT_LIST_SIZE = 10;
 
@@ -190,7 +190,7 @@ public:
      *
      * @param iterator Итератор на элемент для удаления.
      */
-    void deleteElement(const Iterator &iterator) {
+    void deleteElement(Iterator &iterator) {
         // TODO Реализовать метод deleteElement
     }
 
