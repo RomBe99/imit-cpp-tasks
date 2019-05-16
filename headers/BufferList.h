@@ -141,7 +141,10 @@ public:
          */
         ~ListIterator() {
             currentElement = nullptr;
+            listBuffer = nullptr;
+
             delete currentElement;
+            delete listBuffer;
         }
     };
 
