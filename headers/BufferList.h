@@ -82,7 +82,7 @@ public:
     /**
      * Класс итератора для двунапрвленного кольцевого списка.
      */
-    class ListIterator : public Iterator {
+    class ListIterator : public Iterator<T> {
     private:
         BidirectionalListElement *currentElement = nullptr;
         BidirectionalListElement *listBuffer = nullptr;
@@ -132,7 +132,7 @@ public:
          *
          * @return значение элемента.
          */
-        const T getValue() const {
+        const T getValue() const override {
             return currentElement->value;
         }
 
@@ -184,7 +184,7 @@ public:
      * @param value значение для указанного элемента.
      * @param iterator итератор на элемент списка в который хотим вставить значение.
      */
-    void insert(T value, const Iterator &iterator) {
+    void insert(T value, const Iterator<T> &iterator) {
         // TODO Реализовать метод insert
     }
 
@@ -193,7 +193,7 @@ public:
      *
      * @param iterator Итератор на элемент для удаления.
      */
-    void deleteElement(Iterator &iterator) {
+    void deleteElement(Iterator<T> &iterator) {
         // TODO Реализовать метод deleteElement
     }
 
@@ -203,7 +203,7 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Указатель на итератор, который указывает на найденное значение.
      */
-    Iterator *firstEnter(T value) {
+    Iterator<T> *firstEnter(T value) {
         auto iterator = new ListIterator(bufferElement);
 
         while (!iterator->isFinish()) {
@@ -258,7 +258,7 @@ public:
      *
      * @return Указатель на итератор указываеющего на первый элемент двунапрвленного кольцевого списка.
      */
-    Iterator *begin() override {
+    Iterator<T> *begin() override {
         return new ListIterator(bufferElement);
     }
 

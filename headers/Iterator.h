@@ -5,7 +5,10 @@
 
 /**
  * Класс абстракного итератора.
+ *
+ * @tparam T любой примитивный тип данных.
  */
+template<typename T>
 class Iterator {
 public:
     /**
@@ -24,6 +27,13 @@ public:
      * @return true - если пройдёны все элементы структуры данных.
      */
     virtual bool isFinish() const = 0;
+
+    /**
+     * Получить значение элемента на который указывает итератор.
+     *
+     * @return значение элемента.
+     */
+    virtual const T getValue() const = 0;
 };
 
 #endif
