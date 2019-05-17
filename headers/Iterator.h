@@ -2,6 +2,7 @@
 #define CPP_TASKS_ITERATOR_H
 
 #include "List.h"
+#include "ListElement.h"
 
 /**
  * Класс абстракного итератора.
@@ -34,6 +35,13 @@ public:
      * @return значение элемента.
      */
     virtual const T getValue() const = 0;
+
+    /**
+     * Получить указатель на абстрактный класс элемента.
+     *
+     * @return Указатель на абстрактный класс элемента.
+     */
+    virtual ListElement<T> *getCurrentElement() = 0;
 };
 
 #endif
