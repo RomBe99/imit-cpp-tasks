@@ -88,6 +88,16 @@ public:
         BidirectionalListElement *listBuffer = nullptr;
         bool isFullIterated = false;
 
+    protected:
+        /**
+         * Получить указатель на класс элемента двунапрвленного списка.
+         *
+         * @return Указатель на класс элемента двунапрвленного списка.
+         */
+        ListElement<T> *getElement() override {
+            return *currentElement;
+        }
+
     public:
         /**
          * Конструктор итератора двунапрвленного кольцевого списка по буферному элементу
