@@ -255,7 +255,7 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Указатель на итератор, который указывает на найденное значение.
      */
-    Iterator<T> *firstEnter(T value) {
+    Iterator<T> *firstEnter(const T value) override {
         auto iterator = new ListIterator(bufferElement);
 
         while (!iterator->isFinish()) {
