@@ -220,6 +220,7 @@ public:
 
         auto element = temp->getCurrentElement();
         element->nextElement = new BidirectionalListElement(element->nextElement, value, element->nextElement->previousElement);
+        element->nextElement->nextElement->previousElement = element->nextElement;
 
         this->listSize += 1;
     }
