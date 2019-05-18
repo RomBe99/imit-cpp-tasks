@@ -21,6 +21,14 @@ public:
     virtual void setValue(const T value, Iterator<T> &iterator) = 0;
 
     /**
+     * Вставляет новый элемент в список после элемента на который указывает итератор.
+     *
+     * @param value значение новго элемента.
+     * @param iterator итератор на элемент списка после которого хотим вставить новый элемент.
+     */
+    virtual void insert(const T value, Iterator<T> &iterator) = 0;
+
+    /**
      * Удаляет выбранный итератором элемент из списка.
      *
      * @param iterator Итератор на элемент для удаления.
