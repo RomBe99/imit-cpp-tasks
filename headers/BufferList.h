@@ -293,7 +293,7 @@ public:
      * @return Возвращает true - если пуст
      */
     bool isEmpty() override {
-        return bufferElement->nextElement == nullptr;
+        return bufferElement->nextElement == bufferElement;
     }
 
     /**
