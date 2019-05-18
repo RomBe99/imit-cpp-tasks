@@ -112,10 +112,11 @@ public:
          * Перемещает итератор двунапрвленного кольцевого списка на следующую позицию.
          */
         void next() override {
-            currentElement = currentElement->nextElement;
-
-            if (currentElement == listBuffer->previousElement) {
+            if (currentElement->nextElement == listBuffer) {
+                currentElement = listBuffer->nextElement;
                 isFullIterated = true;
+            } else {
+                currentElement = currentElement->nextElement;
             }
         }
 
