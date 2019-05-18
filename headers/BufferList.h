@@ -230,7 +230,23 @@ public:
      * @param iterator Итератор на элемент для удаления.
      */
     void deleteElement(Iterator<T> &iterator) {
-        // TODO Реализовать метод deleteElement
+        if (this->listSize == 0) {
+            throw std::exception();
+        }
+
+        auto temp = new ListIterator(bufferElement);
+
+        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
+            temp->next();
+        }
+
+        auto element = temp->getCurrentElement();
+        element->previousElement->nextElement = element->nextElement;
+        element->nextElement->previousElement = element->previousElement;
+
+        temp->next();
+        this->listSize -= 1;
+        delete element;
     }
 
     /**
