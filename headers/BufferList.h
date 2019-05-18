@@ -206,6 +206,25 @@ public:
     }
 
     /**
+     * Вставляет новый элемент в двунапрвленный кольцевой список после элемента на который указывает итератор.
+     *
+     * @param value значение новго элемента.
+     * @param iterator итератор на элемент двунапрвленного кольцевого списка после которого хотим вставить новый элемент.
+     */
+    void insert(const T value, Iterator<T> &iterator) override {
+        auto temp = new ListIterator(bufferElement);
+
+        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
+            temp->next();
+        }
+
+        auto element = temp->getCurrentElement();
+        element->nextElement = new BidirectionalListElement(element->nextElement, value, element->nextElement->previousElement);
+
+        this->listSize += 1;
+    }
+
+    /**
      * Удаляет выбранный итератором элемент из двунапрвленного кольцевого списка.
      *
      * @param iterator Итератор на элемент для удаления.
