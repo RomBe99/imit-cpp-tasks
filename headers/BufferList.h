@@ -35,7 +35,7 @@ private:
          *
          * @param value Значение нового элемента.
          */
-        explicit BidirectionalListElement(T value);
+        explicit BidirectionalListElement(T value) : BidirectionalListElement(nullptr, value, nullptr) {}
 
         /**
          * Конструктор элемента двунапрвленного списка по значению и указателям на предыдущий и последующий элемент.
@@ -317,7 +317,10 @@ public:
     /**
      * Деструктор  двунапрвленного кольцевого списка.
      */
-    ~BufferList();
+    ~BufferList() {
+        clear();
+        delete bufferElement;
+    }
 };
 
 #endif
