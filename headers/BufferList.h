@@ -259,6 +259,8 @@ public:
         auto iterator = new ListIterator(bufferElement);
 
         while (!iterator->isFinish()) {
+            iterator->next();
+
             if (value == iterator->getValue()) {
                 return iterator;
             }
