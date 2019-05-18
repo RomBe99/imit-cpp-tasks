@@ -78,7 +78,6 @@ private:
                                                                            BidirectionalListElement::DEFAULT_VALUE,
                                                                            bufferElement);
     size_t listSize = 0;
-    const static int DEFAULT_LIST_SIZE = 10;
 
 public:
     /**
