@@ -2,6 +2,8 @@
 #define CPP_TASKS_BUFFERLIST_H
 
 #include <cstddef>
+#include <cstdio>
+#include <iostream>
 #include "List.h"
 #include "ListElement.h"
 
@@ -88,16 +90,6 @@ public:
         BidirectionalListElement *listBuffer = nullptr;
         bool isFullIterated = false;
 
-    protected:
-        /**
-         * Получить указатель на класс элемента двунапрвленного списка.
-         *
-         * @return Указатель на класс элемента двунапрвленного списка.
-         */
-        ListElement<T> *getElement() override {
-            return *currentElement;
-        }
-
     public:
         /**
          * Конструктор итератора двунапрвленного кольцевого списка по буферному элементу
@@ -144,6 +136,15 @@ public:
          */
         const T getValue() const override {
             return currentElement->value;
+        }
+
+        /**
+         * Получить указатель на класс элемента двунапрвленного списка.
+         *
+         * @return Указатель на класс элемента двунапрвленного списка.
+         */
+        BidirectionalListElement *getCurrentElement() override {
+            return currentElement;
         }
 
         /**
@@ -194,8 +195,14 @@ public:
      * @param value значение для указанного элемента.
      * @param iterator итератор на элемент списка в который хотим вставить значение.
      */
-    void insert(T value, const Iterator<T> &iterator) {
-        // TODO Реализовать метод insert
+    void setValue(const T value, Iterator<T> &iterator) override {
+        auto temp = new ListIterator(bufferElement);
+
+        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
+            temp->next();
+        }
+
+        temp->getCurrentElement()->value = value;
     }
 
     /**

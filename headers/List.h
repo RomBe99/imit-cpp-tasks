@@ -18,7 +18,7 @@ public:
      * @param value значение для указанного элемента.
      * @param iterator итератор на элемент списка в который хотим вставить значение.
      */
-    virtual void insert(const T value, const Iterator<T> &iterator) = 0;
+    virtual void setValue(const T value, Iterator<T> &iterator) = 0;
 
     /**
      * Удаляет выбранный итератором элемент из списка.
