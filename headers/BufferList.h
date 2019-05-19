@@ -31,13 +31,6 @@ private:
         BidirectionalListElement() = default;
 
         /**
-         * Конструктор элемента двунапрвленного списка по значению.
-         *
-         * @param value Значение нового элемента.
-         */
-        explicit BidirectionalListElement(T value) : BidirectionalListElement(nullptr, value, nullptr) {}
-
-        /**
          * Конструктор элемента двунапрвленного списка по значению и указателям на предыдущий и последующий элемент.
          *
          * @param nextElement Указатель на следующий элемент нового элемента.
