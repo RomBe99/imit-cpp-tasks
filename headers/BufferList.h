@@ -173,11 +173,11 @@ public:
         BidirectionalListElement *temp = bufferElement;
         this->listSize = size;
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i <= size; i++) {
             temp->nextElement = new BidirectionalListElement();
             temp->nextElement->previousElement = temp;
 
-            if (i == size - 1) {
+            if (i == size) {
                 temp->nextElement = bufferElement;
                 bufferElement->previousElement = temp;
             } else {
