@@ -61,6 +61,11 @@ bool HashTable::isEmpty() const
     return true;
 }
 
+HashTable::HashTableIterator* HashTable::begin()
+{
+    return new HashTableIterator(*this);
+}
+
 int HashTable::intHashCode(const int id) const
 {
     return id % layersCount;
@@ -69,4 +74,35 @@ int HashTable::intHashCode(const int id) const
 HashTable::~HashTable()
 {
     delete layers;
+}
+
+HashTable::HashTableIterator::HashTableIterator(HashTable& hashTableForIterate)
+        :hashTableForIterate(hashTableForIterate) {}
+
+void HashTable::HashTableIterator::start()
+{
+    isFullIterated = false;
+    currentLayer = 0;
+    currentPosition = 0;
+}
+
+void HashTable::HashTableIterator::next()
+{
+    if (currentPosition + 1 < hashTableForIterate.layers[currentLayer].size()) {
+        currentPosition++;
+    }
+    else {
+        currentPosition = 0;
+        currentLayer = currentLayer + 1 < hashTableForIterate.layersCount ? currentLayer + 1 : 0;
+    }
+}
+
+bool HashTable::HashTableIterator::isFinish() const
+{
+    return isFullIterated;
+}
+
+const int HashTable::HashTableIterator::getValue() const
+{
+    return hashTableForIterate.layers[currentLayer].at(currentPosition).value;
 }
