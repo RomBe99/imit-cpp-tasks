@@ -1,25 +1,30 @@
 #include "../headers/RingBuffer.h"
 
-void RingBuffer::postIncrementIn() {
+void RingBuffer::postIncrementIn()
+{
     if (in < bufferSize) {
         in++;
-    } else {
+    }
+    else {
         in = 0;
         bufferIsFull = true;
     }
 }
 
-void RingBuffer::postIncrementOut() {
+void RingBuffer::postIncrementOut()
+{
     if (out < bufferSize) {
         out++;
-    } else {
+    }
+    else {
         out = 0;
         bufferIsEmpty = true;
     }
 }
 
-RingBuffer::RingBuffer(const size_t bufferSize) {
-    this->bufferSize = bufferSize;
+RingBuffer::RingBuffer(const size_t bufferSize)
+{
+    this -> bufferSize = bufferSize;
 
     buffer = new RingBufferElement[bufferSize];
 
@@ -27,7 +32,8 @@ RingBuffer::RingBuffer(const size_t bufferSize) {
     tail = head + bufferSize - 1;
 }
 
-void RingBuffer::pushBack(const int value) {
+void RingBuffer::pushBack(const int value)
+{
     if (bufferIsFull) {
         throw 1;
     }
@@ -36,36 +42,39 @@ void RingBuffer::pushBack(const int value) {
         bufferIsEmpty = false;
     }
 
-    buffer[in].isEmpty = false;
-    buffer[in].value = value;
+    buffer[in] . isEmpty = false;
+    buffer[in] . value = value;
 
     postIncrementIn();
 }
 
-int RingBuffer::popFirst() {
+int RingBuffer::popFirst()
+{
     int returnedValue = getFirst();
 
     if (bufferIsFull) {
         bufferIsFull = false;
     }
 
-    buffer[out].isEmpty = false;
-    buffer[out].value = 0;
+    buffer[out] . isEmpty = false;
+    buffer[out] . value = 0;
 
     postIncrementOut();
 
     return returnedValue;
 }
 
-int RingBuffer::getFirst() const {
+int RingBuffer::getFirst() const
+{
     if (bufferIsEmpty) {
         throw 2;
     }
 
-    return buffer[out].value;
+    return buffer[out] . value;
 }
 
-void RingBuffer::clear() {
+void RingBuffer::clear()
+{
     if (bufferIsEmpty) {
         return;
     }
@@ -79,31 +88,37 @@ void RingBuffer::clear() {
     out = 0;
 
     for (int i = 0; i < bufferSize; i++) {
-        buffer[i].isEmpty = false;
-        buffer[i].value = 0;
+        buffer[i] . isEmpty = false;
+        buffer[i] . value = 0;
     }
 }
 
-size_t RingBuffer::size() const {
+size_t RingBuffer::size() const
+{
     return bufferSize;
 }
 
-bool RingBuffer::isEmpty() const {
+bool RingBuffer::isEmpty() const
+{
     return bufferIsEmpty;
 }
 
-bool RingBuffer::isFull() const {
+bool RingBuffer::isFull() const
+{
     return bufferIsFull;
 }
 
-RingBuffer::RingBufferElement *RingBuffer::getHead() const {
+RingBuffer::RingBufferElement* RingBuffer::getHead() const
+{
     return head;
 }
 
-RingBuffer::RingBufferElement *RingBuffer::getTail() const {
+RingBuffer::RingBufferElement* RingBuffer::getTail() const
+{
     return tail;
 }
 
-RingBuffer::~RingBuffer() {
+RingBuffer::~RingBuffer()
+{
     delete[]buffer;
 }

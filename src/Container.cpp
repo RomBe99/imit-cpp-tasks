@@ -1,6 +1,7 @@
 #include "../headers/Container.h"
 
-Container::Container(const int length, const int width, const int height, const double maxWeight) {
+Container::Container(const int length, const int width, const int height, const double maxWeight)
+{
     setLength(length);
     setWidth(width);
     setHeight(height);
@@ -9,76 +10,93 @@ Container::Container(const int length, const int width, const int height, const 
     currentWeight = 0;
 }
 
-const vector<Box> &Container::getContainer() const {
+const vector<Box>& Container::getContainer() const
+{
     return container;
 }
 
-void Container::setLength(int length) {
+void Container::setLength(int length)
+{
     Container::length = length;
 }
 
-void Container::setWidth(int width) {
+void Container::setWidth(int width)
+{
     Container::width = width;
 }
 
-void Container::setHeight(int height) {
+void Container::setHeight(int height)
+{
     Container::height = height;
 }
 
-void Container::setMaxWeight(const double maxWeight) {
+void Container::setMaxWeight(const double maxWeight)
+{
     Container::maxWeight = maxWeight;
 }
 
-void Container::setCurrentWeight(const double currentWeight) {
+void Container::setCurrentWeight(const double currentWeight)
+{
     Container::currentWeight = currentWeight;
 }
 
-int Container::getLength() const {
+int Container::getLength() const
+{
     return length;
 }
 
-int Container::getWidth() const {
+int Container::getWidth() const
+{
     return width;
 }
 
-int Container::getHeight() const {
+int Container::getHeight() const
+{
     return height;
 }
 
-double Container::getMaxWeight() const {
+double Container::getMaxWeight() const
+{
     return maxWeight;
 }
 
-double Container::getCurrentWeight() const {
+double Container::getCurrentWeight() const
+{
     return currentWeight;
 }
 
-unsigned long Container::boxesNumber() {
-    return container.size();
+unsigned long Container::boxesNumber()
+{
+    return container . size();
 }
 
-Box Container::getBox(const unsigned long index) {
-    return container.at(index);
+Box Container::getBox(const unsigned long index)
+{
+    return container . at(index);
 }
 
-void Container::setCurrentValue(double currentValue) {
+void Container::setCurrentValue(double currentValue)
+{
     Container::currentValue = currentValue;
 }
 
-void Container::deleteBox(const unsigned long index) {
-    setCurrentValue(currentValue - this->getBox(index).getValue());
-    setCurrentWeight(currentWeight - this->getBox(index).getWeight());
+void Container::deleteBox(const unsigned long index)
+{
+    setCurrentValue(currentValue - this -> getBox(index) . getValue());
+    setCurrentWeight(currentWeight - this -> getBox(index) . getWeight());
 
-    container.erase(container.begin() + index);
+    container . erase(container . begin() + index);
 }
 
-Box Container::operator[](const unsigned int index) {
-    return this->getBox(index);
+Box Container::operator[](const unsigned int index)
+{
+    return this -> getBox(index);
 }
 
-void Container::setBox(const unsigned long index, const Box box) {
-    setCurrentValue(currentValue - this->getBox(index).getValue() + box.getValue());
-    setCurrentWeight(currentWeight - this->getBox(index).getWeight() + box.getWeight());
+void Container::setBox(const unsigned long index, const Box box)
+{
+    setCurrentValue(currentValue - this -> getBox(index) . getValue() + box . getValue());
+    setCurrentWeight(currentWeight - this -> getBox(index) . getWeight() + box . getWeight());
 
-    container.push_back(box);
+    container . push_back(box);
 }

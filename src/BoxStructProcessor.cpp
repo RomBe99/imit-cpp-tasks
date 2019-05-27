@@ -2,19 +2,21 @@
 
 using namespace BoxStruct;
 
-double BoxStructProcessor::boxPrice(const int arrSize, const Box *boxes) {
+double BoxStructProcessor::boxPrice(const int arrSize, const Box* boxes)
+{
     double price = 0;
 
     for (int i = 0; i < arrSize; i++) {
-        price += boxes[i].value;
+        price += boxes[i] . value;
     }
 
     return price;
 }
 
-bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box *boxes, int maxP) {
+bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box* boxes, int maxP)
+{
     for (int i = 0; i < arrSize; i++) {
-        if (boxes[i].width + boxes[i].height + boxes[i].length > maxP) {
+        if (boxes[i] . width + boxes[i] . height + boxes[i] . length > maxP) {
             return false;
         }
     }
@@ -22,12 +24,13 @@ bool BoxStructProcessor::isSizeAllBoxesSmaller(const int arrSize, const Box *box
     return true;
 }
 
-double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *boxes, const double maxV) {
+double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box* boxes, const double maxV)
+{
     int volume = 0;
     int temp;
 
     for (int i = 0; i < arrSize; i++) {
-        temp = boxes[i].width * boxes[i].height * boxes[i].length;
+        temp = boxes[i] . width * boxes[i] . height * boxes[i] . length;
 
         if (temp < maxV) {
             volume += temp;
@@ -37,7 +40,8 @@ double BoxStructProcessor::maxWeightSmallerMaxW(const int arrSize, const Box *bo
     return volume;
 }
 
-bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
+bool BoxStructProcessor::isAllBox(const int arrSize, Box* boxes)
+{
     Box temp;
 
     for (int i = 0; i < arrSize; i++) {
@@ -51,8 +55,8 @@ bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
     }
 
     for (int i = 0; i < arrSize - 1; i++) {
-        if (boxes[i].height <= boxes[i + 1].height || boxes[i].width <= boxes[i + 1].width ||
-            boxes[i].length <= boxes[i + 1].length) {
+        if (boxes[i] . height <= boxes[i + 1] . height || boxes[i] . width <= boxes[i + 1] . width ||
+                boxes[i] . length <= boxes[i + 1] . length) {
             return false;
         }
     }
@@ -60,6 +64,7 @@ bool BoxStructProcessor::isAllBox(const int arrSize, Box *boxes) {
     return true;
 }
 
-int BoxStructProcessor::calculateVolume(const Box box) {
-    return box.length * box.height * box.width;
+int BoxStructProcessor::calculateVolume(const Box box)
+{
+    return box . length * box . height * box . width;
 }

@@ -6,18 +6,19 @@
 class HashTable {
 private:
     struct HashElement {
-        int key = 0;
-        int value = 0;
+      int key = 0;
+      int value = 0;
 
-        HashElement(int key, int value);
+      HashElement(int key, int value);
     };
 
     size_t layersCount;
-    std::vector<HashElement> *layers;
+    std::vector<HashElement>* layers;
     const static size_t DEFAULT_SIZE = 10;
 
 public:
-    HashTable() : HashTable(DEFAULT_SIZE) {}
+    HashTable()
+            :HashTable(DEFAULT_SIZE) {}
 
     explicit HashTable(const size_t layersCount);
 

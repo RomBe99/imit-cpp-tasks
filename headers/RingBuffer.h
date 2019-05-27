@@ -6,16 +6,16 @@
 class RingBuffer {
 public:
     struct RingBufferElement {
-        bool isEmpty = true;
-        int value = 0;
+      bool isEmpty = true;
+      int value = 0;
     };
 
 private:
-    RingBufferElement *buffer;
+    RingBufferElement* buffer;
     std::size_t bufferSize;
 
-    RingBufferElement *head;
-    RingBufferElement *tail;
+    RingBufferElement* head;
+    RingBufferElement* tail;
 
     bool bufferIsEmpty = true;
     bool bufferIsFull = false;
@@ -44,9 +44,9 @@ public:
 
     bool isFull() const;
 
-    RingBufferElement *getHead() const;
+    RingBufferElement* getHead() const;
 
-    RingBufferElement *getTail() const;
+    RingBufferElement* getTail() const;
 
     ~RingBuffer();
 };

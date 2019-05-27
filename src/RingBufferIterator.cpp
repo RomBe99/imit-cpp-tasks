@@ -1,13 +1,15 @@
 #include "../headers/RingBufferIterator.h"
 
-RingBufferIterator::RingBufferIterator(RingBuffer *ringBufferForIteration) {
-    this->ringBufferForIteration = ringBufferForIteration;
-    iterator = ringBufferForIteration->getHead();
+RingBufferIterator::RingBufferIterator(RingBuffer* ringBufferForIteration)
+{
+    this -> ringBufferForIteration = ringBufferForIteration;
+    iterator = ringBufferForIteration -> getHead();
 }
 
-void RingBufferIterator::start() {
-    if (iterator != ringBufferForIteration->getHead()) {
-        iterator = ringBufferForIteration->getHead();
+void RingBufferIterator::start()
+{
+    if (iterator != ringBufferForIteration -> getHead()) {
+        iterator = ringBufferForIteration -> getHead();
     }
 
     if (isFullIterated) {
@@ -15,32 +17,38 @@ void RingBufferIterator::start() {
     }
 }
 
-void RingBufferIterator::next() {
-    if (iterator == ringBufferForIteration->getTail()) {
-        iterator = ringBufferForIteration->getHead();
+void RingBufferIterator::next()
+{
+    if (iterator == ringBufferForIteration -> getTail()) {
+        iterator = ringBufferForIteration -> getHead();
         isFullIterated = true;
-    } else {
+    }
+    else {
         iterator++;
     }
 }
 
-bool RingBufferIterator::finish() {
+bool RingBufferIterator::finish()
+{
     return isFullIterated;
 }
 
-int RingBufferIterator::getValue() {
-    if (iterator->isEmpty) {
+int RingBufferIterator::getValue()
+{
+    if (iterator -> isEmpty) {
         throw 3;
     }
 
-    return iterator->value;
+    return iterator -> value;
 }
 
-bool RingBufferIterator::isEmpty() {
-    return iterator->isEmpty;
+bool RingBufferIterator::isEmpty()
+{
+    return iterator -> isEmpty;
 }
 
-RingBufferIterator::~RingBufferIterator() {
+RingBufferIterator::~RingBufferIterator()
+{
     ringBufferForIteration = nullptr;
     iterator = nullptr;
 }

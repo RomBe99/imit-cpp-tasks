@@ -2,41 +2,41 @@
 #define CPP_TASKS_BOXCLASS_H
 
 namespace BoxClass {
-    class Box {
-    private:
-        int length;
-        int width;
-        int height;
-        double weight; // kg
-        double value; // cop
+class Box {
+private:
+    int length;
+    int width;
+    int height;
+    double weight; // kg
+    double value; // cop
 
-    public:
-        Box();
+public:
+    Box();
 
-        Box(const int length, const int width, const int height, const double weight, const double value);
+    Box(const int length, const int width, const int height, const double weight, const double value);
 
-        void setLength(const int length);
+    void setLength(const int length);
 
-        void setWidth(const int width);
+    void setWidth(const int width);
 
-        void setHeight(const int height);
+    void setHeight(const int height);
 
-        void setWeight(const double weight);
+    void setWeight(const double weight);
 
-        void setValue(const double value);
+    void setValue(const double value);
 
-        int getLength() const;
+    int getLength() const;
 
-        int getWidth() const;
+    int getWidth() const;
 
-        int getHeight() const;
+    int getHeight() const;
 
-        double getWeight() const;
+    double getWeight() const;
 
-        double getValue() const;
+    double getValue() const;
 
-        virtual ~Box() = default;
-    };
+    virtual ~Box() = default;
+};
 }
 
 #endif

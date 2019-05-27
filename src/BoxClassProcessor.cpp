@@ -1,18 +1,20 @@
 #include "../headers/BoxClassProcessor.h"
 
-double BoxClassProcessor::boxPrice(const int arrSize, Box *boxes) {
+double BoxClassProcessor::boxPrice(const int arrSize, Box* boxes)
+{
     double price = 0;
 
     for (int i = 0; i < arrSize; i++) {
-        price += boxes[i].getValue();
+        price += boxes[i] . getValue();
     }
 
     return price;
 }
 
-bool BoxClassProcessor::isSizeAllBoxesSmaller(const int arrSize, const BoxClass::Box *boxes, int maxP) {
+bool BoxClassProcessor::isSizeAllBoxesSmaller(const int arrSize, const BoxClass::Box* boxes, int maxP)
+{
     for (int i = 0; i < arrSize; i++) {
-        if (boxes[i].getWidth() + boxes[i].getHeight() + boxes[i].getLength() > maxP) {
+        if (boxes[i] . getWidth() + boxes[i] . getHeight() + boxes[i] . getLength() > maxP) {
             return false;
         }
     }
@@ -20,12 +22,13 @@ bool BoxClassProcessor::isSizeAllBoxesSmaller(const int arrSize, const BoxClass:
     return true;
 }
 
-double BoxClassProcessor::maxWeightSmallerMaxW(const int arrSize, const BoxClass::Box *boxes, const double maxV) {
+double BoxClassProcessor::maxWeightSmallerMaxW(const int arrSize, const BoxClass::Box* boxes, const double maxV)
+{
     int volume = 0;
     int temp;
 
     for (int i = 0; i < arrSize; i++) {
-        temp = boxes[i].getWidth() * boxes[i].getHeight() * boxes[i].getLength();
+        temp = boxes[i] . getWidth() * boxes[i] . getHeight() * boxes[i] . getLength();
 
         if (temp < maxV) {
             volume += temp;
@@ -35,7 +38,8 @@ double BoxClassProcessor::maxWeightSmallerMaxW(const int arrSize, const BoxClass
     return volume;
 }
 
-bool BoxClassProcessor::isAllBox(const int arrSize, BoxClass::Box *boxes) {
+bool BoxClassProcessor::isAllBox(const int arrSize, BoxClass::Box* boxes)
+{
     Box temp;
 
     for (int i = 0; i < arrSize; i++) {
@@ -49,8 +53,9 @@ bool BoxClassProcessor::isAllBox(const int arrSize, BoxClass::Box *boxes) {
     }
 
     for (int i = 0; i < arrSize - 1; i++) {
-        if (boxes[i].getHeight() <= boxes[i + 1].getHeight() || boxes[i].getWidth() <= boxes[i + 1].getWidth() ||
-            boxes[i].getLength() <= boxes[i + 1].getLength()) {
+        if (boxes[i] . getHeight() <= boxes[i + 1] . getHeight() || boxes[i] . getWidth() <= boxes[i + 1] . getWidth()
+                ||
+                        boxes[i] . getLength() <= boxes[i + 1] . getLength()) {
             return false;
         }
     }
@@ -58,6 +63,7 @@ bool BoxClassProcessor::isAllBox(const int arrSize, BoxClass::Box *boxes) {
     return true;
 }
 
-int BoxClassProcessor::calculateVolume(const Box box) {
-    return box.getLength() * box.getHeight() * box.getWidth();
+int BoxClassProcessor::calculateVolume(const Box box)
+{
+    return box . getLength() * box . getHeight() * box . getWidth();
 }

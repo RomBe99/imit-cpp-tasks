@@ -20,9 +20,9 @@ private:
      */
     class BidirectionalListElement : public ListElement<T> {
     public:
-        BidirectionalListElement *nextElement = nullptr;
+        BidirectionalListElement* nextElement = nullptr;
         T value = DEFAULT_VALUE;
-        BidirectionalListElement *previousElement = nullptr;
+        BidirectionalListElement* previousElement = nullptr;
         const static int DEFAULT_VALUE = 0;
 
         /**
@@ -37,11 +37,12 @@ private:
          * @param value Значение нового элемента.
          * @param previousElement Указатель на предыдущий элемент нового элемента.
          */
-        BidirectionalListElement(BidirectionalListElement *nextElement, T value,
-                                 BidirectionalListElement *previousElement) {
-            this->nextElement = nextElement;
-            this->value = value;
-            this->previousElement = previousElement;
+        BidirectionalListElement(BidirectionalListElement* nextElement, T value,
+                BidirectionalListElement* previousElement)
+        {
+            this -> nextElement = nextElement;
+            this -> value = value;
+            this -> previousElement = previousElement;
         }
 
         /**
@@ -49,14 +50,16 @@ private:
          *
          * @return значение которое хранит элемент.
          */
-        T getValue() const override {
+        T getValue() const override
+        {
             return value;
         }
 
         /**
          * Деструктор элемента двунапрвленного списка.
          */
-        ~BidirectionalListElement() {
+        ~BidirectionalListElement()
+        {
             value = 0;
 
             nextElement = nullptr;
@@ -67,9 +70,9 @@ private:
         }
     };
 
-    BidirectionalListElement *bufferElement = new BidirectionalListElement(bufferElement,
-                                                                           BidirectionalListElement::DEFAULT_VALUE,
-                                                                           bufferElement);
+    BidirectionalListElement* bufferElement = new BidirectionalListElement(bufferElement,
+            BidirectionalListElement::DEFAULT_VALUE,
+            bufferElement);
     size_t listSize = 0;
 
 public:
@@ -78,8 +81,8 @@ public:
      */
     class ListIterator : public Iterator<T> {
     private:
-        BidirectionalListElement *currentElement = nullptr;
-        BidirectionalListElement *listBuffer = nullptr;
+        BidirectionalListElement* currentElement = nullptr;
+        BidirectionalListElement* listBuffer = nullptr;
         bool isFullIterated = false;
 
     public:
@@ -88,28 +91,32 @@ public:
          * .
          * @param listBuffer указатель на буферный элемент двунапрвленного кольцевого списка.
          */
-        explicit ListIterator(BidirectionalListElement *listBuffer) {
-            this->currentElement = listBuffer->nextElement;
-            this->listBuffer = listBuffer;
+        explicit ListIterator(BidirectionalListElement* listBuffer)
+        {
+            this -> currentElement = listBuffer -> nextElement;
+            this -> listBuffer = listBuffer;
         }
 
         /**
          * Устанавливает итератор двунапрвленного кольцевого списка на стартовую позицию.
          */
-        void start() override {
-            currentElement = listBuffer->nextElement;
+        void start() override
+        {
+            currentElement = listBuffer -> nextElement;
             isFullIterated = false;
         }
 
         /**
          * Перемещает итератор двунапрвленного кольцевого списка на следующую позицию.
          */
-        void next() override {
-            if (currentElement->nextElement == listBuffer) {
-                currentElement = listBuffer->nextElement;
+        void next() override
+        {
+            if (currentElement -> nextElement == listBuffer) {
+                currentElement = listBuffer -> nextElement;
                 isFullIterated = true;
-            } else {
-                currentElement = currentElement->nextElement;
+            }
+            else {
+                currentElement = currentElement -> nextElement;
             }
         }
 
@@ -118,7 +125,8 @@ public:
          *
          * @return true - если пройдёны все элементы.
          */
-        bool isFinish() const override {
+        bool isFinish() const override
+        {
             return isFullIterated;
         }
 
@@ -127,8 +135,9 @@ public:
          *
          * @return значение элемента.
          */
-        const T getValue() const override {
-            return currentElement->value;
+        const T getValue() const override
+        {
+            return currentElement -> value;
         }
 
         /**
@@ -136,14 +145,16 @@ public:
          *
          * @return Указатель на класс элемента двунапрвленного списка.
          */
-        BidirectionalListElement *getCurrentElement() override {
+        BidirectionalListElement* getCurrentElement() override
+        {
             return currentElement;
         }
 
         /**
          * Деструктор итератора двунапрвленного кольцевого списка.
          */
-        ~ListIterator() {
+        ~ListIterator()
+        {
             currentElement = nullptr;
             listBuffer = nullptr;
 
@@ -162,19 +173,21 @@ public:
      *
      * @param size Размер списка.
      */
-    explicit BufferList(size_t size) {
-        BidirectionalListElement *temp = bufferElement;
-        this->listSize = size;
+    explicit BufferList(size_t size)
+    {
+        BidirectionalListElement* temp = bufferElement;
+        this -> listSize = size;
 
         for (int i = 0; i <= size; i++) {
-            temp->nextElement = new BidirectionalListElement();
-            temp->nextElement->previousElement = temp;
+            temp -> nextElement = new BidirectionalListElement();
+            temp -> nextElement -> previousElement = temp;
 
             if (i == size) {
-                temp->nextElement = bufferElement;
-                bufferElement->previousElement = temp;
-            } else {
-                temp = temp->nextElement;
+                temp -> nextElement = bufferElement;
+                bufferElement -> previousElement = temp;
+            }
+            else {
+                temp = temp -> nextElement;
             }
         }
 
@@ -188,14 +201,15 @@ public:
      * @param value значение для указанного элемента.
      * @param iterator итератор на элемент двунапрвленного кольцевого списка в который хотим вставить значение.
      */
-    void setValue(const T value, Iterator<T> &iterator) override {
+    void setValue(const T value, Iterator<T>& iterator) override
+    {
         auto temp = new ListIterator(bufferElement);
 
-        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
-            temp->next();
+        while (temp -> getCurrentElement() != iterator . getCurrentElement() || !temp -> isFinish()) {
+            temp -> next();
         }
 
-        temp->getCurrentElement()->value = value;
+        temp -> getCurrentElement() -> value = value;
     }
 
     /**
@@ -204,18 +218,20 @@ public:
      * @param value значение новго элемента.
      * @param iterator итератор на элемент двунапрвленного кольцевого списка после которого хотим вставить новый элемент.
      */
-    void insert(const T value, Iterator<T> &iterator) override {
+    void insert(const T value, Iterator<T>& iterator) override
+    {
         auto temp = new ListIterator(bufferElement);
 
-        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
-            temp->next();
+        while (temp -> getCurrentElement() != iterator . getCurrentElement() || !temp -> isFinish()) {
+            temp -> next();
         }
 
-        auto element = temp->getCurrentElement();
-        element->nextElement = new BidirectionalListElement(element->nextElement, value, element->nextElement->previousElement);
-        element->nextElement->nextElement->previousElement = element->nextElement;
+        auto element = temp -> getCurrentElement();
+        element -> nextElement = new BidirectionalListElement(element -> nextElement, value,
+                element -> nextElement -> previousElement);
+        element -> nextElement -> nextElement -> previousElement = element -> nextElement;
 
-        this->listSize += 1;
+        this -> listSize += 1;
     }
 
     /**
@@ -223,23 +239,24 @@ public:
      *
      * @param iterator Итератор на элемент для удаления.
      */
-    void deleteElement(Iterator<T> &iterator) {
-        if (this->listSize == 0) {
+    void deleteElement(Iterator<T>& iterator)
+    {
+        if (this -> listSize == 0) {
             throw std::exception();
         }
 
         auto temp = new ListIterator(bufferElement);
 
-        while (temp->getCurrentElement() != iterator.getCurrentElement() || !temp->isFinish()) {
-            temp->next();
+        while (temp -> getCurrentElement() != iterator . getCurrentElement() || !temp -> isFinish()) {
+            temp -> next();
         }
 
-        auto element = temp->getCurrentElement();
-        element->previousElement->nextElement = element->nextElement;
-        element->nextElement->previousElement = element->previousElement;
+        auto element = temp -> getCurrentElement();
+        element -> previousElement -> nextElement = element -> nextElement;
+        element -> nextElement -> previousElement = element -> previousElement;
 
-        temp->next();
-        this->listSize -= 1;
+        temp -> next();
+        this -> listSize -= 1;
         delete element;
     }
 
@@ -249,13 +266,14 @@ public:
      * @param value Значение которое необходимо найти.
      * @return Указатель на итератор, который указывает на найденное значение.
      */
-    Iterator<T> *firstEnter(const T value) override {
+    Iterator<T>* firstEnter(const T value) override
+    {
         auto iterator = new ListIterator(bufferElement);
 
-        while (!iterator->isFinish()) {
-            iterator->next();
+        while (!iterator -> isFinish()) {
+            iterator -> next();
 
-            if (value == iterator->getValue()) {
+            if (value == iterator -> getValue()) {
                 return iterator;
             }
         }
@@ -266,17 +284,18 @@ public:
     /**
      * Очистка двунапрвленного кольцевого списка.
      */
-    void clear() override {
-        BidirectionalListElement *temp = bufferElement->nextElement;
+    void clear() override
+    {
+        BidirectionalListElement* temp = bufferElement -> nextElement;
 
         for (int i = 0; i < listSize; i++) {
-            bufferElement->nextElement = temp->nextElement;
+            bufferElement -> nextElement = temp -> nextElement;
             delete temp;
-            temp = bufferElement->nextElement;
+            temp = bufferElement -> nextElement;
         }
 
-        temp->nextElement = temp;
-        temp->previousElement = temp;
+        temp -> nextElement = temp;
+        temp -> previousElement = temp;
         listSize = 0;
 
         temp = nullptr;
@@ -288,8 +307,9 @@ public:
      *
      * @return Возвращает true - если пуст
      */
-    bool isEmpty() override {
-        return bufferElement->nextElement == bufferElement;
+    bool isEmpty() override
+    {
+        return bufferElement -> nextElement == bufferElement;
     }
 
     /**
@@ -297,7 +317,8 @@ public:
      *
      * @return Размер двунапрвленного списка.
      */
-    size_t size() override {
+    size_t size() override
+    {
         return listSize;
     }
 
@@ -306,14 +327,16 @@ public:
      *
      * @return Указатель на итератор указываеющего на первый элемент двунапрвленного кольцевого списка.
      */
-    Iterator<T> *begin() override {
+    Iterator<T>* begin() override
+    {
         return new ListIterator(bufferElement);
     }
 
     /**
      * Деструктор  двунапрвленного кольцевого списка.
      */
-    ~BufferList() {
+    ~BufferList()
+    {
         clear();
         delete bufferElement;
     }

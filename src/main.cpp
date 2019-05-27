@@ -2,11 +2,12 @@
 
 #include "../headers/BufferList.h"
 
-int main() {
+int main()
+{
     const size_t SIZE = 10;
 
     auto b = new BufferList<int>(SIZE);
-    auto bi = b->begin();
+    auto bi = b -> begin();
 
     // Тест итератора
 
@@ -15,27 +16,27 @@ int main() {
 
     // Замена элемента
 
-    for (int i = 1; !bi->isFinish(); i++) {
+    for (int i = 1; !bi -> isFinish(); i++) {
         std::cout << i << std::endl;
-        b->setValue(i, *bi);
-        bi->next();
+        b -> setValue(i, *bi);
+        bi -> next();
     }
 
     // Вставка элемента
 
     for (int i = 0; i < POSITION; i++) {
-        bi->next();
+        bi -> next();
     }
 
-    b->insert(VALUE, *bi);
+    b -> insert(VALUE, *bi);
 
-    bi->start();
+    bi -> start();
 
     // Тест поиска первого вхождения определённого значения и удаление элемента списка
 
-    auto fe = b->firstEnter(VALUE);
+    auto fe = b -> firstEnter(VALUE);
 
-    b->deleteElement(*fe);
+    b -> deleteElement(*fe);
 
     return 0;
 }

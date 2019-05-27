@@ -41,7 +41,7 @@ public:
      *
      * @return Указатель на абстрактный класс элемента.
      */
-    virtual ListElement<T> *getCurrentElement() = 0;
+    virtual ListElement<T>* getCurrentElement() = 0;
 };
 
 #endif

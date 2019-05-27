@@ -34,7 +34,7 @@ public:
 
     void deleteBox(const unsigned long index);
 
-    const vector<Box> &getContainer() const;
+    const vector<Box>& getContainer() const;
 
     void setBox(const unsigned long index, const Box box);
 

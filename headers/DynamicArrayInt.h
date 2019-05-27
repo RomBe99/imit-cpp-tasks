@@ -5,7 +5,7 @@
 
 class DynamicArrayInt {
 private:
-    int *array;
+    int* array;
     int arraySize;
     int reserve = 0;
     static const int DEFAULT_SIZE = 10;
@@ -21,35 +21,35 @@ public:
 
     DynamicArrayInt(const int arraySize, const int n, const int newReserve);
 
-    DynamicArrayInt(const DynamicArrayInt &dynamicArrayInt);
+    DynamicArrayInt(const DynamicArrayInt& dynamicArrayInt);
 
-    DynamicArrayInt(DynamicArrayInt &&dynamicArrayInt) noexcept;
+    DynamicArrayInt(DynamicArrayInt&& dynamicArrayInt) noexcept;
 
-    DynamicArrayInt &operator=(const DynamicArrayInt &dynamicArrayInt);
+    DynamicArrayInt& operator=(const DynamicArrayInt& dynamicArrayInt);
 
-    DynamicArrayInt &operator=(DynamicArrayInt &&dynamicArrayInt) noexcept ;
+    DynamicArrayInt& operator=(DynamicArrayInt&& dynamicArrayInt) noexcept;
 
-    friend bool operator==(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator==(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend bool operator!=(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator!=(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend bool operator<(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator<(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend bool operator<=(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator<=(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend bool operator>(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator>(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend bool operator>=(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend bool operator>=(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
-    friend DynamicArrayInt operator+(const DynamicArrayInt &left, const DynamicArrayInt &right);
+    friend DynamicArrayInt operator+(const DynamicArrayInt& left, const DynamicArrayInt& right);
 
     void resize(const int newArraySize);
 
     void reserveMemory(const int newReserve);
 
-    friend std::istream &operator>>(std::istream &is, DynamicArrayInt &dynamicArrayInt);
+    friend std::istream& operator>>(std::istream& is, DynamicArrayInt& dynamicArrayInt);
 
-    friend std::ostream &operator<<(std::ostream &os, const DynamicArrayInt &dynamicArrayInt);
+    friend std::ostream& operator<<(std::ostream& os, const DynamicArrayInt& dynamicArrayInt);
 
     int operator[](const int index) const;
 
@@ -61,7 +61,7 @@ public:
 
     int getElement(const int index) const;
 
-    int *getArray() const;
+    int* getArray() const;
 
     int getArraySize() const;
 
