@@ -6,7 +6,7 @@ HashTable::HashElement::HashElement(int key, int value)
 HashTable::HashTable(const size_t layersCount)
 {
     this -> layersCount = layersCount;
-    layers = new std::vector<HashElement>[layersCount];
+    layers = std::vector<std::vector<HashElement>>(layersCount);
 }
 
 void HashTable::put(const int key, const int value)
