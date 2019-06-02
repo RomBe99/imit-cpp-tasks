@@ -18,7 +18,7 @@ private:
 
     size_t layersCount;
 
-    std::vector<std::vector<HashElement>> layers;
+    std::vector<HashElement> layers;
 
     const static size_t DEFAULT_SIZE = 10;
 

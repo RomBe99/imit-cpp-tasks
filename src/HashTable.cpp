@@ -6,14 +6,14 @@ HashTable::HashElement::HashElement(int key, int value)
 HashTable::HashTable(const size_t layersCount)
 {
     this -> layersCount = layersCount;
-    layers = std::vector<std::vector<HashElement>>(layersCount);
+    layers = std::vector<HashElement>(layersCount);
 }
 
 void HashTable::put(const int key, const int value)
 {
     const int KEY_HASH_CODE = intHashCode(key);
 
-    for (HashElement he : layers[KEY_HASH_CODE]) {
+    for (HashElement he : layers) {
         if (he . key == KEY_HASH_CODE) {
             throw std::exception();
         }
@@ -21,23 +21,21 @@ void HashTable::put(const int key, const int value)
 
     auto newElement = HashElement(KEY_HASH_CODE, value);
 
-    layers[KEY_HASH_CODE] . push_back(newElement);
+    layers[KEY_HASH_CODE] = newElement;
 }
 
 int HashTable::deleteElement(const int key)
 {
     const int KEY_HASH_CODE = intHashCode(key);
     int value;
-    auto iter = layers[KEY_HASH_CODE] . begin();
 
-    for (HashElement he : layers[KEY_HASH_CODE]) {
-        if (he . key == KEY_HASH_CODE) {
-            value = he . value;
-            layers[KEY_HASH_CODE] . erase(iter);
+    for (int i = 0; i < layersCount; i++) {
+        if (layers[i] . key == KEY_HASH_CODE) {
+            value = layers[i] . value;
+            layers[i] = HashElement();
+
             return value;
         }
-
-        iter++;
     }
 
     return 0;
@@ -46,14 +44,14 @@ int HashTable::deleteElement(const int key)
 void HashTable::clear()
 {
     for (int i = 0; i < layersCount; i++) {
-        layers[i] . clear();
+        layers . clear();
     }
 }
 
 bool HashTable::isEmpty() const
 {
     for (int i = 0; i < layersCount; i++) {
-        if (!layers[i] . empty()) {
+        if (!layers . empty()) {
             return false;
         }
     }
