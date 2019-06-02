@@ -29,8 +29,6 @@ public:
 
         int currentLayer = 0;
 
-        int currentPosition = 0;
-
         bool isFullIterated = false;
 
     public:

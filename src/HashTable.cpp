@@ -78,17 +78,20 @@ void HashTable::HashTableIterator::start()
 {
     isFullIterated = false;
     currentLayer = 0;
-    currentPosition = 0;
 }
 
 void HashTable::HashTableIterator::next()
 {
-    if (currentPosition + 1 < hashTableForIterate . layers[currentLayer] . size()) {
-        currentPosition++;
+    if (isFullIterated) {
+        return;
+    }
+
+    if (currentLayer + 1 < hashTableForIterate . layersCount) {
+        currentLayer ++;
     }
     else {
-        currentPosition = 0;
-        currentLayer = currentLayer + 1 < hashTableForIterate . layersCount ? currentLayer + 1 : 0;
+        currentLayer = 0;
+        isFullIterated = true;
     }
 }
 
@@ -99,5 +102,5 @@ bool HashTable::HashTableIterator::isFinish() const
 
 const int HashTable::HashTableIterator::getValue() const
 {
-    return hashTableForIterate . layers[currentLayer] . at(currentPosition) . value;
+    return hashTableForIterate . layers . at(currentLayer) . value;
 }
