@@ -61,7 +61,7 @@ public:
 
     int intHashCode(const int id) const;
 
-    ~HashTable();
+    virtual ~HashTable() = default;
 };
 
 #endif

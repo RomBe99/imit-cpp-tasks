@@ -71,11 +71,6 @@ int HashTable::intHashCode(const int id) const
     return id % layersCount;
 }
 
-HashTable::~HashTable()
-{
-    delete layers;
-}
-
 HashTable::HashTableIterator::HashTableIterator(HashTable& hashTableForIterate)
         :hashTableForIterate(hashTableForIterate) {}
 
