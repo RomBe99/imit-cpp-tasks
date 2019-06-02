@@ -37,7 +37,7 @@ int HashTable::deleteElement(const int key)
             return value;
         }
 
-        iter . operator++();
+        iter++;
     }
 
     return 0;
@@ -88,12 +88,12 @@ void HashTable::HashTableIterator::start()
 
 void HashTable::HashTableIterator::next()
 {
-    if (currentPosition + 1 < hashTableForIterate.layers[currentLayer].size()) {
+    if (currentPosition + 1 < hashTableForIterate . layers[currentLayer] . size()) {
         currentPosition++;
     }
     else {
         currentPosition = 0;
-        currentLayer = currentLayer + 1 < hashTableForIterate.layersCount ? currentLayer + 1 : 0;
+        currentLayer = currentLayer + 1 < hashTableForIterate . layersCount ? currentLayer + 1 : 0;
     }
 }
 
@@ -104,5 +104,5 @@ bool HashTable::HashTableIterator::isFinish() const
 
 const int HashTable::HashTableIterator::getValue() const
 {
-    return hashTableForIterate.layers[currentLayer].at(currentPosition).value;
+    return hashTableForIterate . layers[currentLayer] . at(currentPosition) . value;
 }
