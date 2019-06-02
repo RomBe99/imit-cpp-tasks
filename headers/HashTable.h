@@ -10,6 +10,9 @@ private:
 
       int value = 0;
 
+      HashElement()
+              :HashElement(-1, 0) {};
+
       HashElement(int key, int value);
     };
 
