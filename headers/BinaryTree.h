@@ -22,7 +22,7 @@ private:
     Node* root = nullptr;
 
 public:
-    BinaryTree() = default;
+    explicit BinaryTree(int rootValue);
 
     virtual ~BinaryTree() = default;
 };
