@@ -23,6 +23,8 @@ private:
 
 public:
     BinaryTree() = default;
+
+    virtual ~BinaryTree() = default;
 };
 
 #endif
