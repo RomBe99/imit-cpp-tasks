@@ -24,6 +24,8 @@ private:
 public:
     explicit BinaryTree(int rootValue);
 
+    void insert(int x, int sequenceSize, const int sequence[]);
+
     virtual ~BinaryTree() = default;
 };
 
