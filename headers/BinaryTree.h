@@ -18,6 +18,11 @@ private:
 
         ~Node() = default;
     };
+
+    Node* root = nullptr;
+
+public:
+    BinaryTree() = default;
 };
 
 #endif
