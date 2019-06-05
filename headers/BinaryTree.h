@@ -16,7 +16,7 @@ private:
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
 
-        ~Node() = default;
+        virtual ~Node() = default;
     };
 
     Node* root = nullptr;
