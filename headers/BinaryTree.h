@@ -38,6 +38,8 @@ public:
 
     bool isPositive() const;
 
+    bool isEmpty() const;
+
     virtual ~BinaryTree() = default;
 };
 

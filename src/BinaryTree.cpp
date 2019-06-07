@@ -77,3 +77,8 @@ bool BinaryTree::isPositive() const
 
     return BinaryTree::Node::isPositive(root);
 }
+
+bool BinaryTree::isEmpty() const
+{
+    return root == nullptr;
+}
