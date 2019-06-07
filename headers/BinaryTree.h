@@ -22,6 +22,8 @@ private:
 
         static bool isPositive(const Node* node);
 
+        static void average(const Node* node, int& sum, int& count);
+
         virtual ~Node() = default;
     };
 
@@ -37,6 +39,8 @@ public:
     void print() const;
 
     bool isPositive() const;
+
+    double average() const;
 
     bool isEmpty() const;
 

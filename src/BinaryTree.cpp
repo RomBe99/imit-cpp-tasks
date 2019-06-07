@@ -30,6 +30,19 @@ bool BinaryTree::Node::isPositive(const BinaryTree::Node* node)
     return false;
 }
 
+void BinaryTree::Node::average(const BinaryTree::Node* node, int& sum, int& count)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    sum += node -> value;
+    count++;
+
+    average(node -> leftLeaf, sum, count);
+    average(node -> rightLeaf, sum, count);
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
@@ -77,6 +90,20 @@ void BinaryTree::print() const
 bool BinaryTree::isPositive() const
 {
     return isEmpty() ? true : BinaryTree::Node::isPositive(root);
+}
+
+double BinaryTree::average() const
+{
+    if (isEmpty()) {
+        return 0;
+    }
+
+    int sum = 0;
+    int count = 0;
+
+    BinaryTree::Node::average(root, sum, count);
+
+    return (double) sum / count;
 }
 
 bool BinaryTree::isEmpty() const
