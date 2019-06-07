@@ -18,6 +18,18 @@ void BinaryTree::Node::print(const BinaryTree::Node* node, const long n)
     print(node -> leftLeaf, n + 5);
 }
 
+bool BinaryTree::Node::isPositive(const BinaryTree::Node* node)
+{
+    if (node == nullptr) {
+        return true;
+    }
+    else if (node -> value >= 0 && isPositive(node -> leftLeaf) && isPositive(node -> rightLeaf)) {
+        return true;
+    }
+
+    return false;
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
@@ -55,4 +67,13 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
 void BinaryTree::print() const
 {
     BinaryTree::Node::print(root, 0);
+}
+
+bool BinaryTree::isPositive() const
+{
+    if (root == nullptr) {
+        return true;
+    }
+
+    return BinaryTree::Node::isPositive(root);
 }

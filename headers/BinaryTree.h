@@ -20,6 +20,8 @@ private:
 
         static void print(const Node* node, long n);
 
+        static bool isPositive(const Node* node);
+
         virtual ~Node() = default;
     };
 
@@ -31,6 +33,8 @@ public:
     void insert(int x, int sequenceSize, const int sequence[]);
 
     void print() const;
+
+    bool isPositive() const;
 
     virtual ~BinaryTree() = default;
 };
