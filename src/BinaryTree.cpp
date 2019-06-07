@@ -43,6 +43,18 @@ void BinaryTree::Node::average(const BinaryTree::Node* node, int& sum, int& coun
     average(node -> rightLeaf, sum, count);
 }
 
+bool BinaryTree::Node::check(const BinaryTree::Node* node, int min, int max)
+{
+    if (node == nullptr) {
+        return true;
+    }
+    else if (node -> value <= min || max <= node -> value) {
+        return false;
+    }
+
+    return check(node -> leftLeaf, min, node -> value) && check(node -> rightLeaf, node -> value, max);
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
@@ -104,6 +116,15 @@ double BinaryTree::average() const
     BinaryTree::Node::average(root, sum, count);
 
     return (double) sum / count;
+}
+
+bool BinaryTree::isBinarySearchTree() const
+{
+    if (isEmpty()) {
+        return false;
+    }
+
+    return BinaryTree::Node::check(root, INT32_MIN, INT32_MAX);
 }
 
 bool BinaryTree::isEmpty() const

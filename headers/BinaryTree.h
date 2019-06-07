@@ -24,6 +24,8 @@ private:
 
         static void average(const Node* node, int& sum, int& count);
 
+        static bool check(const Node* node, int min, int max);
+
         virtual ~Node() = default;
     };
 
@@ -41,6 +43,8 @@ public:
     bool isPositive() const;
 
     double average() const;
+
+    bool isBinarySearchTree() const;
 
     bool isEmpty() const;
 
