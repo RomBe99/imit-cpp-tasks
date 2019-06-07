@@ -18,7 +18,7 @@ private:
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
 
-        static void print(const Node* node);
+        static void print(const Node* node, long n);
 
         virtual ~Node() = default;
     };
@@ -30,7 +30,7 @@ public:
 
     void insert(int x, int sequenceSize, const int sequence[]);
 
-    void print();
+    void print() const;
 
     virtual ~BinaryTree() = default;
 };

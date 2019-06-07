@@ -3,16 +3,19 @@
 BinaryTree::Node::Node(int value, BinaryTree::Node* rightLeaf, BinaryTree::Node* leftLeaf)
         :value(value), rightLeaf(rightLeaf), leftLeaf(leftLeaf) {}
 
-void BinaryTree::Node::print(const BinaryTree::Node* node)
+void BinaryTree::Node::print(const BinaryTree::Node* node, const long n)
 {
-    if (node == nullptr) {
-        std::cout << "null ";
-        return;
+    if (node == nullptr) return;
+
+    print(node -> rightLeaf, n + 5);
+
+    for (long i = 0; i < n; i++) {
+        std::cout << ' ';
     }
 
-    std::cout << node -> value << '\n';
-    print(node -> leftLeaf);
-    print(node -> rightLeaf);
+    std::cout << node -> value << std::endl;
+
+    print(node -> leftLeaf, n + 5);
 }
 
 BinaryTree::BinaryTree(const int rootValue)
@@ -49,7 +52,7 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
     temp -> value = x;
 }
 
-void BinaryTree::print()
+void BinaryTree::print() const
 {
-    BinaryTree::Node::print(root);
+    BinaryTree::Node::print(root, 0);
 }
