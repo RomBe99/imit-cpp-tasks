@@ -18,13 +18,13 @@ private:
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
 
-        static void print(const Node* node, long n);
+        static void print(Node*& node, long n);
 
-        static bool isPositive(const Node* node);
+        static bool isPositive(Node*& node);
 
-        static void average(const Node* node, int& sum, int& count);
+        static void average(Node*& node, int& sum, int& count);
 
-        static bool check(const Node* node, int min, int max);
+        static bool check(Node*& node, int min, int max);
 
         static void deleteNode(Node*& node);
 
@@ -40,13 +40,13 @@ public:
 
     void insert(int x, int sequenceSize, const int sequence[]);
 
-    void print() const;
+    void print();
 
-    bool isPositive() const;
+    bool isPositive();
 
-    double average() const;
+    double average();
 
-    bool isBinarySearchTree() const;
+    bool isBinarySearchTree();
 
     bool isEmpty() const;
 

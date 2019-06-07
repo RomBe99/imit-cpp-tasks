@@ -3,7 +3,7 @@
 BinaryTree::Node::Node(int value, BinaryTree::Node* rightLeaf, BinaryTree::Node* leftLeaf)
         :value(value), rightLeaf(rightLeaf), leftLeaf(leftLeaf) {}
 
-void BinaryTree::Node::print(const BinaryTree::Node* node, const long n)
+void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
 {
     if (node == nullptr) return;
 
@@ -18,7 +18,7 @@ void BinaryTree::Node::print(const BinaryTree::Node* node, const long n)
     print(node -> leftLeaf, n + 5);
 }
 
-bool BinaryTree::Node::isPositive(const BinaryTree::Node* node)
+bool BinaryTree::Node::isPositive(BinaryTree::Node*& node)
 {
     if (node == nullptr) {
         return true;
@@ -30,7 +30,7 @@ bool BinaryTree::Node::isPositive(const BinaryTree::Node* node)
     return false;
 }
 
-void BinaryTree::Node::average(const BinaryTree::Node* node, int& sum, int& count)
+void BinaryTree::Node::average(BinaryTree::Node*& node, int& sum, int& count)
 {
     if (node == nullptr) {
         return;
@@ -43,7 +43,7 @@ void BinaryTree::Node::average(const BinaryTree::Node* node, int& sum, int& coun
     average(node -> rightLeaf, sum, count);
 }
 
-bool BinaryTree::Node::check(const BinaryTree::Node* node, int min, int max)
+bool BinaryTree::Node::check(BinaryTree::Node*& node, int min, int max)
 {
     if (node == nullptr) {
         return true;
@@ -99,7 +99,7 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
     temp -> value = x;
 }
 
-void BinaryTree::print() const
+void BinaryTree::print()
 {
     if (isEmpty()) {
         std::cout << "Binary tree is empty" << std::endl;
@@ -109,12 +109,12 @@ void BinaryTree::print() const
     }
 }
 
-bool BinaryTree::isPositive() const
+bool BinaryTree::isPositive()
 {
     return isEmpty() ? true : BinaryTree::Node::isPositive(root);
 }
 
-double BinaryTree::average() const
+double BinaryTree::average()
 {
     if (isEmpty()) {
         return 0;
@@ -128,7 +128,7 @@ double BinaryTree::average() const
     return (double) sum / count;
 }
 
-bool BinaryTree::isBinarySearchTree() const
+bool BinaryTree::isBinarySearchTree()
 {
     if (isEmpty()) {
         return false;
