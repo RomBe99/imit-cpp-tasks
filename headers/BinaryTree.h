@@ -28,6 +28,8 @@ private:
     Node* root = nullptr;
 
 public:
+    BinaryTree() = default;
+
     explicit BinaryTree(int rootValue);
 
     void insert(int x, int sequenceSize, const int sequence[]);
