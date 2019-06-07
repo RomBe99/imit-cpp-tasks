@@ -65,6 +65,20 @@ void BinaryTree::Node::deleteNode(BinaryTree::Node*& node)
     }
 }
 
+void BinaryTree::Node::deleteAllLeafs(BinaryTree::Node*& node)
+{
+    if (node == nullptr) {
+        return;
+    }
+    else if (node -> leftLeaf == nullptr && node -> rightLeaf == nullptr) {
+        deleteNode(node);
+        return;
+    }
+
+    deleteAllLeafs(node->leftLeaf);
+    deleteAllLeafs(node->rightLeaf);
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
@@ -112,6 +126,11 @@ void BinaryTree::print()
 bool BinaryTree::isPositive()
 {
     return isEmpty() ? true : BinaryTree::Node::isPositive(root);
+}
+
+void BinaryTree::deleteAllLeafs()
+{
+    BinaryTree::Node::deleteAllLeafs(root);
 }
 
 double BinaryTree::average()

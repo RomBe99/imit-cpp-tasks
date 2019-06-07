@@ -28,6 +28,8 @@ private:
 
         static void deleteNode(Node*& node);
 
+        static void deleteAllLeafs(Node*& node);
+
         virtual ~Node() = default;
     };
 
@@ -43,6 +45,8 @@ public:
     void print();
 
     bool isPositive();
+
+    void deleteAllLeafs();
 
     double average();
 
