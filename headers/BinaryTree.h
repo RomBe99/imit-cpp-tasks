@@ -1,6 +1,8 @@
 #ifndef CPP_TASKS_BINARYTREE_H
 #define CPP_TASKS_BINARYTREE_H
 
+#include <iostream>
+
 class BinaryTree {
 private:
     class Node {
@@ -15,6 +17,8 @@ private:
                 :Node(value, nullptr, nullptr) {}
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
+
+        static void print(const Node* node);
 
         virtual ~Node() = default;
     };

@@ -3,6 +3,18 @@
 BinaryTree::Node::Node(int value, BinaryTree::Node* rightLeaf, BinaryTree::Node* leftLeaf)
         :value(value), rightLeaf(rightLeaf), leftLeaf(leftLeaf) {}
 
+void BinaryTree::Node::print(const BinaryTree::Node* node)
+{
+    if (node == nullptr) {
+        std::cout << "null ";
+        return;
+    }
+
+    std::cout << node -> value << '\n';
+    print(node -> leftLeaf);
+    print(node -> rightLeaf);
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
