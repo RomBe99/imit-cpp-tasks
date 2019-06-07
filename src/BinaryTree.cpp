@@ -71,11 +71,7 @@ void BinaryTree::print() const
 
 bool BinaryTree::isPositive() const
 {
-    if (root == nullptr) {
-        return true;
-    }
-
-    return BinaryTree::Node::isPositive(root);
+    return isEmpty() ? true : BinaryTree::Node::isPositive(root);
 }
 
 bool BinaryTree::isEmpty() const
