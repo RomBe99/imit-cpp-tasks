@@ -30,6 +30,8 @@ public:
 
     void insert(int x, int sequenceSize, const int sequence[]);
 
+    void print();
+
     virtual ~BinaryTree() = default;
 };
 

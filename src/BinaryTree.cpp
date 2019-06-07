@@ -48,3 +48,8 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
 
     temp -> value = x;
 }
+
+void BinaryTree::print()
+{
+    BinaryTree::Node::print(root);
+}
