@@ -66,7 +66,12 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
 
 void BinaryTree::print() const
 {
-    BinaryTree::Node::print(root, 0);
+    if (isEmpty()) {
+        std::cout << "Binary tree is empty" << std::endl;
+    }
+    else {
+        BinaryTree::Node::print(root, 0);
+    }
 }
 
 bool BinaryTree::isPositive() const
