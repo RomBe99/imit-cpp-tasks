@@ -13,7 +13,7 @@ private:
 
         Node* leftLeaf;
 
-        Node(int value)
+        explicit Node(int value)
                 :Node(value, nullptr, nullptr) {}
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
