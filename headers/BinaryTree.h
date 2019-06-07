@@ -26,6 +26,8 @@ private:
 
         static bool check(const Node* node, int min, int max);
 
+        static void deleteNode(Node*& node);
+
         virtual ~Node() = default;
     };
 
@@ -48,7 +50,7 @@ public:
 
     bool isEmpty() const;
 
-    virtual ~BinaryTree() = default;
+    virtual ~BinaryTree();
 };
 
 #endif

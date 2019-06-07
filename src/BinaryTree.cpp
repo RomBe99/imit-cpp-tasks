@@ -55,6 +55,16 @@ bool BinaryTree::Node::check(const BinaryTree::Node* node, int min, int max)
     return check(node -> leftLeaf, min, node -> value) && check(node -> rightLeaf, node -> value, max);
 }
 
+void BinaryTree::Node::deleteNode(BinaryTree::Node*& node)
+{
+    if (node != nullptr) {
+        deleteNode(node -> leftLeaf);
+        deleteNode(node -> rightLeaf);
+        delete node;
+        node = nullptr;
+    }
+}
+
 BinaryTree::BinaryTree(const int rootValue)
 {
     root = new Node(rootValue);
@@ -130,4 +140,10 @@ bool BinaryTree::isBinarySearchTree() const
 bool BinaryTree::isEmpty() const
 {
     return root == nullptr;
+}
+
+BinaryTree::~BinaryTree()
+{
+    BinaryTree::Node::deleteNode(root);
+    delete root;
 }
