@@ -1,7 +1,11 @@
 #include "../headers/BinaryTree.h"
 
 BinaryTree::Node::Node(int value, BinaryTree::Node* rightLeaf, BinaryTree::Node* leftLeaf)
-        :value(value), rightLeaf(rightLeaf), leftLeaf(leftLeaf) {}
+{
+    this -> value = value;
+    this -> rightLeaf = rightLeaf;
+    this -> leftLeaf = leftLeaf;
+}
 
 void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
 {
@@ -85,7 +89,7 @@ void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
         return;
     }
 
-    if (node->value % 2 == 0) {
+    if (node -> value % 2 == 0) {
         count++;
     }
 
