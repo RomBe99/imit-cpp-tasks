@@ -24,13 +24,13 @@ private:
 
         static bool isPositive(Node*& node);
 
-        static void average(Node*& node, int& sum, int& count);
-
-        static bool check(Node*& node, int min, int max);
-
         static void deleteNode(Node*& node);
 
         static void deleteAllLeafs(Node*& node);
+
+        static void average(Node*& node, int& sum, int& count);
+
+        static bool check(Node*& node, const int& min, const int& max);
 
         virtual ~Node() = default;
     };

@@ -22,6 +22,20 @@ void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
     print(node -> leftLeaf, n + 5);
 }
 
+void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    if (node -> value % 2 == 0) {
+        count++;
+    }
+
+    numberOfEvenNumbers(node -> leftLeaf, count);
+    numberOfEvenNumbers(node -> rightLeaf, count);
+}
+
 bool BinaryTree::Node::isPositive(BinaryTree::Node*& node)
 {
     if (node == nullptr) {
@@ -32,31 +46,6 @@ bool BinaryTree::Node::isPositive(BinaryTree::Node*& node)
     }
 
     return false;
-}
-
-void BinaryTree::Node::average(BinaryTree::Node*& node, int& sum, int& count)
-{
-    if (node == nullptr) {
-        return;
-    }
-
-    sum += node -> value;
-    count++;
-
-    average(node -> leftLeaf, sum, count);
-    average(node -> rightLeaf, sum, count);
-}
-
-bool BinaryTree::Node::check(BinaryTree::Node*& node, int min, int max)
-{
-    if (node == nullptr) {
-        return true;
-    }
-    else if (node -> value <= min || max <= node -> value) {
-        return false;
-    }
-
-    return check(node -> leftLeaf, min, node -> value) && check(node -> rightLeaf, node -> value, max);
 }
 
 void BinaryTree::Node::deleteNode(BinaryTree::Node*& node)
@@ -83,18 +72,29 @@ void BinaryTree::Node::deleteAllLeafs(BinaryTree::Node*& node)
     deleteAllLeafs(node -> rightLeaf);
 }
 
-void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
+void BinaryTree::Node::average(BinaryTree::Node*& node, int& sum, int& count)
 {
     if (node == nullptr) {
         return;
     }
 
-    if (node -> value % 2 == 0) {
-        count++;
+    sum += node -> value;
+    count++;
+
+    average(node -> leftLeaf, sum, count);
+    average(node -> rightLeaf, sum, count);
+}
+
+bool BinaryTree::Node::check(BinaryTree::Node*& node, const int& min, const int& max)
+{
+    if (node == nullptr) {
+        return true;
+    }
+    else if (node -> value <= min || max <= node -> value) {
+        return false;
     }
 
-    numberOfEvenNumbers(node -> leftLeaf, count);
-    numberOfEvenNumbers(node -> rightLeaf, count);
+    return check(node -> leftLeaf, min, node -> value) && check(node -> rightLeaf, node -> value, max);
 }
 
 BinaryTree::BinaryTree(const int rootValue)
