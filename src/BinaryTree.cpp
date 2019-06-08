@@ -75,8 +75,22 @@ void BinaryTree::Node::deleteAllLeafs(BinaryTree::Node*& node)
         return;
     }
 
-    deleteAllLeafs(node->leftLeaf);
-    deleteAllLeafs(node->rightLeaf);
+    deleteAllLeafs(node -> leftLeaf);
+    deleteAllLeafs(node -> rightLeaf);
+}
+
+void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    if (node->value % 2 == 0) {
+        count++;
+    }
+
+    numberOfEvenNumbers(node -> leftLeaf, count);
+    numberOfEvenNumbers(node -> rightLeaf, count);
 }
 
 BinaryTree::BinaryTree(const int rootValue)
@@ -121,6 +135,18 @@ void BinaryTree::print()
     else {
         BinaryTree::Node::print(root, 0);
     }
+}
+
+int BinaryTree::numberOfEvenNumbers()
+{
+    if (isEmpty()) {
+        return 0;
+    }
+
+    int count = 0;
+    BinaryTree::Node::numberOfEvenNumbers(root, count);
+
+    return count;
 }
 
 bool BinaryTree::isPositive()

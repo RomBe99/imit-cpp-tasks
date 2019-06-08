@@ -20,6 +20,8 @@ private:
 
         static void print(Node*& node, long n);
 
+        static void numberOfEvenNumbers(Node*& node, int& count);
+
         static bool isPositive(Node*& node);
 
         static void average(Node*& node, int& sum, int& count);
@@ -43,6 +45,8 @@ public:
     void insert(int x, int sequenceSize, const int sequence[]);
 
     void print();
+
+    int numberOfEvenNumbers();
 
     bool isPositive();
 
