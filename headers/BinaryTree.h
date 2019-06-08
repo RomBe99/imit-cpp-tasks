@@ -14,6 +14,10 @@ private:
 
         Node* leftLeaf;
 
+        static const int LEFT_DIRECTION_DESIGNATION = 0;
+
+        static const int RIGHT_DIRECTION_DESIGNATION = 1;
+
         explicit Node(int value)
                 :Node(value, nullptr, nullptr) {}
 

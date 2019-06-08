@@ -101,12 +101,12 @@ void BinaryTree::Node::findRoute(BinaryTree::Node*& node, bool& isFind, const in
         return;
     }
 
-    route -> push_back(0);
+    route -> push_back((int)LEFT_DIRECTION_DESIGNATION);
     findRoute(node -> leftLeaf, isFind, x, route);
 
     if (!isFind) {
         route -> pop_back();
-        route -> push_back(1);
+        route -> push_back((int)RIGHT_DIRECTION_DESIGNATION);
 
         findRoute(node -> rightLeaf, isFind, x, route);
 
@@ -138,7 +138,7 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
     Node* temp = root;
 
     for (int i = 0; i < sequenceSize; i++) {
-        if (sequence[i] == 0) {
+        if (sequence[i] == BinaryTree::Node::LEFT_DIRECTION_DESIGNATION) {
             if (temp -> leftLeaf == nullptr) {
                 temp -> leftLeaf = new Node(x);
 
@@ -147,7 +147,7 @@ void BinaryTree::insert(const int x, const int sequenceSize, const int sequence[
 
             temp = temp -> leftLeaf;
         }
-        else if (sequence[i] == 1) {
+        else if (sequence[i] == BinaryTree::Node::RIGHT_DIRECTION_DESIGNATION) {
             if (temp -> rightLeaf == nullptr) {
                 temp -> rightLeaf = new Node(x);
 
