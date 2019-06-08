@@ -190,5 +190,4 @@ bool BinaryTree::isEmpty() const
 BinaryTree::~BinaryTree()
 {
     BinaryTree::Node::deleteNode(root);
-    delete root;
 }
