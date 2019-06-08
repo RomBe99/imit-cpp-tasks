@@ -29,8 +29,7 @@ void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
     if (node == nullptr) {
         return;
     }
-
-    if (node -> value % 2 == 0) {
+    else if (node -> value % 2 == 0) {
         count++;
     }
 
@@ -101,12 +100,12 @@ void BinaryTree::Node::findRoute(BinaryTree::Node*& node, bool& isFind, const in
         return;
     }
 
-    route -> push_back((int)LEFT_DIRECTION_DESIGNATION);
+    route -> push_back((int) LEFT_DIRECTION_DESIGNATION);
     findRoute(node -> leftLeaf, isFind, x, route);
 
     if (!isFind) {
         route -> pop_back();
-        route -> push_back((int)RIGHT_DIRECTION_DESIGNATION);
+        route -> push_back((int) RIGHT_DIRECTION_DESIGNATION);
 
         findRoute(node -> rightLeaf, isFind, x, route);
 
