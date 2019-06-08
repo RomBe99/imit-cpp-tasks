@@ -2,6 +2,7 @@
 #define CPP_TASKS_BINARYTREE_H
 
 #include <iostream>
+#include <vector>
 
 class BinaryTree {
 private:
@@ -30,6 +31,8 @@ private:
 
         static void average(Node*& node, int& sum, int& count);
 
+        static void findRoute(Node*& node, bool& isFind, const int& x, std::vector<int>*& route);
+
         static bool check(Node*& node, const int& min, const int& max);
 
         virtual ~Node() = default;
@@ -53,6 +56,8 @@ public:
     void deleteAllLeafs();
 
     double average();
+
+    std::vector<int>* findRoute(int x);
 
     bool isBinarySearchTree();
 

@@ -87,6 +87,35 @@ void BinaryTree::Node::average(BinaryTree::Node*& node, int& sum, int& count)
     average(node -> rightLeaf, sum, count);
 }
 
+void BinaryTree::Node::findRoute(BinaryTree::Node*& node, bool& isFind, const int& x, std::vector<int>*& route)
+{
+    if (isFind) {
+        return;
+    }
+    else if (node == nullptr) {
+        return;
+    }
+    else if (node -> value == x) {
+        isFind = true;
+
+        return;
+    }
+
+    route -> push_back(0);
+    findRoute(node -> leftLeaf, isFind, x, route);
+
+    if (!isFind) {
+        route -> pop_back();
+        route -> push_back(1);
+
+        findRoute(node -> rightLeaf, isFind, x, route);
+
+        if (!isFind) {
+            route -> pop_back();
+        }
+    }
+}
+
 bool BinaryTree::Node::check(BinaryTree::Node*& node, const int& min, const int& max)
 {
     if (node == nullptr) {
@@ -177,6 +206,21 @@ double BinaryTree::average()
     BinaryTree::Node::average(root, sum, count);
 
     return (double) sum / count;
+}
+
+std::vector<int>* BinaryTree::findRoute(const int x)
+{
+    if (isEmpty()) {
+        return nullptr;
+    }
+
+    auto route = new std::vector<int>();
+    bool isFind = false;
+
+    BinaryTree::Node::findRoute(root, isFind, x, route);
+    route -> shrink_to_fit();
+
+    return route;
 }
 
 bool BinaryTree::isBinarySearchTree()
