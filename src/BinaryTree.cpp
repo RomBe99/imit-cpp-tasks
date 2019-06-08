@@ -11,7 +11,9 @@ void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
 {
     if (node == nullptr) return;
 
-    print(node -> rightLeaf, n + 5);
+    const int SHIFT = 5;
+
+    print(node -> rightLeaf, n + SHIFT);
 
     for (long i = 0; i < n; i++) {
         std::cout << ' ';
@@ -19,7 +21,7 @@ void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
 
     std::cout << node -> value << std::endl;
 
-    print(node -> leftLeaf, n + 5);
+    print(node -> leftLeaf, n + SHIFT);
 }
 
 void BinaryTree::Node::numberOfEvenNumbers(BinaryTree::Node*& node, int& count)
