@@ -18,6 +18,13 @@ private:
 
         virtual ~Node() = default;
     };
+
+    Node* root = nullptr;
+
+public:
+    BinaryWordTree() = default;
+
+    explicit BinaryWordTree(const std::string& rootWord);
 };
 
 #endif
