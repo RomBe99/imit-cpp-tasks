@@ -26,6 +26,8 @@ private:
 
         static void print(Node*& node);
 
+        static void findNode(Node*& node, bool& isFind, const std::string& word, int& count);
+
         static void deleteNode(Node*& node);
 
         virtual ~Node() = default;
@@ -39,6 +41,8 @@ public:
     explicit BinaryWordTree(const std::string& rootWord);
 
     void print();
+
+    int findWordEntries(const std::string& word);
 
     bool isEmpty() const;
 

@@ -25,6 +25,28 @@ void BinaryWordTree::Node::print(BinaryWordTree::Node*& node)
     print(node -> rightLeaf);
 }
 
+void BinaryWordTree::Node::findNode(BinaryWordTree::Node*& node, bool& isFind, const std::string& word, int& count)
+{
+    if (isFind) {
+        return;
+    }
+    else if (node == nullptr) {
+        return;
+    }
+    else if (node -> compare(word) == -1) {
+        findNode(node -> leftLeaf, isFind, word, count);
+    }
+    else if (node -> compare(word) == 0) {
+        isFind = true;
+        count = node -> count;
+
+        return;
+    }
+    else if (node -> compare(word) == 1) {
+        findNode(node -> rightLeaf, isFind, word, count);
+    }
+}
+
 void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 {
     if (node != nullptr) {
@@ -58,6 +80,16 @@ void BinaryWordTree::print()
     else {
         BinaryWordTree::Node::print(root);
     }
+}
+
+int BinaryWordTree::findWordEntries(const std::string& word)
+{
+    int count = 0;
+    bool isFind = false;
+
+    BinaryWordTree::Node::findNode(root, isFind, word, count);
+
+    return count;
 }
 
 bool BinaryWordTree::isEmpty() const
