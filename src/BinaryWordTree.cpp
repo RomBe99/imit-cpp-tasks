@@ -49,12 +49,12 @@ void BinaryWordTree::Node::findNode(BinaryWordTree::Node*& node, bool& isFind, c
 
 void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 {
-    if (node != nullptr) {
-        deleteNode(node -> leftLeaf);
-        deleteNode(node -> rightLeaf);
-        delete node;
-        node = nullptr;
-    }
+    if (node == nullptr) return;
+
+    deleteNode(node -> leftLeaf);
+    deleteNode(node -> rightLeaf);
+    delete node;
+    node = nullptr;
 }
 
 int BinaryWordTree::Node::compare(const std::string& otherString) const
