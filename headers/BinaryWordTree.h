@@ -1,7 +1,7 @@
 #ifndef CPP_TASKS_BINARYWORDTREE_H
 #define CPP_TASKS_BINARYWORDTREE_H
 
-#include <string>
+#include <iostream>
 
 class BinaryWordTree {
 private:
@@ -24,6 +24,8 @@ private:
 
         int compare(const std::string& otherString) const;
 
+        static void print(Node*& node, const long& n);
+
         static void deleteNode(Node*& node);
 
         virtual ~Node() = default;
@@ -35,6 +37,8 @@ private:
 
 public:
     explicit BinaryWordTree(const std::string& rootWord);
+
+    void print();
 
     bool isEmpty() const;
 

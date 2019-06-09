@@ -16,6 +16,23 @@ void BinaryWordTree::Node::add()
     count++;
 }
 
+void BinaryWordTree::Node::print(BinaryWordTree::Node*& node, const long& n)
+{
+    if (node == nullptr) return;
+
+    const int SHIFT = 5;
+
+    print(node -> rightLeaf, n + SHIFT);
+
+    for (long i = 0; i < n; i++) {
+        std::cout << ' ';
+    }
+
+    std::cout << node -> word << std::endl;
+
+    print(node -> leftLeaf, n + SHIFT);
+}
+
 void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 {
     if (node != nullptr) {
@@ -39,6 +56,16 @@ BinaryWordTree::BinaryWordTree(const std::string& rootWord)
 {
     root = new Node(rootWord);
     treeSize = 1;
+}
+
+void BinaryWordTree::print()
+{
+    if (isEmpty()) {
+        std::cout << "Binary tree is empty" << std::endl;
+    }
+    else {
+        BinaryWordTree::Node::print(root, 0);
+    }
 }
 
 bool BinaryWordTree::isEmpty() const
