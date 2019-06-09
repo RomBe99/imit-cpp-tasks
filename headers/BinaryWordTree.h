@@ -2,7 +2,6 @@
 #define CPP_TASKS_BINARYWORDTREE_H
 
 #include <string>
-#include <utility>
 
 class BinaryWordTree {
 private:
@@ -29,6 +28,8 @@ private:
     };
 
     Node* root = nullptr;
+
+    size_t treeSize = 0;
 
 public:
     BinaryWordTree() = default;

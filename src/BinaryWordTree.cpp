@@ -25,6 +25,7 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 BinaryWordTree::BinaryWordTree(const std::string& rootWord)
 {
     root = new Node(rootWord);
+    treeSize = 1;
 }
 
 bool BinaryWordTree::isEmpty() const
