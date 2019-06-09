@@ -38,6 +38,8 @@ public:
 
     bool isEmpty() const;
 
+    size_t getTreeSize() const;
+
     virtual ~BinaryWordTree();
 };
 

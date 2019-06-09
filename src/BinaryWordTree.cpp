@@ -46,6 +46,11 @@ bool BinaryWordTree::isEmpty() const
     return root == nullptr;
 }
 
+size_t BinaryWordTree::getTreeSize() const
+{
+    return treeSize;
+}
+
 BinaryWordTree::~BinaryWordTree()
 {
     BinaryWordTree::Node::deleteNode(root);
