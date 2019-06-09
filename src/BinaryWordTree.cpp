@@ -1,8 +1,10 @@
 #include "../headers/BinaryWordTree.h"
 
-BinaryWordTree::Node::Node(const std::string& word)
+BinaryWordTree::Node::Node(const std::string& word, Node* leftLeaf, Node* rightLeaf)
 {
     this -> word = word;
+    this -> leftLeaf = leftLeaf;
+    this -> rightLeaf = rightLeaf;
 }
 
 void BinaryWordTree::Node::add()

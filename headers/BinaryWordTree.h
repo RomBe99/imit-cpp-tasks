@@ -12,7 +12,14 @@ private:
 
         std::string word;
 
-        explicit Node(const std::string& word);
+        Node* leftLeaf;
+
+        Node* rightLeaf;
+
+        explicit Node(const std::string& word)
+                :Node(word, nullptr, nullptr) {};
+
+        explicit Node(const std::string& word, Node* leftLeaf, Node* rightLeaf);
 
         void add();
 
