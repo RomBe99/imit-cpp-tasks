@@ -22,6 +22,8 @@ private:
 
         void add();
 
+        int compare(const std::string& otherString) const;
+
         static void deleteNode(Node*& node);
 
         virtual ~Node() = default;

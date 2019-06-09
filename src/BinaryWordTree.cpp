@@ -26,6 +26,15 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
     }
 }
 
+int BinaryWordTree::Node::compare(const std::string& otherString) const
+{
+    if (otherString.length() == 0) {
+        throw std::exception();
+    }
+
+    return word.compare(otherString);
+}
+
 BinaryWordTree::BinaryWordTree(const std::string& rootWord)
 {
     root = new Node(rootWord);
