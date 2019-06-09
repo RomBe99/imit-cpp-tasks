@@ -32,8 +32,6 @@ private:
     size_t treeSize = 0;
 
 public:
-    BinaryWordTree() = default;
-
     explicit BinaryWordTree(const std::string& rootWord);
 
     bool isEmpty() const;
