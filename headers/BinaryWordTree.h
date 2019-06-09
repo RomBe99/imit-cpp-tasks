@@ -25,6 +25,8 @@ public:
     BinaryWordTree() = default;
 
     explicit BinaryWordTree(const std::string& rootWord);
+
+    bool isEmpty() const;
 };
 
 #endif

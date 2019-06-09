@@ -14,3 +14,8 @@ BinaryWordTree::BinaryWordTree(const std::string& rootWord)
 {
     root = new Node(rootWord);
 }
+
+bool BinaryWordTree::isEmpty() const
+{
+    return root == nullptr;
+}
