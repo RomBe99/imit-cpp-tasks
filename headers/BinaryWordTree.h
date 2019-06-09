@@ -24,7 +24,7 @@ private:
 
         int compare(const std::string& otherString) const;
 
-        static void print(Node*& node, const long& n);
+        static void print(Node*& node);
 
         static void deleteNode(Node*& node);
 
