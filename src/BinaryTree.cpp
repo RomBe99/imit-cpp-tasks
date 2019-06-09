@@ -7,7 +7,7 @@ BinaryTree::Node::Node(int value, BinaryTree::Node* rightLeaf, BinaryTree::Node*
     this -> leftLeaf = leftLeaf;
 }
 
-void BinaryTree::Node::print(BinaryTree::Node*& node, const long n)
+void BinaryTree::Node::print(BinaryTree::Node*& node, const long& n)
 {
     if (node == nullptr) return;
 

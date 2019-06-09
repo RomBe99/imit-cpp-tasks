@@ -23,7 +23,7 @@ private:
 
         Node(int value, Node* rightLeaf, Node* leftLeaf);
 
-        static void print(Node*& node, long n);
+        static void print(Node*& node, const long& n);
 
         static void numberOfEvenNumbers(Node*& node, int& count);
 
