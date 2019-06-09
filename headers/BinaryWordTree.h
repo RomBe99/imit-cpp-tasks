@@ -23,6 +23,8 @@ private:
 
         void add();
 
+        static void deleteNode(Node*& node);
+
         virtual ~Node() = default;
     };
 
@@ -34,6 +36,8 @@ public:
     explicit BinaryWordTree(const std::string& rootWord);
 
     bool isEmpty() const;
+
+    virtual ~BinaryWordTree();
 };
 
 #endif
