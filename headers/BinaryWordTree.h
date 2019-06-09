@@ -12,7 +12,7 @@ private:
 
         std::string word;
 
-        explicit Node(std::string word);
+        explicit Node(const std::string& word);
 
         void add();
 
