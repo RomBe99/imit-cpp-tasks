@@ -2,7 +2,7 @@
 
 BinaryWordTree::Node::Node(const std::string& word, Node* leftLeaf, Node* rightLeaf)
 {
-    if (word.length() == 0) {
+    if (word . length() == 0) {
         throw std::exception();
     }
 
@@ -45,11 +45,11 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 
 int BinaryWordTree::Node::compare(const std::string& otherString) const
 {
-    if (otherString.length() == 0) {
+    if (otherString . length() == 0) {
         throw std::exception();
     }
 
-    return word.compare(otherString);
+    return word . compare(otherString);
 }
 
 BinaryWordTree::BinaryWordTree(const std::string& rootWord)
