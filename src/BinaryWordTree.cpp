@@ -2,6 +2,10 @@
 
 BinaryWordTree::Node::Node(const std::string& word, Node* leftLeaf, Node* rightLeaf)
 {
+    if (word.length() == 0) {
+        throw std::exception();
+    }
+
     this -> word = word;
     this -> leftLeaf = leftLeaf;
     this -> rightLeaf = rightLeaf;
