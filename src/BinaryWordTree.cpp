@@ -21,6 +21,15 @@ void BinaryWordTree::Node::reduce()
     count--;
 }
 
+int BinaryWordTree::Node::compare(const std::string& otherString) const
+{
+    if (otherString . length() == 0) {
+        throw std::exception();
+    }
+
+    return word . compare(otherString);
+}
+
 void BinaryWordTree::Node::print(BinaryWordTree::Node*& node)
 {
     if (node == nullptr) return;
@@ -65,8 +74,8 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
         return;
     }
     else if (COMPARE_RESULT == -1) {
-        if (node->leftLeaf == nullptr) {
-            node->leftLeaf = new Node(word);
+        if (node -> leftLeaf == nullptr) {
+            node -> leftLeaf = new Node(word);
             return;
         }
         else {
@@ -74,8 +83,8 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
         }
     }
     else if (COMPARE_RESULT == 1) {
-        if (node->rightLeaf == nullptr) {
-            node->rightLeaf = new Node(word);
+        if (node -> rightLeaf == nullptr) {
+            node -> rightLeaf = new Node(word);
             return;
         }
         else {
@@ -92,15 +101,6 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
     deleteNode(node -> rightLeaf);
     delete node;
     node = nullptr;
-}
-
-int BinaryWordTree::Node::compare(const std::string& otherString) const
-{
-    if (otherString . length() == 0) {
-        throw std::exception();
-    }
-
-    return word . compare(otherString);
 }
 
 BinaryWordTree::BinaryWordTree(const std::string& rootWord)
