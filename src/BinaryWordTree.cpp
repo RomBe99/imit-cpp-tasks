@@ -16,6 +16,11 @@ void BinaryWordTree::Node::add()
     count++;
 }
 
+void BinaryWordTree::Node::reduce()
+{
+    count--;
+}
+
 void BinaryWordTree::Node::print(BinaryWordTree::Node*& node)
 {
     if (node == nullptr) return;

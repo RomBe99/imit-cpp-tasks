@@ -22,6 +22,8 @@ private:
 
         void add();
 
+        void reduce();
+
         int compare(const std::string& otherString) const;
 
         static void print(Node*& node);
