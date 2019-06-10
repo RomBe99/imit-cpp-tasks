@@ -47,6 +47,38 @@ void BinaryWordTree::Node::findNode(BinaryWordTree::Node*& node, bool& isFind, c
     }
 }
 
+void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    const int COMPARE_RESULT = node -> compare(word);
+
+    if (COMPARE_RESULT == 0) {
+        node -> add();
+        return;
+    }
+    else if (COMPARE_RESULT == -1) {
+        if (node->leftLeaf == nullptr) {
+            node->leftLeaf = new Node(word);
+            return;
+        }
+        else {
+            addWord(node -> leftLeaf, word);
+        }
+    }
+    else if (COMPARE_RESULT == 1) {
+        if (node->rightLeaf == nullptr) {
+            node->rightLeaf = new Node(word);
+            return;
+        }
+        else {
+            addWord(node -> rightLeaf, word);
+        }
+    }
+}
+
 void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 {
     if (node == nullptr) return;
@@ -90,6 +122,12 @@ int BinaryWordTree::findWordEntries(const std::string& word)
     BinaryWordTree::Node::findNode(root, isFind, word, count);
 
     return count;
+}
+
+void BinaryWordTree::addWord(const std::string& word)
+{
+    treeSize++;
+    BinaryWordTree::Node::addWord(root, word);
 }
 
 bool BinaryWordTree::isEmpty() const

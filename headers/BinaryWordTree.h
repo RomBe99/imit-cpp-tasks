@@ -28,6 +28,8 @@ private:
 
         static void findNode(Node*& node, bool& isFind, const std::string& word, int& count);
 
+        static void addWord(Node*& node, const std::string& word);
+
         static void deleteNode(Node*& node);
 
         virtual ~Node() = default;
@@ -43,6 +45,8 @@ public:
     void print();
 
     int findWordEntries(const std::string& word);
+
+    void addWord(const std::string& word);
 
     bool isEmpty() const;
 
