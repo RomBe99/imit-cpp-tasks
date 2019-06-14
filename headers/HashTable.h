@@ -48,11 +48,11 @@ public:
     HashTable()
             :HashTable(DEFAULT_SIZE) {}
 
-    explicit HashTable(const size_t layersCount);
+    explicit HashTable(size_t layersCount);
 
-    void put(const int key, const int value);
+    void put(int key, int value);
 
-    int deleteElement(const int key);
+    int deleteElement(int key);
 
     void clear();
 
@@ -60,7 +60,7 @@ public:
 
     HashTableIterator* begin();
 
-    int intHashCode(const int id) const;
+    int intHashCode(int id) const;
 
     virtual ~HashTable() = default;
 };
