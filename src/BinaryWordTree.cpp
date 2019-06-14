@@ -93,6 +93,29 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
     }
 }
 
+void BinaryWordTree::Node::deleteWord(BinaryWordTree::Node*& node, const std::string& word)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    const int COMPARE_RESULT = node -> compare(word);
+
+    if (COMPARE_RESULT == 0) {
+        node -> reduce();
+        if (node -> count == 0) {
+            // TODO Придумать что делать в этом случае
+        }
+        return;
+    }
+    else if (COMPARE_RESULT == -1) {
+        addWord(node -> leftLeaf, word);
+    }
+    else if (COMPARE_RESULT == 1) {
+        addWord(node -> rightLeaf, word);
+    }
+}
+
 void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 {
     if (node == nullptr) return;
@@ -133,6 +156,11 @@ void BinaryWordTree::addWord(const std::string& word)
 {
     treeSize++;
     BinaryWordTree::Node::addWord(root, word);
+}
+
+void BinaryWordTree::deleteWord(const std::string& word)
+{
+    BinaryWordTree::Node::deleteWord(root, word);
 }
 
 bool BinaryWordTree::isEmpty() const
