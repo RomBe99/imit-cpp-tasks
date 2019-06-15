@@ -36,7 +36,7 @@ private:
 
         static void deleteNode(Node*& node);
 
-        virtual ~Node() = default;
+        virtual ~Node();
     };
 
     Node* root = nullptr;

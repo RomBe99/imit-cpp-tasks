@@ -126,6 +126,13 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
     node = nullptr;
 }
 
+BinaryWordTree::Node::~Node()
+{
+    delete &word;
+    leftLeaf = nullptr;
+    rightLeaf = nullptr;
+}
+
 BinaryWordTree::BinaryWordTree(const std::string& rootWord)
 {
     root = new Node(rootWord);
