@@ -155,7 +155,6 @@ void BinaryWordTree::Node::deleteNode(BinaryWordTree::Node*& node)
 
 BinaryWordTree::Node::~Node()
 {
-    delete &word;
     leftLeaf = nullptr;
     rightLeaf = nullptr;
 }
