@@ -47,16 +47,19 @@ void BinaryWordTree::Node::findNode(BinaryWordTree::Node*& node, bool& isFind, c
     else if (node == nullptr) {
         return;
     }
-    else if (node -> compare(word) == -1) {
-        findNode(node -> leftLeaf, isFind, word, count);
-    }
-    else if (node -> compare(word) == 0) {
+
+    const int COMPARE_RESULT = node -> compare(word);
+
+    if (COMPARE_RESULT == 0) {
         isFind = true;
         count = node -> count;
 
         return;
     }
-    else if (node -> compare(word) == 1) {
+    else if (COMPARE_RESULT > 0) {
+        findNode(node -> leftLeaf, isFind, word, count);
+    }
+    else if (COMPARE_RESULT < 0) {
         findNode(node -> rightLeaf, isFind, word, count);
     }
 }
