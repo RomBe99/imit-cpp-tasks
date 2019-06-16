@@ -195,4 +195,5 @@ size_t BinaryWordTree::getTreeSize() const
 BinaryWordTree::~BinaryWordTree()
 {
     BinaryWordTree::Node::deleteNode(root);
+    treeSize = 0;
 }
