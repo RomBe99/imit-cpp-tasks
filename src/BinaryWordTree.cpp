@@ -116,15 +116,30 @@ void BinaryWordTree::Node::deleteWord(BinaryWordTree::Node*& node, const std::st
     if (COMPARE_RESULT == 0) {
         node -> reduce();
         if (node -> count == 0) {
-            // TODO Придумать что делать в этом случае
+            if (node -> leftLeaf == nullptr && node -> rightLeaf == nullptr) {
+                delete node;
+                node = nullptr;
+            }
+            else {
+                if (node -> rightLeaf -> leftLeaf) {
+                    node -> word = node -> rightLeaf -> word;
+                    node -> rightLeaf = node -> rightLeaf;
+                }
+                else {
+                    auto temp = BinaryWordTree::Node::findLeftLeaf(node -> rightLeaf);
+                    node -> word = temp -> word;
+                    BinaryWordTree::Node::deleteNode(temp);
+                }
+            }
         }
+
         return;
     }
-    else if (COMPARE_RESULT == -1) {
-        addWord(node -> leftLeaf, word);
+    else if (COMPARE_RESULT > 0) {
+        BinaryWordTree::Node::deleteWord(node -> leftLeaf, word);
     }
-    else if (COMPARE_RESULT == 1) {
-        addWord(node -> rightLeaf, word);
+    else if (COMPARE_RESULT < 0) {
+        BinaryWordTree::Node::deleteWord(node -> rightLeaf, word);
     }
 }
 
