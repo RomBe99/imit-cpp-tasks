@@ -76,7 +76,7 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
         node -> add();
         return;
     }
-    else if (COMPARE_RESULT == -1) {
+    else if (COMPARE_RESULT > 0) {
         if (node -> leftLeaf == nullptr) {
             node -> leftLeaf = new Node(word);
             return;
@@ -85,7 +85,7 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
             addWord(node -> leftLeaf, word);
         }
     }
-    else if (COMPARE_RESULT == 1) {
+    else if (COMPARE_RESULT < 0) {
         if (node -> rightLeaf == nullptr) {
             node -> rightLeaf = new Node(word);
             return;
