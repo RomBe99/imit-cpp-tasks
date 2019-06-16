@@ -180,6 +180,7 @@ void BinaryWordTree::addWord(const std::string& word)
 void BinaryWordTree::deleteWord(const std::string& word)
 {
     BinaryWordTree::Node::deleteWord(root, word);
+    treeSize--;
 }
 
 bool BinaryWordTree::isEmpty() const
