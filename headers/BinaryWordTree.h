@@ -32,6 +32,8 @@ private:
 
         static void addWord(Node*& node, const std::string& word);
 
+        static Node*& findLeftLeaf(Node*& node);
+
         static void deleteWord(Node*& node, const std::string& word);
 
         static void deleteNode(Node*& node);

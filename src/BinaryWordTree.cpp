@@ -96,6 +96,15 @@ void BinaryWordTree::Node::addWord(Node*& node, const std::string& word)
     }
 }
 
+BinaryWordTree::Node*& BinaryWordTree::Node::findLeftLeaf(BinaryWordTree::Node*& node)
+{
+    if (node -> leftLeaf != nullptr) {
+        findLeftLeaf(node -> leftLeaf);
+    }
+
+    return node;
+}
+
 void BinaryWordTree::Node::deleteWord(BinaryWordTree::Node*& node, const std::string& word)
 {
     if (node == nullptr) {
