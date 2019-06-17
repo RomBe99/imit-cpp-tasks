@@ -43,8 +43,9 @@ int main()
 //    ht -> deleteElement(5);
 //
 //    std::cout << "Linked hash table elements:";
+//
 //    while (!hi . isFinish()) {
-//        std::cout << ' ' << &hi;
+//        std::cout << ' ' << hi.getValue();
 //        hi . next();
 //    }
 //
