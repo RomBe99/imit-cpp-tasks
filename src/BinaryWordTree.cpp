@@ -115,6 +115,7 @@ void BinaryWordTree::Node::deleteWord(BinaryWordTree::Node*& node, const std::st
 
     if (COMPARE_RESULT == 0) {
         node -> reduce();
+
         if (node -> count == 0) {
             if (node -> leftLeaf == nullptr && node -> rightLeaf == nullptr) {
                 delete node;
@@ -187,8 +188,8 @@ int BinaryWordTree::findWordEntries(const std::string& word)
 
 void BinaryWordTree::addWord(const std::string& word)
 {
-    treeSize++;
     BinaryWordTree::Node::addWord(root, word);
+    treeSize++;
 }
 
 void BinaryWordTree::deleteWord(const std::string& word)
